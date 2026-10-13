@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aven溺心海 · 个人主页</title>
 <meta name="description" content="Aven溺心海的个人主页：认知提升、深度思考、科技教程。">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
@@ -28,26 +28,30 @@
   </div>
 </nav>
 
-<!-- ══════════ 首页 ══════════ -->
-<header id="home" class="hero">
-  <!-- 浅色极光背景（纯 CSS 动画，手机自动减弱） -->
+<!-- ══════════ 首页 · 互动场景 ══════════ -->
+<header id="home" class="hero hero-scene">
   <div class="aurora" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
-  <div class="container hero-inner">
-    <p class="hero-hello">你好，我是</p>
-    <!-- ★ 在这里改：首页大标题名字 -->
-    <h1 class="hero-name">Aven溺心海</h1>
-    <!-- ★ 在这里改：你的一句话简介 -->
-    <p class="hero-bio">用文字记录思考，用技术分享热爱。</p>
-    <!-- ★ 在这里改：小贴纸徽章，随便增减 -->
-    <div class="stickers">
-      <span class="sticker s1">X 创作者</span>
-      <span class="sticker s2">认知提升</span>
-      <span class="sticker s3">深度思考</span>
-      <span class="sticker s4">科技教程</span>
-    </div>
-    <div class="hero-btns">
-      <a class="btn btn-primary" href="#projects">看我的作品</a>
-      <a class="btn btn-ghost" href="#contact">联系我</a>
+  <div class="scene" id="scene">
+    <div class="scene-inner" id="sceneInner">
+      <!-- 打字小人：平时打字，鼠标碰到就抬头看你+飘问号（可拖动） -->
+      <div class="drag char char-typing" id="charTyping">
+        <div class="char-inner">
+          <img src="assets/chars/typing.svg" alt="正在打字的小人" draggable="false">
+          <span class="typing-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="q-bubble" aria-hidden="true">?</span>
+        </div>
+      </div>
+      <!-- 哭泣小人：平时一直哭，点击一下开心笑（可拖动） -->
+      <div class="drag char char-crying" id="charCrying" title="点我一下试试">
+        <div class="char-inner">
+          <img src="assets/chars/crying.svg" alt="哭泣的小云" draggable="false">
+          <span class="tear" aria-hidden="true">💧</span>
+          <span class="happy-burst" aria-hidden="true">😄</span>
+        </div>
+      </div>
+      <!-- 名字：每个字都可拖动，平时轻微抖动，双击任意字飞回重组 -->
+      <div class="name-row" id="nameRow" aria-label="Aven·溺心海"><span class="drag letter"><span class="letter-inner">A</span></span><span class="drag letter"><span class="letter-inner">v</span></span><span class="drag letter"><span class="letter-inner">e</span></span><span class="drag letter"><span class="letter-inner">n</span></span><span class="drag letter"><span class="letter-inner">·</span></span><span class="drag letter"><span class="letter-inner">溺</span></span><span class="drag letter"><span class="letter-inner">心</span></span><span class="drag letter"><span class="letter-inner">海</span></span></div>
+      <p class="scene-tip">试试：拖动它们 · 双击名字任意字可复位</p>
     </div>
   </div>
   <a class="scroll-hint" href="#about">向下滚动 ↓</a>
@@ -81,7 +85,7 @@
             <!-- <img class="preview-src" src="assets/previews/x.jpg" alt="X 主页预览"> --></a>
           <a class="channel" data-shot="🐙" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener">GitHub
             <!-- <img class="preview-src" src="assets/previews/github.jpg" alt="GitHub 主页预览"> --></a>
-          <a class="channel" data-shot="📧" href="mailto:you@example.com">📧 邮箱</a>
+          <a class="channel" data-shot="📧" href="mailto:shadow1703637220@outlook.com">📧 邮箱</a>
         </div>
       </div>
     </div>
@@ -172,43 +176,87 @@
   <div class="container">
     <p class="kicker">04 · Picks</p>
     <h2 class="section-title">好物推荐</h2>
-    <p class="section-sub">我自己在用、觉得值得推荐的东西。</p>
-    <div class="grid">
-
-      <article class="card pick-card reveal">
-        <div class="pick-emoji">🎧</div>
-        <!-- ★ 在这里改：产品名 / 卖点 / 链接 -->
-        <h3>示例产品一</h3>
-        <p>一句话说清楚它好在哪、适合谁。比如：降噪强、戴一天不累，码字党神器。</p>
-        <!-- ★ 换产品图：把产品图上传到 assets/previews/ 后，取消下面这行的注释，悬停会显示真实图片
-        <img class="preview-src" src="assets/previews/pick1.jpg" alt="产品预览">
-        -->
-        <a class="btn btn-primary btn-sm" href="#" target="_blank" rel="noopener sponsored">前往看看 →</a>
-      </article>
-
-      <article class="card pick-card reveal">
-        <div class="pick-emoji">⌨️</div>
-        <h3>示例产品二</h3>
-        <p>一句话说清楚它好在哪、适合谁。比如：段落感清脆，写东西越敲越上头。</p>
-        <!-- ★ 换产品图：把产品图上传到 assets/previews/ 后，取消下面这行的注释，悬停会显示真实图片
-        <img class="preview-src" src="assets/previews/pick1.jpg" alt="产品预览">
-        -->
-        <a class="btn btn-primary btn-sm" href="#" target="_blank" rel="noopener sponsored">前往看看 →</a>
-      </article>
-
-      <article class="card pick-card reveal">
-        <div class="pick-emoji">📚</div>
-        <h3>示例产品三</h3>
-        <p>一句话说清楚它好在哪、适合谁。比如：这本书改变了我对时间的看法。</p>
-        <!-- ★ 换产品图：把产品图上传到 assets/previews/ 后，取消下面这行的注释，悬停会显示真实图片
-        <img class="preview-src" src="assets/previews/pick1.jpg" alt="产品预览">
-        -->
-        <a class="btn btn-primary btn-sm" href="#" target="_blank" rel="noopener sponsored">前往看看 →</a>
-      </article>
-
+    <!-- 小风车：随页面滚动转动 -->
+    <div class="windmill" aria-hidden="true">
+      <svg viewBox="0 0 100 124">
+        <rect x="46" y="48" width="8" height="72" rx="4" class="wm-tower"/>
+        <rect x="30" y="112" width="40" height="8" rx="4" class="wm-tower"/>
+        <g id="wmBlades">
+          <rect x="48" y="4" width="4" height="42" rx="2" class="wm-blade"/>
+          <rect x="48" y="4" width="4" height="42" rx="2" class="wm-blade" transform="rotate(90 50 46)"/>
+          <rect x="48" y="4" width="4" height="42" rx="2" class="wm-blade" transform="rotate(180 50 46)"/>
+          <rect x="48" y="4" width="4" height="42" rx="2" class="wm-blade" transform="rotate(270 50 46)"/>
+          <circle cx="50" cy="46" r="6" class="wm-hub"/>
+        </g>
+      </svg>
+    </div>
+    <div class="product-grid">
+      <!-- ★ 产品1：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/download-jpg.svg" alt="推荐产品1" loading="lazy">
+      </a>
+      <!-- ★ 产品2：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/download-png.svg" alt="推荐产品2" loading="lazy">
+      </a>
+      <!-- ★ 产品3：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-1-jpg.svg" alt="推荐产品3" loading="lazy">
+      </a>
+      <!-- ★ 产品4：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-1-png.svg" alt="推荐产品4" loading="lazy">
+      </a>
+      <!-- ★ 产品5：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-2-jpg.svg" alt="推荐产品5" loading="lazy">
+      </a>
+      <!-- ★ 产品6：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-2-png.svg" alt="推荐产品6" loading="lazy">
+      </a>
+      <!-- ★ 产品7：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-3-jpg.svg" alt="推荐产品7" loading="lazy">
+      </a>
+      <!-- ★ 产品8：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-3-png.svg" alt="推荐产品8" loading="lazy">
+      </a>
+      <!-- ★ 产品9：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-4-jpg.svg" alt="推荐产品9" loading="lazy">
+      </a>
+      <!-- ★ 产品10：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-4-png.svg" alt="推荐产品10" loading="lazy">
+      </a>
+      <!-- ★ 产品11：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-5.svg" alt="推荐产品11" loading="lazy">
+      </a>
+      <!-- ★ 产品12：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-6.svg" alt="推荐产品12" loading="lazy">
+      </a>
+      <!-- ★ 产品13：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-7.svg" alt="推荐产品13" loading="lazy">
+      </a>
+      <!-- ★ 产品14：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-jpg.svg" alt="推荐产品14" loading="lazy">
+      </a>
+      <!-- ★ 产品15：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/images-png.svg" alt="推荐产品15" loading="lazy">
+      </a>
+      <!-- ★ 产品16：把 href="#" 换成你的联盟购买链接 -->
+      <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
+        <img src="assets/products/transparent-cryptocurrency-logo-company-logo-yellow-square-whi-yellow-square-with-white-triangle-logo-1710851384446.svg" alt="推荐产品16" loading="lazy">
+      </a>
     </div>
     <p class="disclosure">说明：部分链接为联盟链接，通过它们购买我可能获得佣金，你的购买价格不变。只推荐我自己认可的东西。</p>
-    <!-- ★ 加新推荐：复制上面任意一个 article.pick-card 整块，改 emoji/产品名/卖点/链接即可 -->
   </div>
 </section>
 
@@ -220,9 +268,9 @@
     <div class="card contact-card reveal">
       <p>有想法、合作，或者只是想打个招呼，都欢迎。</p>
       <div class="contact-btns">
-        <!-- ★ 在这里改：把 you@example.com 换成你的真实邮箱。
+        <!-- ★ 邮箱已填好：shadow1703637220@outlook.com，以后换邮箱改下面两处 href -->
              这三个按钮悬停也有"浏览器小窗"预览，data-shot 是预览里显示的图标 -->
-        <a class="btn btn-primary" data-shot="📧" href="mailto:you@example.com">📧 发邮件</a>
+        <a class="btn btn-primary" data-shot="📧" href="mailto:shadow1703637220@outlook.com">📧 发邮件</a>
         <a class="btn btn-ghost" data-shot="𝕏" href="https://x.com/NIxinhai0" target="_blank" rel="noopener">𝕏&nbsp;X / 推特</a>
         <a class="btn btn-ghost" data-shot="🐙" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener">GitHub</a>
       </div>
@@ -242,6 +290,42 @@
   </div>
 </div>
 
-<script src="js/main.js?v=4"></script>
+<!-- ══════════ macOS 程序坞 ══════════ -->
+<nav id="dock" class="dock" aria-label="程序坞">
+  <div class="dock-inner" id="dockInner">
+    <a class="dock-icon" data-tip="📧 发邮件" href="mailto:shadow1703637220@outlook.com"><img src="assets/dock/mail.svg" alt="邮件" draggable="false"></a>
+    <button class="dock-icon" data-tip="🎵 音乐：点击播放 / 暂停" id="dockMusic" aria-label="音乐播放"><img src="assets/dock/music.svg" alt="音乐" draggable="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <button class="dock-icon" data-tip="💬 联系方式" id="dockInfo" aria-label="联系方式"><img src="assets/dock/info.svg" alt="信息" draggable="false"></button>
+    <a class="dock-icon" data-tip="📚 教程文章" href="#blog"><img src="assets/dock/tutorial.svg" alt="教程" draggable="false"></a>
+    <a class="dock-icon" data-tip="GitHub" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener"><img src="assets/dock/github.svg" alt="GitHub" draggable="false"></a>
+    <a class="dock-icon" data-tip="𝕏 X" href="https://x.com/NIxinhai0" target="_blank" rel="noopener"><img src="assets/dock/x.svg" alt="X" draggable="false"></a>
+    <a class="dock-icon" data-tip="▶ YouTube" href="http://www.youtube.com/@NiXinhai" target="_blank" rel="noopener"><img src="assets/dock/youtube.svg" alt="YouTube" draggable="false"></a>
+  </div>
+</nav>
+
+<!-- 联系方式面板（Genie 神奇效果） -->
+<div class="info-panel" id="infoPanel" role="dialog" aria-label="联系方式" hidden>
+  <h3>💬 联系我</h3>
+  <div class="info-grid">
+    <div class="info-item">
+      <img src="assets/telegram-qr.svg" alt="Telegram 二维码">
+      <p><strong>Telegram</strong><br>@SEAOFHEART</p>
+    </div>
+    <div class="info-item">
+      <div class="wechat-id">Aven112233</div>
+      <p><strong>微信</strong><br>添加请备注来意</p>
+    </div>
+  </div>
+  <p class="info-tip">点击空白处收起</p>
+</div>
+
+<!-- 音乐迷你播放器 -->
+<div class="mini-player" id="miniPlayer" hidden>
+  <div class="mini-player-head"><span>🎵 播放中</span><button id="miniClose" aria-label="关闭播放器">✕</button></div>
+  <div id="spotifyEmbed"></div>
+</div>
+
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>
