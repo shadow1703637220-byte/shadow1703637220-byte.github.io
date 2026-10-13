@@ -471,3 +471,10 @@ footer { padding-bottom: 120px; }
   .astro.surrender model-viewer{animation:none}
   .astro.hint .astro-hint{animation:none}
 }
+
+/* ══════════════════════════════════════════
+   v7 · 分区背景墙（图片懒加载 + 联系区代码雨）
+   ══════════════════════════════════════════ */
+#home,#about,#projects,#blog,#picks,#contact{background-size:cover;background-position:center;background-repeat:no-repeat}
+.rain-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+#contact .sec-inner{position:relative;z-index:1}
