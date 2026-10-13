@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 分钟搭好你的第一个个人博客 · Aven溺心海</title>
+<meta name="description" content="不用买服务器、不用写后端，纯静态托管就能拥有自己的博客。三步，5 分钟上线。">
+<link rel="stylesheet" href="../css/style.css?v=3">
+</head>
+<body>
+
+<!-- ★ 这是示例文章：以后你把真实文章文字发我，我按这个版式排好推上去 -->
+
+<div class="article-wrap">
+  <a class="back-link" href="../index.html#blog">← 返回博客列表</a>
+
+  <div class="article-head">
+    <h1>5 分钟搭好你的第一个个人博客</h1>
+    <div class="article-meta">
+      <span>2026-10-13</span>
+      <span class="blog-tag">科技教程</span>
+      <span>约 3 分钟读完</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+    <p>想拥有一个自己的博客，但一想到"买服务器、搭后端、配数据库"就劝退？好消息：<strong>纯静态托管</strong>就能搞定一切，免费、快速、几乎不用维护。下面三步，5 分钟上线。</p>
+
+    <h2>一、准备：一个 GitHub 账号</h2>
+    <p>去 <code>github.com</code> 注册个账号（免费）。GitHub Pages 会为你提供免费的静态网站托管，这就是我们博客的"服务器"。</p>
+
+    <h2>二、三步上线</h2>
+    <ol>
+      <li><strong>建仓库</strong>：新建一个名为 <code>你的用户名.github.io</code> 的公开仓库。</li>
+      <li><strong>传文件</strong>：把写好的 <code>index.html</code> 上传到仓库根目录（网页端点 Add file → Upload files 就行，不用命令行）。</li>
+      <li><strong>开 Pages</strong>：仓库 Settings → Pages → Source 选 <code>main</code> 分支，保存。等 1～2 分钟，访问 <code>你的用户名.github.io</code> 就能看到你的博客了。</li>
+    </ol>
+
+    <h2>三、（可选）绑定自己的域名</h2>
+    <p>如果你有域名，在仓库根目录加一个 <code>CNAME</code> 文件，里面只写你的域名（一行），再去域名商那里加一条 CNAME 解析到 <code>你的用户名.github.io</code>，HTTPS 会自动配好。</p>
+
+    <h2>结语</h2>
+    <p>你看，<strong>没有服务器、没有数据库、没有一行后端代码</strong>，博客就上线了。剩下的就是最重要的事：开始写第一篇文章。工具永远只是起点，内容才是博客的灵魂。</p>
+  </div>
+
+  <p class="article-end">—— 全文完，感谢阅读 ——</p>
+</div>
+
+<footer>
+  <div class="container">© <span id="year"></span> Aven溺心海 · 用热爱搭建</div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
