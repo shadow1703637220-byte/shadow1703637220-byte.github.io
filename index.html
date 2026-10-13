@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aven溺心海 · 个人主页</title>
 <meta name="description" content="Aven溺心海的个人主页：认知提升、深度思考、科技教程。">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -73,11 +73,15 @@
         <div class="tags">
           <span>认知提升</span><span>深度思考</span><span>科技教程</span>
         </div>
-        <!-- ★ 我的频道：下面是你的个人频道链接，再加频道就复制一行改链接和文字 -->
+        <!-- ★ 我的频道：下面是你的个人频道链接，再加频道就复制一行改链接和文字。
+             悬停这些按钮会弹出"浏览器小窗"预览。想显示真实截图（如 X 主页截图）：
+             把截图上传到 assets/previews/，然后取消对应注释里 img 那行的注释 -->
         <div class="channels">
-          <a class="channel" href="https://x.com/NIxinhai0" target="_blank" rel="noopener">𝕏&nbsp;X / 推特</a>
-          <a class="channel" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener">GitHub</a>
-          <a class="channel" href="mailto:you@example.com">📧 邮箱</a>
+          <a class="channel" data-shot="𝕏" href="https://x.com/NIxinhai0" target="_blank" rel="noopener">𝕏&nbsp;X / 推特
+            <!-- <img class="preview-src" src="assets/previews/x.jpg" alt="X 主页预览"> --></a>
+          <a class="channel" data-shot="🐙" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener">GitHub
+            <!-- <img class="preview-src" src="assets/previews/github.jpg" alt="GitHub 主页预览"> --></a>
+          <a class="channel" data-shot="📧" href="mailto:you@example.com">📧 邮箱</a>
         </div>
       </div>
     </div>
@@ -176,6 +180,9 @@
         <!-- ★ 在这里改：产品名 / 卖点 / 链接 -->
         <h3>示例产品一</h3>
         <p>一句话说清楚它好在哪、适合谁。比如：降噪强、戴一天不累，码字党神器。</p>
+        <!-- ★ 换产品图：把产品图上传到 assets/previews/ 后，取消下面这行的注释，悬停会显示真实图片
+        <img class="preview-src" src="assets/previews/pick1.jpg" alt="产品预览">
+        -->
         <a class="btn btn-primary btn-sm" href="#" target="_blank" rel="noopener sponsored">前往看看 →</a>
       </article>
 
@@ -183,6 +190,9 @@
         <div class="pick-emoji">⌨️</div>
         <h3>示例产品二</h3>
         <p>一句话说清楚它好在哪、适合谁。比如：段落感清脆，写东西越敲越上头。</p>
+        <!-- ★ 换产品图：把产品图上传到 assets/previews/ 后，取消下面这行的注释，悬停会显示真实图片
+        <img class="preview-src" src="assets/previews/pick1.jpg" alt="产品预览">
+        -->
         <a class="btn btn-primary btn-sm" href="#" target="_blank" rel="noopener sponsored">前往看看 →</a>
       </article>
 
@@ -190,6 +200,9 @@
         <div class="pick-emoji">📚</div>
         <h3>示例产品三</h3>
         <p>一句话说清楚它好在哪、适合谁。比如：这本书改变了我对时间的看法。</p>
+        <!-- ★ 换产品图：把产品图上传到 assets/previews/ 后，取消下面这行的注释，悬停会显示真实图片
+        <img class="preview-src" src="assets/previews/pick1.jpg" alt="产品预览">
+        -->
         <a class="btn btn-primary btn-sm" href="#" target="_blank" rel="noopener sponsored">前往看看 →</a>
       </article>
 
@@ -207,10 +220,11 @@
     <div class="card contact-card reveal">
       <p>有想法、合作，或者只是想打个招呼，都欢迎。</p>
       <div class="contact-btns">
-        <!-- ★ 在这里改：把 you@example.com 换成你的真实邮箱 -->
-        <a class="btn btn-primary" href="mailto:you@example.com">📧 发邮件</a>
-        <a class="btn btn-ghost" href="https://x.com/NIxinhai0" target="_blank" rel="noopener">𝕏&nbsp;X / 推特</a>
-        <a class="btn btn-ghost" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener">GitHub</a>
+        <!-- ★ 在这里改：把 you@example.com 换成你的真实邮箱。
+             这三个按钮悬停也有"浏览器小窗"预览，data-shot 是预览里显示的图标 -->
+        <a class="btn btn-primary" data-shot="📧" href="mailto:you@example.com">📧 发邮件</a>
+        <a class="btn btn-ghost" data-shot="𝕏" href="https://x.com/NIxinhai0" target="_blank" rel="noopener">𝕏&nbsp;X / 推特</a>
+        <a class="btn btn-ghost" data-shot="🐙" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </div>
@@ -228,6 +242,6 @@
   </div>
 </div>
 
-<script src="js/main.js?v=3"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>

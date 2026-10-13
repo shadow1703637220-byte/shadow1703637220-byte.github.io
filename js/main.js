@@ -91,8 +91,9 @@
     grid.addEventListener('mouseleave', function () { inside = false; kick(); });
   }
 
-  /* ---------- 3. 项目悬停预览弹窗（跟随鼠标） ---------- */
-  // 像 elliothu.me：悬停卡片时，一个"浏览器小窗"预览跟随鼠标出现
+  /* ---------- 3. 悬停预览弹窗（跟随鼠标） ---------- */
+  // 像 elliothu.me：悬停时，一个"浏览器小窗"预览跟随鼠标出现
+  // ★ 在这里改：想让哪些元素有悬停预览，就加到 previewTargets 的选择器里
   var preview = document.getElementById('preview');
   if (preview && fxEnabled) {
     var previewShot = document.getElementById('previewShot');
@@ -100,26 +101,71 @@
     var pvx = 0, pvy = 0, ptx = 0, pty = 0, pRunning = false, pOn = false;
     var PW = 300, PH = 240; // 弹窗大致尺寸，用于边缘防溢出
 
-    function fillPreview(card) {
-      // 有真实截图（用户取消注释 img.preview-src 后）就用图，否则用渐变占位
-      var img = card.querySelector('img.preview-src');
-      var cover = card.querySelector('.project-cover');
+    var previewTargets = document.querySelectorAll(
+      '.project-card, .blog-card, .pick-card, .channel, .contact-btns .btn'
+    );
+
+    function placeAt(x, y) {
+      // 跟随在光标右下方，边缘处自动收进屏幕内
+      ptx = Math.min(x + 28, window.innerWidth - PW - 12);
+      pty = Math.min(y + 28, window.innerHeight - PH - 12);
+      ptx = Math.max(12, ptx); pty = Math.max(12, pty);
+    }
+
+    function fillPreview(el) {
+      // 1) 有真实截图（取消注释 img.preview-src 后）→ 显示截图
+      var img = el.querySelector('img.preview-src');
       if (img && img.getAttribute('src')) {
         previewShot.className = 'preview-shot';
         previewShot.innerHTML = '';
         var cl = document.createElement('img');
         cl.src = img.getAttribute('src');
-        cl.alt = img.getAttribute('alt') || '项目预览';
+        cl.alt = img.getAttribute('alt') || '预览图';
         previewShot.appendChild(cl);
-      } else if (cover) {
-        var coverCls = '';
-        cover.classList.forEach(function (c) { if (c.indexOf('cover-') === 0) coverCls = c; });
-        previewShot.className = 'preview-shot ' + coverCls;
-        previewShot.textContent = cover.textContent;
+      } else if (el.classList.contains('blog-card')) {
+        // 2) 博客卡片 → 迷你文章预览（标题 + 摘要）
+        var t = el.querySelector('h3'), d = el.querySelector('p');
+        previewShot.className = 'preview-shot preview-doc';
+        previewShot.innerHTML = '';
+        var h = document.createElement('h4');
+        h.textContent = t ? t.textContent : '';
+        var p = document.createElement('p');
+        p.textContent = d ? d.textContent : '';
+        var bar = document.createElement('div');
+        bar.className = 'doc-bar';
+        var bar2 = document.createElement('div');
+        bar2.className = 'doc-bar short';
+        previewShot.appendChild(h);
+        previewShot.appendChild(p);
+        previewShot.appendChild(bar);
+        previewShot.appendChild(bar2);
+      } else {
+        // 3) 否则显示 emoji / 图标占位（频道按钮用 data-shot 指定图标）
+        var cover = el.querySelector('.project-cover');
+        var pemoji = el.querySelector('.pick-emoji');
+        previewShot.className = 'preview-shot';
+        if (cover) {
+          var coverCls = '';
+          cover.classList.forEach(function (c) { if (c.indexOf('cover-') === 0) coverCls = c; });
+          previewShot.className = 'preview-shot ' + coverCls;
+          previewShot.textContent = cover.textContent;
+        } else if (pemoji) {
+          previewShot.textContent = pemoji.textContent;
+        } else {
+          previewShot.textContent = el.getAttribute('data-shot') || '🔗';
+        }
       }
-      var link = card.querySelector('.card-link');
-      var href = link ? link.getAttribute('href') : '#';
-      previewUrl.textContent = (!href || href === '#') ? '链接待补充' : href.replace(/^https?:\/\//, '');
+      // 地址栏：a 标签用自己的 href，卡片用里面的链接
+      var href = el.getAttribute('href');
+      if (!href) {
+        var link = el.querySelector('.card-link, .btn');
+        href = link ? link.getAttribute('href') : null;
+      }
+      var label = '链接待补充';
+      if (href && href !== '#') {
+        label = href.replace(/^https?:\/\//, '').replace(/^mailto:/, '');
+      }
+      previewUrl.textContent = label;
     }
 
     function pTick() {
@@ -134,27 +180,26 @@
     }
     function pKick() { if (!pRunning) { pRunning = true; requestAnimationFrame(pTick); } }
 
-    grid.addEventListener('mousemove', function (e) {
-      // 跟随在光标右下方，边缘处自动收进屏幕内
-      ptx = Math.min(e.clientX + 28, window.innerWidth - PW - 12);
-      pty = Math.min(e.clientY + 28, window.innerHeight - PH - 12);
-      ptx = Math.max(12, ptx); pty = Math.max(12, pty);
+    document.addEventListener('mousemove', function (e) {
+      if (!pOn) return;
+      placeAt(e.clientX, e.clientY);
       pKick();
     });
 
-    cards.forEach(function (card) {
-      card.addEventListener('mouseenter', function () {
-        fillPreview(card);
+    previewTargets.forEach(function (el) {
+      el.addEventListener('mouseenter', function (e) {
+        fillPreview(el);
+        placeAt(e.clientX, e.clientY);
         pvx = ptx; pvy = pty; // 从当前位置弹出，避免闪跳
         pOn = true;
         preview.classList.add('on');
         pKick();
       });
-    });
-    grid.addEventListener('mouseleave', function () {
-      pOn = false;
-      preview.classList.remove('on');
-      pKick();
+      el.addEventListener('mouseleave', function () {
+        pOn = false;
+        preview.classList.remove('on');
+        pKick();
+      });
     });
   }
 
