@@ -495,3 +495,92 @@
     }, { passive: true });
   }
 })();
+
+/* ═══════════ v6 · 太空宇航员：漫游 / 靠近投降 / 点击击退 ═══════════ */
+(function(){
+  var el=document.getElementById('astro');
+  if(!el)return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canHover=window.matchMedia&&matchMedia('(hover: hover)').matches;
+  var SIZE=120, M=24, DOCKH=120;
+  var vw=function(){return window.innerWidth}, vh=function(){return window.innerHeight};
+  var x=vw()*0.7, y=vh()*0.25, tx=x, ty=y;
+  var vx=0, vy=0, vrot=0, rot=0, scale=1, op=1;
+  var mode='wander', mx=-9999, my=-9999;
+  var mv=document.getElementById('astroModel'), mvOK=false;
+  if(mv){
+    mv.addEventListener('load',function(){mvOK=true;});
+    setTimeout(function(){if(!mvOK)el.style.display='none';},9000); // CDN 失败兜底
+  }
+  function newTarget(){
+    tx=M+Math.random()*(vw()-SIZE-M*2);
+    ty=M+Math.random()*(vh()-SIZE-DOCKH-M*2);
+  }
+  function draw(px,py,r,s,o){
+    el.style.transform='translate('+px+'px,'+py+'px) rotate('+r+'deg) scale('+s+')';
+    el.style.opacity=o;
+  }
+  function surrender(on){
+    el.classList.toggle('surrender',on);
+    mode=on?'surrender':'wander';
+    if(!on)newTarget();
+  }
+  function respawn(){
+    var edge=Math.floor(Math.random()*4), m=30;
+    if(edge===0){x=m; y=M+Math.random()*(vh()-SIZE-DOCKH-M*2);}
+    else if(edge===1){x=vw()-SIZE-m; y=M+Math.random()*(vh()-SIZE-DOCKH-M*2);}
+    else if(edge===2){x=M+Math.random()*(vw()-SIZE-m*2); y=m;}
+    else{x=M+Math.random()*(vw()-SIZE-m*2); y=vh()-SIZE-DOCKH-m;}
+    tx=x; ty=y; rot=(Math.random()*60-30); scale=0.25; op=0;
+    el.classList.remove('surrender');
+    mode='back';
+  }
+  function loop(t){
+    if(document.hidden){requestAnimationFrame(loop);return;}
+    if(mode==='wander'){
+      var dx=tx-x, dy=ty-y;
+      if(Math.hypot(dx,dy)<10)newTarget();
+      else{x+=dx*0.006; y+=dy*0.006;}
+      draw(x, y+Math.sin(t/900)*7, Math.sin(t/1700)*5, 1, 1);
+      if(canHover&&!reduce){
+        var cx=x+SIZE/2, cy=y+SIZE/2;
+        if(Math.hypot(mx-cx,my-cy)<150)surrender(true);
+      }
+    }else if(mode==='surrender'){
+      draw(x, y+Math.sin(t/900)*7, 0, 1, 1);
+      var cx2=x+SIZE/2, cy2=y+SIZE/2;
+      if(Math.hypot(mx-cx2,my-cy2)>200)surrender(false);
+    }else if(mode==='blown'){
+      x+=vx; y+=vy; vx*=0.986; vy*=0.986; rot+=vrot; vrot*=0.992;
+      scale=Math.max(0.12,scale*0.991); op=Math.max(0,op-0.014);
+      draw(x,y,rot,scale,op);
+      if(op<=0){mode='gone'; setTimeout(respawn,1400);}
+    }else if(mode==='back'){
+      scale+=(1-scale)*0.06; op+=(1-op)*0.06;
+      x+=(tx-x)*0.04; y+=(ty-y)*0.04; rot*=0.95;
+      draw(x,y,rot,scale,op);
+      if(op>0.98&&scale>0.98){mode='wander'; newTarget();}
+    }
+    requestAnimationFrame(loop);
+  }
+  el.addEventListener('click',function(e){
+    if(mode==='blown'||mode==='gone'||mode==='back')return;
+    var cx=x+SIZE/2, cy=y+SIZE/2;
+    var dx=cx-e.clientX, dy=cy-e.clientY, d=Math.hypot(dx,dy)||1;
+    vx=dx/d*13; vy=dy/d*13;
+    vrot=(12+Math.random()*14)*(Math.random()<0.5?-1:1);
+    el.classList.remove('surrender');
+    el.classList.remove('hint');
+    mode='blown';
+  });
+  window.addEventListener('pointermove',function(e){mx=e.clientX; my=e.clientY;},{passive:true});
+  window.addEventListener('resize',newTarget);
+  if(reduce){
+    draw(vw()-SIZE-30, vh()-SIZE-DOCKH-40, 0, 1, 1); // 降级：静止展示
+  }else{
+    newTarget();
+    el.classList.add('hint');
+    setTimeout(function(){el.classList.remove('hint');},4500);
+    requestAnimationFrame(loop);
+  }
+})();

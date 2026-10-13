@@ -437,3 +437,37 @@ footer { padding-bottom: 120px; }
   .letter-inner, .typing-dots i, .tear, .q-bubble { animation: none !important; }
   .dock-icon.playing .eq i { animation: none; }
 }
+
+/* ══════════════════════════════════════════
+   v6 · 太空宇航员：漫游 / 靠近投降 / 点击击退
+   ══════════════════════════════════════════ */
+.astro{position:fixed;left:0;top:0;width:120px;height:120px;z-index:350;cursor:pointer;
+  will-change:transform,opacity;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.astro model-viewer{width:100%;height:100%;display:block;pointer-events:none;
+  --poster-color:transparent;background:transparent}
+.astro-flag{position:absolute;top:-4px;right:2px;font-size:36px;opacity:0;
+  transform:scale(.3) rotate(-25deg);transform-origin:bottom left;pointer-events:none;
+  transition:opacity .25s,transform .3s cubic-bezier(.34,1.56,.64,1);
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
+.astro.surrender .astro-flag{opacity:1;transform:scale(1) rotate(10deg)}
+.astro-bubble{position:absolute;top:-40px;left:50%;transform:translateX(-50%) scale(.5);
+  background:#fff;color:#1f2937;font-size:13px;font-weight:700;padding:5px 12px;border-radius:14px;
+  white-space:nowrap;opacity:0;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,0,.18);
+  transition:opacity .25s,transform .3s cubic-bezier(.34,1.56,.64,1)}
+.astro-bubble::after{content:'';position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:#fff;border-bottom:none}
+.astro.surrender .astro-bubble{opacity:1;transform:translateX(-50%) scale(1)}
+.astro.surrender model-viewer{animation:astrotremble .13s linear infinite}
+@keyframes astrotremble{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(-2.5px,1.5px) rotate(-2.5deg)}
+  50%{transform:translate(2px,-1px) rotate(2deg)}75%{transform:translate(-1.5px,-2px) rotate(-1.5deg)}
+  100%{transform:translate(0,0) rotate(0)}}
+.astro-hint{position:absolute;bottom:-32px;left:50%;transform:translateX(-50%);
+  background:rgba(17,24,39,.85);color:#fff;font-size:12px;padding:4px 10px;border-radius:10px;
+  white-space:nowrap;opacity:0;transition:opacity .4s;pointer-events:none}
+.astro.hint .astro-hint{opacity:1;animation:hintbob 1.2s ease-in-out infinite}
+@keyframes hintbob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
+@media (max-width:640px){.astro{width:96px;height:96px}.astro-flag{font-size:28px}}
+@media (prefers-reduced-motion: reduce){
+  .astro.surrender model-viewer{animation:none}
+  .astro.hint .astro-hint{animation:none}
+}

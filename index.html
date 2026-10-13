@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aven溺心海 · 个人主页</title>
 <meta name="description" content="Aven溺心海的个人主页：认知提升、深度思考、科技教程。">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
 
@@ -325,7 +326,16 @@
   <div id="spotifyEmbed"></div>
 </div>
 
+<!-- ══════════ 太空宇航员：漫游 / 靠近投降 / 点击击退 ══════════ -->
+<div class="astro" id="astro" title="点我一下试试">
+  <model-viewer id="astroModel" src="assets/models/astronaut.glb" alt="在太空中漫游的宇航员"
+    shadow-intensity="0" interaction-prompt="none" disable-zoom></model-viewer>
+  <div class="astro-flag" aria-hidden="true">🏳️</div>
+  <div class="astro-bubble" aria-hidden="true">我投降！</div>
+  <div class="astro-hint" aria-hidden="true">点我！</div>
+</div>
+
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
-<script src="js/main.js?v=5"></script>
+<script src="js/main.js?v=6"></script>
 </body>
 </html>
