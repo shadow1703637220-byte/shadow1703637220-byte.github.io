@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aven溺心海 · 个人主页</title>
+<title>Aven溺心海 ・ 个人主页</title>
 <meta name="description" content="Aven溺心海的个人主页：认知提升、深度思考、科技教程。">
-<link rel="stylesheet" href="css/style.css?v=7">
+<link rel="preload" href="assets/fonts/aven-mark.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css?v=8">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -29,7 +30,7 @@
   </div>
 </nav>
 
-<!-- ══════════ 首页 · 互动场景 ══════════ -->
+<!-- ══════════ 首页 ・ 互动场景 ══════════ -->
 <header id="home" class="hero hero-scene">
   <div class="aurora" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
   <div class="scene" id="scene">
@@ -51,8 +52,8 @@
         </div>
       </div>
       <!-- 名字：每个字都可拖动，平时轻微抖动，双击任意字飞回重组 -->
-      <div class="name-row" id="nameRow" aria-label="Aven·溺心海"><span class="drag letter"><span class="letter-inner">A</span></span><span class="drag letter"><span class="letter-inner">v</span></span><span class="drag letter"><span class="letter-inner">e</span></span><span class="drag letter"><span class="letter-inner">n</span></span><span class="drag letter"><span class="letter-inner">·</span></span><span class="drag letter"><span class="letter-inner">溺</span></span><span class="drag letter"><span class="letter-inner">心</span></span><span class="drag letter"><span class="letter-inner">海</span></span></div>
-      <p class="scene-tip">试试：拖动它们 · 双击名字任意字可复位</p>
+      <div class="name-row" id="nameRow" aria-label="Aven・溺心海"><span class="drag letter"><span class="letter-inner">A</span></span><span class="drag letter"><span class="letter-inner">v</span></span><span class="drag letter"><span class="letter-inner">e</span></span><span class="drag letter"><span class="letter-inner">n</span></span><span class="drag letter"><span class="letter-inner">・</span></span><span class="drag letter"><span class="letter-inner">溺</span></span><span class="drag letter"><span class="letter-inner">心</span></span><span class="drag letter"><span class="letter-inner">海</span></span></div>
+      <p class="scene-tip">试试：拖动它们 ・ 双击名字任意字可复位</p>
     </div>
   </div>
   <a class="scroll-hint" href="#about">向下滚动 ↓</a>
@@ -61,7 +62,7 @@
 <!-- ══════════ 关于我 ══════════ -->
 <section id="about" class="section">
   <div class="container">
-    <p class="kicker">01 · Profile</p>
+    <p class="kicker">01 ・ Profile</p>
     <h2 class="section-title">关于我</h2>
     <div class="card about-card reveal">
       <!-- 默认头像：名字首字母。上传头像后，把下面这行换成注释里的 img 那行 -->
@@ -96,7 +97,7 @@
 <!-- ══════════ 作品 / 项目 ══════════ -->
 <section id="projects" class="section">
   <div class="container">
-    <p class="kicker">02 · Works</p>
+    <p class="kicker">02 ・ Works</p>
     <h2 class="section-title">作品 / 项目</h2>
     <!-- ★ 加新项目：复制下面任意一个 article 整块，改文字、换链接即可。把项目截图放到 assets/previews/ 里，然后按注释换掉预览图。 -->
     <div class="grid">
@@ -148,7 +149,7 @@
 <!-- ══════════ 博客 ══════════ -->
 <section id="blog" class="section">
   <div class="container">
-    <p class="kicker">03 · Blog</p>
+    <p class="kicker">03 ・ Blog</p>
     <h2 class="section-title">博客</h2>
     <p class="section-sub">记录思考的地方。以后你把文章文字发我，我排好版推上来就行。</p>
     <div class="blog-list">
@@ -175,7 +176,7 @@
 <!-- ══════════ 好物推荐 ══════════ -->
 <section id="picks" class="section">
   <div class="container">
-    <p class="kicker">04 · Picks</p>
+    <p class="kicker">04 ・ Picks</p>
     <h2 class="section-title">好物推荐</h2>
     <!-- 小风车：随页面滚动转动 -->
     <div class="windmill" aria-hidden="true">
@@ -264,7 +265,7 @@
 <!-- ══════════ 联系我 ══════════ -->
 <section id="contact" class="section">
   <div class="container">
-    <p class="kicker">05 · Contact</p>
+    <p class="kicker">05 ・ Contact</p>
     <h2 class="section-title">联系我</h2>
     <div class="card contact-card reveal">
       <p>有想法、合作，或者只是想打个招呼，都欢迎。</p>
@@ -280,7 +281,7 @@
 </section>
 
 <footer>
-  <div class="container">© <span id="year"></span> Aven溺心海 · 用热爱搭建</div>
+  <div class="container">© <span id="year"></span> Aven溺心海 ・ 用热爱搭建</div>
 </footer>
 
 <!-- ★ 项目悬停预览弹窗（跟随鼠标，JS 驱动） -->
@@ -326,16 +327,14 @@
   <div id="spotifyEmbed"></div>
 </div>
 
-<!-- ══════════ 太空宇航员：漫游 / 靠近投降 / 点击击退 ══════════ -->
+<!-- ══════════ 太空宇航员：漫游 / 靠近弹开 / 快速击飞 / 边缘反弹 ══════════ -->
 <div class="astro" id="astro" title="点我一下试试">
   <model-viewer id="astroModel" src="assets/models/astronaut.glb" alt="在太空中漫游的宇航员"
     shadow-intensity="0" interaction-prompt="none" disable-zoom></model-viewer>
-  <div class="astro-flag" aria-hidden="true">🏳️</div>
-  <div class="astro-bubble" aria-hidden="true">我投降！</div>
   <div class="astro-hint" aria-hidden="true">点我！</div>
 </div>
 
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
-<script src="js/main.js?v=7"></script>
+<script src="js/main.js?v=8"></script>
 </body>
 </html>
