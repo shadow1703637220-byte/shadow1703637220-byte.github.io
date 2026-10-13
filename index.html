@@ -26,15 +26,23 @@
   </div>
 </nav>
 
-<!-- ══════════ 首页：动态星空背景 ══════════ -->
+<!-- ══════════ 首页 ══════════ -->
 <header id="home" class="hero">
-  <canvas id="stars"></canvas>
+  <!-- 浅色极光背景（纯 CSS 动画，手机自动减弱） -->
+  <div class="aurora" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
   <div class="container hero-inner">
     <p class="hero-hello">你好，我是</p>
     <!-- ★ 在这里改：首页大标题名字 -->
     <h1 class="hero-name">Aven溺心海</h1>
     <!-- ★ 在这里改：你的一句话简介 -->
     <p class="hero-bio">用文字记录思考，用技术分享热爱。</p>
+    <!-- ★ 在这里改：小贴纸徽章，随便增减 -->
+    <div class="stickers">
+      <span class="sticker s1">X 创作者</span>
+      <span class="sticker s2">认知提升</span>
+      <span class="sticker s3">深度思考</span>
+      <span class="sticker s4">科技教程</span>
+    </div>
     <div class="hero-btns">
       <a class="btn btn-primary" href="#projects">看我的作品</a>
       <a class="btn btn-ghost" href="#contact">联系我</a>
@@ -73,7 +81,7 @@
   <div class="container">
     <p class="kicker">02 · Works</p>
     <h2 class="section-title">作品 / 项目</h2>
-    <p class="section-sub">★ 加新项目：复制下面任意一个 article 整块，改文字、换链接即可。</p>
+    <p class="section-sub">★ 加新项目：复制下面任意一个 article 整块，改文字、换链接即可。把项目截图放到 assets/previews/ 里，然后按注释换掉预览图。</p>
     <div class="grid">
 
       <article class="card project-card reveal">
@@ -85,6 +93,9 @@
           <div class="tags"><span>标签一</span><span>标签二</span></div>
           <a class="card-link" href="#" target="_blank" rel="noopener">查看详情 →</a>
         </div>
+        <!-- ★ 换预览图：把截图（如 p1.jpg）上传到 assets/previews/ 后，取消下面这行的注释
+        <img class="preview-src" src="assets/previews/p1.jpg" alt="示例项目一预览">
+        -->
       </article>
 
       <article class="card project-card reveal">
@@ -95,6 +106,9 @@
           <div class="tags"><span>标签一</span><span>标签二</span></div>
           <a class="card-link" href="#" target="_blank" rel="noopener">查看详情 →</a>
         </div>
+        <!-- ★ 换预览图：把截图（如 p2.jpg）上传到 assets/previews/ 后，取消下面这行的注释
+        <img class="preview-src" src="assets/previews/p2.jpg" alt="示例项目二预览">
+        -->
       </article>
 
       <article class="card project-card reveal">
@@ -105,6 +119,9 @@
           <div class="tags"><span>标签一</span><span>标签二</span></div>
           <a class="card-link" href="#" target="_blank" rel="noopener">查看详情 →</a>
         </div>
+        <!-- ★ 换预览图：把截图（如 p3.jpg）上传到 assets/previews/ 后，取消下面这行的注释
+        <img class="preview-src" src="assets/previews/p3.jpg" alt="示例项目三预览">
+        -->
       </article>
 
     </div>
@@ -121,8 +138,7 @@
       <div class="contact-btns">
         <!-- ★ 在这里改：把 you@example.com 换成你的真实邮箱 -->
         <a class="btn btn-primary" href="mailto:you@example.com">📧 发邮件</a>
-        <!-- ★ 在这里改：把 # 换成你的 X 主页链接 -->
-        <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">𝕏&nbsp;X / 推特</a>
+        <a class="btn btn-ghost" href="https://x.com/NIxinhai0" target="_blank" rel="noopener">𝕏&nbsp;X / 推特</a>
         <a class="btn btn-ghost" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
@@ -132,6 +148,14 @@
 <footer>
   <div class="container">© <span id="year"></span> Aven溺心海 · 用热爱搭建</div>
 </footer>
+
+<!-- ★ 项目悬停预览弹窗（跟随鼠标，JS 驱动） -->
+<div id="preview" aria-hidden="true">
+  <div class="preview-inner">
+    <div class="preview-bar"><i></i><i></i><i></i><em id="previewUrl">preview</em></div>
+    <div class="preview-shot" id="previewShot">✨</div>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>
