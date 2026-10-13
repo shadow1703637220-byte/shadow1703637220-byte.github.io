@@ -1,24 +1,132 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人博客</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-            color: #333;
-        }
-        h1 { color: #0366d6; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aven溺心海 · 个人主页</title>
+<meta name="description" content="Aven溺心海的个人主页：认知提升、深度思考、科技教程。">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>你好，我是 Aven溺心海</h1>
-    <p>这是我的个人博客，正在搭建中。</p>
-    <p>未来这里会放我的文章、项目和联系方式。</p>
+
+<!-- ══════════ 顶部导航 ══════════ -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <!-- ★ 在这里改：左上角的站名 -->
+    <a class="logo" href="#home">Aven溺心海</a>
+    <div class="nav-links">
+      <a href="#home">首页</a>
+      <a href="#about">关于</a>
+      <a href="#projects">作品</a>
+      <a href="#contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ 首页：动态星空背景 ══════════ -->
+<header id="home" class="hero">
+  <canvas id="stars"></canvas>
+  <div class="container hero-inner">
+    <p class="hero-hello">你好，我是</p>
+    <!-- ★ 在这里改：首页大标题名字 -->
+    <h1 class="hero-name">Aven溺心海</h1>
+    <!-- ★ 在这里改：你的一句话简介 -->
+    <p class="hero-bio">用文字记录思考，用技术分享热爱。</p>
+    <div class="hero-btns">
+      <a class="btn btn-primary" href="#projects">看我的作品</a>
+      <a class="btn btn-ghost" href="#contact">联系我</a>
+    </div>
+  </div>
+  <a class="scroll-hint" href="#about">向下滚动 ↓</a>
+</header>
+
+<!-- ══════════ 关于我 ══════════ -->
+<section id="about" class="section">
+  <div class="container">
+    <h2 class="section-title">关于我</h2>
+    <div class="card about-card reveal">
+      <!-- 默认头像：名字首字母。上传头像后，把下面这行换成注释里的 img 那行 -->
+      <div class="avatar">A</div>
+      <!-- ★ 换头像：先把图片上传到 assets/avatar.jpg，然后删除上面那行，取消下面这行的注释
+      <img class="avatar-img" src="assets/avatar.jpg" alt="Aven溺心海">
+      -->
+      <div class="about-text">
+        <!-- ★ 在这里改：名字 -->
+        <h3>Aven溺心海</h3>
+        <!-- ★ 在这里改：你的详细介绍，3～5 句话 -->
+        <p>这里是你的详细介绍占位。写写你是谁、在做什么、对什么感兴趣。比如：X 创作者，专注认知提升与深度思考，也分享实用的科技教程；正在搭建自己的个人网站。</p>
+        <!-- ★ 在这里改：你的标签，随便增减 span -->
+        <div class="tags">
+          <span>认知提升</span><span>深度思考</span><span>科技教程</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 作品 / 项目 ══════════ -->
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title">作品 / 项目</h2>
+    <p class="section-sub">★ 加新项目：复制下面任意一个 article 整块，改文字、换链接即可。</p>
+    <div class="grid">
+
+      <article class="card project-card reveal">
+        <div class="project-cover cover-1">✨</div>
+        <div class="project-body">
+          <!-- ★ 在这里改：项目标题 / 简介 / 标签 / 链接 -->
+          <h3>示例项目一</h3>
+          <p>这里写项目简介，一两句话说清楚它是什么、解决了什么问题。</p>
+          <div class="tags"><span>标签一</span><span>标签二</span></div>
+          <a class="card-link" href="#" target="_blank" rel="noopener">查看详情 →</a>
+        </div>
+      </article>
+
+      <article class="card project-card reveal">
+        <div class="project-cover cover-2">🚀</div>
+        <div class="project-body">
+          <h3>示例项目二</h3>
+          <p>这里写项目简介，一两句话说清楚它是什么、解决了什么问题。</p>
+          <div class="tags"><span>标签一</span><span>标签二</span></div>
+          <a class="card-link" href="#" target="_blank" rel="noopener">查看详情 →</a>
+        </div>
+      </article>
+
+      <article class="card project-card reveal">
+        <div class="project-cover cover-3">💡</div>
+        <div class="project-body">
+          <h3>示例项目三</h3>
+          <p>这里写项目简介，一两句话说清楚它是什么、解决了什么问题。</p>
+          <div class="tags"><span>标签一</span><span>标签二</span></div>
+          <a class="card-link" href="#" target="_blank" rel="noopener">查看详情 →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 联系我 ══════════ -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section-title">联系我</h2>
+    <div class="card contact-card reveal">
+      <p>有想法、合作，或者只是想打个招呼，都欢迎。</p>
+      <div class="contact-btns">
+        <!-- ★ 在这里改：把 you@example.com 换成你的真实邮箱 -->
+        <a class="btn btn-primary" href="mailto:you@example.com">📧 发邮件</a>
+        <!-- ★ 在这里改：把 # 换成你的 X 主页链接 -->
+        <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">𝕏&nbsp;X / 推特</a>
+        <a class="btn btn-ghost" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© <span id="year"></span> Aven溺心海 · 用热爱搭建</div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>
