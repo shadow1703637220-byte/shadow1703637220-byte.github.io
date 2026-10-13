@@ -349,14 +349,20 @@
         setTimeout(function () { typing.classList.remove('look'); }, 2200);
       });
     }
-    /* 哭泣小人：点击开心笑 */
+    /* 哭泣小人：点击开心笑（用 pointerup 轻点判定，避免拖拽指针捕获吞掉 click） */
     var crying = document.getElementById('charCrying');
     if (crying) {
-      crying.addEventListener('click', function () {
+      var makeHappy = function () {
         if (crying.classList.contains('happy')) return;
         crying.classList.add('happy');
-        setTimeout(function () { crying.classList.remove('happy'); }, 1900);
+        setTimeout(function () { crying.classList.remove('happy'); }, 2600);
+      };
+      var cdx = 0, cdy = 0;
+      crying.addEventListener('pointerdown', function (e) { cdx = e.clientX; cdy = e.clientY; });
+      crying.addEventListener('pointerup', function (e) {
+        if (Math.hypot(e.clientX - cdx, e.clientY - cdy) < 10) makeHappy();
       });
+      crying.addEventListener('click', makeHappy);
     }
 
     /* 滚动：所有元素一起向中间聚拢、缩小、渐隐 */
