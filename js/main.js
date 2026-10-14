@@ -102,7 +102,7 @@
     var PW = 300, PH = 240; // 弹窗大致尺寸，用于边缘防溢出
 
     var previewTargets = document.querySelectorAll(
-      '.project-card, .blog-card, .pick-card, .channel, .contact-btns .btn'
+      '.project-card, .blog-card, .pick-card, .channel, .contact-grid .contact-item'
     );
 
     function placeAt(x, y) {
@@ -848,4 +848,54 @@
     new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?start():stop();});},{threshold:0.03}).observe(sec);
   }else{start();}
   window.addEventListener('resize',function(){if(running)size();});
+})();
+
+/* ══════════════════════════════════════════
+   v12 · 联系区 Lottie 图标 + 微信复制
+   ══════════════════════════════════════════ */
+(function () {
+  // 微信号点我复制
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-copy');
+      function done(ok) {
+        var label = btn.querySelector('i');
+        if (!label) return;
+        if (!label.dataset.orig) label.dataset.orig = label.textContent;
+        label.textContent = ok ? '已复制 ✓' : '复制失败，长按复制';
+        setTimeout(function () { label.textContent = label.dataset.orig; }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(id).then(function(){done(true)}, function(){done(false)});
+      } else { done(false); }
+    });
+  });
+  // Lottie：悬停播放 + 进入视口播一次
+  if (typeof lottie === 'undefined') return;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.contact-anim[data-src]').forEach(function (el) {
+    var src = el.getAttribute('data-src');
+    function loadData() {
+      if (src.indexOf('|') > -1) {
+        var parts = src.split('|');
+        return Promise.all(parts.map(function (p) { return fetch(p).then(function (r) { return r.text(); }); }))
+          .then(function (texts) { return JSON.parse(texts.join('')); });
+      }
+      return fetch(src).then(function (r) { return r.json(); });
+    }
+    loadData().then(function (data) {
+      var anim = lottie.loadAnimation({ container: el, renderer: 'svg', loop: false, autoplay: false, animationData: data });
+      if (reduceMotion) { anim.goToAndStop(anim.totalFrames - 1, true); return; }
+      var item = el.closest('.contact-item');
+      if (item) item.addEventListener('mouseenter', function () { anim.goToAndPlay(0); });
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { anim.goToAndPlay(0); io.disconnect(); }
+          });
+        }, { threshold: 0.4 });
+        io.observe(el);
+      }
+    }).catch(function(){ /* 加载失败就留空，不影响点击 */ });
+  });
 })();
