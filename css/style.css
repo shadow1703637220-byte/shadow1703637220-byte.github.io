@@ -707,3 +707,54 @@ footer { padding-bottom: 120px; }
 @media (prefers-reduced-motion: reduce) {
   .duck-lottie svg, .frog-lottie svg { animation: none; }
 }
+
+/* ══════════════════════════════════════════
+   v25 · 程序坞小提示气泡
+   ══════════════════════════════════════════ */
+.dock-hint {
+  position: fixed; z-index: 399;
+  bottom: 96px; left: 50%;
+  transform: translateX(-50%) translateY(16px) scale(0.9);
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 8px 10px 18px; border-radius: 999px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 12px 32px rgba(23,24,28,0.16);
+  font-size: 0.85rem; font-weight: 600; color: var(--text);
+  white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity 400ms var(--ease-mac), transform 500ms var(--ease-spring);
+}
+.dock-hint.show {
+  opacity: 1; pointer-events: auto;
+  transform: translateX(-50%) translateY(0) scale(1);
+  animation: hintNudge 2.4s ease-in-out 0.6s infinite;
+}
+/* 小尾巴指向程序坞 */
+.dock-hint::after {
+  content: ''; position: absolute; bottom: -7px; left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 14px; height: 14px;
+  background: rgba(255,255,255,0.92);
+  border-right: 1px solid rgba(255,255,255,0.7);
+  border-bottom: 1px solid rgba(255,255,255,0.7);
+}
+.dock-hint-close {
+  width: 24px; height: 24px; border-radius: 50%;
+  border: none; background: rgba(0,0,0,0.06);
+  color: var(--muted); font-size: 1rem; line-height: 1;
+  cursor: pointer; flex: none;
+  transition: background var(--t-hover) var(--ease-mac), transform var(--t-hover) var(--ease-spring);
+}
+.dock-hint-close:hover { background: rgba(0,0,0,0.12); transform: scale(1.12); }
+@keyframes hintNudge {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dock-hint.show { animation: none; }
+}
+@media (max-width: 560px) {
+  .dock-hint { font-size: 0.78rem; bottom: 88px; max-width: 92vw; white-space: normal; text-align: center; border-radius: 18px; }
+}
