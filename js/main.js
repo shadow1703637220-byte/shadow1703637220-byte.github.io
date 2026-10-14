@@ -1008,41 +1008,31 @@
   setTimeout(function () { if (hint.classList.contains('show')) hide(); }, 18000);
 })();
 
-/* v26 · Banner 轮播：三张渐隐切换 */
+/* v29 · 逐字抠图轮播：3 套设计 2.5s 切换，每字独立放大 + 音阶 */
 (function () {
-  var car = document.getElementById('bannerCarousel');
+  var car = document.getElementById('charCarousel');
   if (!car) return;
-  var imgs = Array.prototype.slice.call(car.querySelectorAll('.banner-img'));
+  var designs = Array.prototype.slice.call(car.querySelectorAll('.char-design'));
   var dots = Array.prototype.slice.call(car.querySelectorAll('.banner-dots i'));
-  var idx = 0, timer = null;
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var idx = 0, timer = null, reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function go(n) {
-    idx = (n + imgs.length) % imgs.length;
-    imgs.forEach(function (im, i) { im.classList.toggle('active', i === idx); });
-    dots.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+    idx = (n + designs.length) % designs.length;
+    designs.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+    dots.forEach(function (dt, i) { dt.classList.toggle('active', i === idx); });
   }
   function auto() {
-    if (reduceMotion) return;
-    timer = setInterval(function () { go(idx + 1); }, 2500);
+    clearInterval(timer);
+    if (!reduceMotion) timer = setInterval(function () { go(idx + 1); }, 2500);
   }
-  dots.forEach(function (d, i) {
-    d.addEventListener('click', function () {
-      clearInterval(timer); go(i); auto();
-    });
-  });
-  // 悬停暂停
+  auto();
   car.addEventListener('mouseenter', function () { clearInterval(timer); });
   car.addEventListener('mouseleave', auto);
-  auto();
-})();
+  dots.forEach(function (dt, i) {
+    dt.style.cursor = 'pointer'; dt.style.pointerEvents = 'auto';
+    dt.addEventListener('click', function () { go(i); auto(); });
+  });
 
-/* v27 · Banner 每个字的 hover 交互：果冻抖 + 星星粒子 + 音阶 */
-(function () {
-  var car = document.getElementById('bannerCarousel');
-  if (!car) return;
-  var zones = Array.prototype.slice.call(car.querySelectorAll('.banner-zones i'));
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // 7 个字对应上行音阶（C D E F G A B）
+  /* 每字 hover：音阶（7 个字 C-D-E-F-G-A-B） */
   var scale = [523.25, 587.33, 659.25, 783.99, 880.00, 987.77, 1046.50];
   var audioCtx = null;
   function pop(freq) {
@@ -1050,44 +1040,19 @@
       audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
       var o = audioCtx.createOscillator(), g = audioCtx.createGain();
       o.type = 'sine'; o.frequency.value = freq;
-      g.gain.setValueAtTime(0.12, audioCtx.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
+      g.gain.setValueAtTime(0.10, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.30);
       o.connect(g); g.connect(audioCtx.destination);
-      o.start(); o.stop(audioCtx.currentTime + 0.36);
+      o.start(); o.stop(audioCtx.currentTime + 0.31);
     } catch (e) {}
   }
-  var sparks = ['✦', '✧', '⋆', '✺'];
-  // 鼠标离开整个 banner 时恢复
-  car.addEventListener('mouseleave', function () { car.classList.remove('char-hover'); });
-  zones.forEach(function (z, i) {
+  car.querySelectorAll('.char-layer').forEach(function (layer) {
     var last = 0;
-    z.addEventListener('mouseenter', function (e) {
+    layer.addEventListener('mouseenter', function () {
       var now = Date.now();
-      if (now - last < 450) return; // 节流
+      if (now - last < 400 || reduceMotion) return;
       last = now;
-      if (reduceMotion) return;
-      // macOS 式放大：原点设在该字位置，平滑放大
-      var active = car.querySelector('.banner-img.active');
-      if (active) {
-        active.style.transformOrigin = z.style.getPropertyValue('--zx') + ' 50%';
-        car.classList.add('char-hover');
-      }
-      // 音阶
-      pop(scale[i] || 523.25);
-      // 星星粒子
-      var r = car.getBoundingClientRect();
-      for (var k = 0; k < 5; k++) {
-        var s = document.createElement('span');
-        s.className = 'banner-spark';
-        s.textContent = sparks[Math.floor(Math.random() * sparks.length)];
-        s.style.left = (parseFloat(z.style.getPropertyValue('--zx')) + (Math.random() * 8 - 4)) + '%';
-        s.style.top = (20 + Math.random() * 50) + '%';
-        s.style.setProperty('--sx', (Math.random() * 90 - 45) + 'px');
-        s.style.setProperty('--sy', (-40 - Math.random() * 50) + 'px');
-        s.style.color = ['#ffd166', '#ff8fa3', '#a8e6ff', '#caffbf'][k % 4];
-        car.appendChild(s);
-        setTimeout(function (el) { el.remove(); }, 850, s);
-      }
+      pop(scale[parseInt(layer.dataset.note, 10)] || 523.25);
     });
   });
 })();
