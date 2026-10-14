@@ -417,61 +417,25 @@
           if (pState === 'working' || pState === 'curious') pSet('sleeping');
         }, 60000);
       }, { passive: true });
-      /* ═══ v10 · 瞳孔：闲逛 + 鼠标追踪 ═══ */
-      var pupils = typing.querySelectorAll('.face-svg .pupil');
-      var eyes = typing.querySelectorAll('.face-svg .eye');
-      function setPupils(dx, dy) {
-        pupils.forEach(function (p) {
-          p.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px)';
-        });
+      /* v19 · 小黄鸭 Lottie：循环播放，交互状态机保留 */
+      var lottieLib = (typeof lottie !== 'undefined') ? lottie : (typeof bodymovin !== 'undefined' ? bodymovin : null);
+      if (lottieLib) {
+        var duckEl = document.getElementById('duckLottie');
+        if (duckEl) {
+          var duckAnim = lottieLib.loadAnimation({ container: duckEl, renderer: 'svg',
+            loop: true, autoplay: true, path: 'assets/lottie/duck.json?v=19' });
+          // 睡觉时暂停动画，醒来继续
+          var origPSet = pSet;
+          pSet = function (s) {
+            origPSet(s);
+            try { s === 'sleeping' ? duckAnim.pause() : duckAnim.play(); } catch (e) {}
+          };
+        }
       }
-      function wanderPupils() {
-        if (pState === 'sleeping' || pState === 'curious' || reduceMotion) return;
-        setPupils(Math.random() * 12 - 6, Math.random() * 10 - 5);
-      }
-      setInterval(wanderPupils, 2600);
-      wanderPupils();
-      function trackEyes(mx, my) {
-        var r = typing.getBoundingClientRect();
-        if (!r.width) return;
-        var sx = r.width / 220, sy = r.height / 200;
-        eyes.forEach(function (eye) {
-          var ex = r.left + (+eye.getAttribute('data-ex')) * sx;
-          var ey = r.top + (+eye.getAttribute('data-ey')) * sy;
-          var dx = mx - ex, dy = my - ey, d = Math.hypot(dx, dy) || 1;
-          var m = Math.min(d / 45, 1) * 7;
-          var p = eye.querySelector('.pupil');
-          if (p) p.style.transform = 'translate(' + (dx / d * m).toFixed(1) + 'px,' + (dy / d * m).toFixed(1) + 'px)';
-        });
-      }
-      function nearChar(mx, my, rad) {
-        var r = typing.getBoundingClientRect();
-        var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-        return Math.hypot(mx - cx, my - cy) <= rad;
-      }
-      /* 把眼球追踪接到全局 pointermove（已有睡觉逻辑，追加追踪） */
-      window.addEventListener('pointermove', function (e) {
-        if (reduceMotion || pState === 'sleeping') return;
-        if (pState === 'curious' || nearChar(e.clientX, e.clientY, 340)) trackEyes(e.clientX, e.clientY);
-      }, { passive: true });
       pSet('working');
       wakeUp();
     }
-    /* 哭泣小人：点击开心笑（用 pointerup 轻点判定，避免拖拽指针捕获吞掉 click） */
-    var crying = document.getElementById('charCrying');
-    if (crying) {
-      var makeHappy = function () {
-        if (crying.classList.contains('happy')) return;
-        crying.classList.add('happy');
-        setTimeout(function () { crying.classList.remove('happy'); }, 2600);
-      };
-      var cdx = 0, cdy = 0;
-      crying.addEventListener('pointerdown', function (e) { cdx = e.clientX; cdy = e.clientY; });
-      crying.addEventListener('pointerup', function (e) {
-        if (Math.hypot(e.clientX - cdx, e.clientY - cdy) < 10) makeHappy();
-      });
-      crying.addEventListener('click', makeHappy);
-    }
+    /* v19 · 青蛙点击→扇形菜单（见 v18 fanMenu 代码） */
 
     /* 滚动：所有元素一起向中间聚拢、缩小、渐隐 */
     var heroH = hero.offsetHeight || window.innerHeight;
@@ -1008,4 +972,15 @@
     });
     window.addEventListener('resize', function () { if (fanOpen) layoutFan(); });
   }
+})();
+
+/* v19 · 青蛙 Lottie */
+(function () {
+  function init() {
+    var lib = (typeof lottie !== 'undefined') ? lottie : (typeof bodymovin !== 'undefined' ? bodymovin : null);
+    if (!lib) return setTimeout(init, 500);
+    var el = document.getElementById('frogLottie');
+    if (el) lib.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: true, path: 'assets/lottie/frog.json?v=19' });
+  }
+  init();
 })();
