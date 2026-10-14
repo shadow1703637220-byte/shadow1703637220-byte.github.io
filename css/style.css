@@ -627,42 +627,56 @@ footer { padding-bottom: 120px; }
 }
 
 /* ══════════════════════════════════════════
-   v18 · 扇形索引菜单（青蛙点击展开）
+   v21 · 头顶悬浮索引菜单（iOS 风格垂直堆叠）
    ══════════════════════════════════════════ */
 .fan-menu {
-  position: absolute; z-index: 350; width: 320px; height: 320px;
+  position: absolute; z-index: 350;
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 12px; border-radius: 20px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 16px 48px rgba(23,24,28,0.18), 0 4px 12px rgba(23,24,28,0.1);
   pointer-events: none;
+  opacity: 0; transform: translate(-50%, -100%) translateY(14px) scale(0.92);
+  transform-origin: bottom center;
+  transition: opacity 300ms var(--ease-mac), transform 450ms var(--ease-spring);
 }
-.fan-menu.open { pointer-events: auto; }
+/* 小尾巴指向青蛙 */
+.fan-menu::after {
+  content: ''; position: absolute; bottom: -8px; left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 16px; height: 16px;
+  background: rgba(255,255,255,0.85);
+  border-right: 1px solid rgba(255,255,255,0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.6);
+}
+.fan-menu.open { pointer-events: auto; opacity: 1; transform: translate(-50%, -100%) translateY(0) scale(1); }
 .fan-item {
-  position: absolute; left: 50%; top: 50%;
-  display: flex; align-items: center; gap: 8px;
-  padding: 10px 18px; border-radius: 999px;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border); font-weight: 700; font-size: 0.88rem;
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 20px 10px 14px; border-radius: 14px;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid transparent;
+  font-weight: 700; font-size: 0.92rem;
   color: var(--text); text-decoration: none; white-space: nowrap;
-  box-shadow: 0 8px 24px rgba(23,24,28,0.12);
-  /* 扇形展开：从中心弹出到弧形位置 */
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 500ms var(--ease-spring), box-shadow var(--t-hover) var(--ease-mac);
-  animation: fanFloat 2.6s ease-in-out infinite;
-  animation-delay: calc(var(--i) * 0.18s);
+  /* 错峰入场 */
+  opacity: 0; transform: translateY(10px) scale(0.95);
+  transition: opacity 300ms var(--ease-mac), transform 400ms var(--ease-spring),
+              background var(--t-hover) var(--ease-mac), border-color var(--t-hover) var(--ease-mac),
+              box-shadow var(--t-hover) var(--ease-mac);
+  transition-delay: calc(var(--i) * 45ms), calc(var(--i) * 45ms), 0ms, 0ms, 0ms;
 }
-.fan-menu.open .fan-item {
-  transform: translate(-50%, -50%) translate(var(--fx), var(--fy)) scale(1);
-}
+.fan-menu.open .fan-item { opacity: 1; transform: translateY(0) scale(1); }
 .fan-item:hover {
-  box-shadow: 0 12px 32px rgba(14,165,233,0.25);
+  transform: scale(1.08);
+  background: rgba(255,255,255,0.95);
   border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(14,165,233,0.22);
 }
-.fan-item span { font-size: 1.1rem; }
-@keyframes fanFloat {
-  0%, 100% { margin-top: 0; }
-  50% { margin-top: -10px; }
-}
+.fan-item span { font-size: 1.15rem; }
 @media (prefers-reduced-motion: reduce) {
-  .fan-item { animation: none; }
+  .fan-item { transition: opacity 200ms; transform: none; }
+  .fan-menu { transition: opacity 200ms; transform: translate(-50%, -100%); }
   .genie-dialog { transition: opacity 200ms; transform: none; }
 }
 
@@ -676,6 +690,8 @@ footer { padding-bottom: 120px; }
 .char-typing.sleeping .duck-lottie { filter: brightness(0.7) saturate(0.8); }
 /* 青蛙点击提示 */
 .char-frog { cursor: pointer; }
+.char-frog .char-inner { transition: transform 350ms var(--ease-spring); }
+.char-frog:hover .char-inner { transform: scale(1.18) rotate(-3deg); }
 @media (prefers-reduced-motion: reduce) {
   .duck-lottie svg, .frog-lottie svg { animation: none; }
 }
