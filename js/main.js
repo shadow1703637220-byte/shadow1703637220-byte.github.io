@@ -929,12 +929,24 @@
     var items = Array.prototype.slice.call(fan.querySelectorAll('.fan-item'));
     items.forEach(function (it, i) { it.style.setProperty('--i', i); });
     function layoutFan() {
-      // v21: 菜单锚定在青蛙头顶（top = 青蛙顶部 - 18px 间距），CSS 用 translate(-50%,-100%) 上移
+      // v22: 菜单优先放青蛙头顶，上方空间不足则改放下方，避免跑出屏幕
       var r = frog.getBoundingClientRect();
       var hero = frog.closest('.hero') || document.body;
       var hr = hero.getBoundingClientRect();
-      fan.style.left = (r.left - hr.left + r.width / 2) + 'px';
-      fan.style.top = (r.top - hr.top - 18) + 'px';
+      var cx = r.left - hr.left + r.width / 2;
+      // 估算菜单高度（6 项 × 约48px + padding）
+      var menuH = fan.offsetHeight || 340;
+      var spaceAbove = r.top; // 青蛙顶部到视口顶部的距离
+      fan.style.left = cx + 'px';
+      if (spaceAbove > menuH + 40) {
+        // 上方空间够：放头顶
+        fan.classList.remove('below');
+        fan.style.top = (r.top - hr.top - 18) + 'px';
+      } else {
+        // 上方空间不够：放青蛙下方
+        fan.classList.add('below');
+        fan.style.top = (r.bottom - hr.top + 18) + 'px';
+      }
     }
     var fanOpen = false;
     function openFan() {
