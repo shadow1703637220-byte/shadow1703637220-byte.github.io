@@ -483,3 +483,39 @@ footer { padding-bottom: 120px; }
 @media (prefers-reduced-motion: reduce){
   #bgwall .bgl{transition:none}
 }
+
+/* ══════════════════════════════════════════
+   v9 · 打字小人桌宠化：气泡 / 睡觉 / 开心跳 / 呼吸
+   ══════════════════════════════════════════ */
+/* 说话气泡 */
+.pet-bubble{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) scale(.6);
+  background:#fff;border:2px solid var(--accent);color:var(--text);
+  font-size:.82rem;font-weight:600;padding:8px 14px;border-radius:14px;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:5;
+  box-shadow:0 8px 24px rgba(23,24,28,.14)}
+.pet-bubble::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:8px solid transparent;border-top-color:var(--accent)}
+.char-typing.talking .pet-bubble{opacity:1;transform:translateX(-50%) scale(1)}
+/* Zzz */
+.pet-zzz{position:absolute;top:-8px;right:-6px;font-weight:900;color:#7c8db0;
+  font-size:1.1rem;opacity:0;pointer-events:none;line-height:1}
+.pet-zzz span{font-size:.85rem}.pet-zzz span+span{font-size:.7rem}
+.char-typing.sleeping .pet-zzz{opacity:1;animation:zzzfloat 2.6s ease-in-out infinite}
+@keyframes zzzfloat{0%{transform:translateY(6px);opacity:0}25%{opacity:1}100%{transform:translateY(-22px);opacity:0}}
+/* 睡觉：变暗 + 慢呼吸 + 藏起打字点和问号 */
+.char-typing.sleeping img{filter:brightness(.72) saturate(.75)}
+.char-typing.sleeping .char-inner{animation:petbreathe 3.2s ease-in-out infinite}
+.char-typing.sleeping .typing-dots,.char-typing.sleeping .q-bubble{opacity:0}
+/* 工作呼吸（默认的轻微浮动） */
+.char-typing.working .char-inner{animation:petbreathe 2.4s ease-in-out infinite}
+@keyframes petbreathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.025)}}
+/* 开心蹦跳 */
+.char-typing.happy .char-inner{animation:pethop .7s cubic-bezier(.3,1.4,.5,1)}
+@keyframes pethop{0%{transform:translateY(0) scale(1)}35%{transform:translateY(-34px) scale(1.06,.94)}60%{transform:translateY(0) scale(.96,1.05)}80%{transform:translateY(-12px) scale(1)}100%{transform:translateY(0) scale(1)}}
+/* 好奇时保持原来的 look，同时暂停呼吸避免打架 */
+.char-typing.look .char-inner{animation:none}
+@media (prefers-reduced-motion: reduce){
+  .char-typing.working .char-inner,.char-typing.sleeping .char-inner,
+  .char-typing.sleeping .pet-zzz{animation:none}
+  .char-typing.happy .char-inner{animation:none}
+}

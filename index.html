@@ -6,7 +6,7 @@
 <title>Aven溺心海 ・ 个人主页</title>
 <meta name="description" content="Aven溺心海的个人主页：认知提升、深度思考、科技教程。">
 <link rel="preload" href="assets/fonts/aven-mark.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -36,11 +36,13 @@
   <div class="scene" id="scene">
     <div class="scene-inner" id="sceneInner">
       <!-- 打字小人：平时打字，鼠标碰到就抬头看你+飘问号（可拖动） -->
-      <div class="drag char char-typing" id="charTyping">
+      <div class="drag char char-typing" id="charTyping" title="点我试试">
         <div class="char-inner">
-          <img src="assets/chars/typing.svg" alt="正在打字的小人" draggable="false">
+          <img src="assets/chars/typing.svg?v=9" alt="正在打字的小人" draggable="false">
           <span class="typing-dots" aria-hidden="true"><i></i><i></i><i></i></span>
           <span class="q-bubble" aria-hidden="true">?</span>
+          <span class="pet-bubble" aria-hidden="true"></span>
+          <span class="pet-zzz" aria-hidden="true">Z<span>z</span><span>z</span></span>
         </div>
       </div>
       <!-- 哭泣小人：平时一直哭，点击一下开心笑（可拖动） -->
@@ -295,13 +297,13 @@
 <!-- ══════════ macOS 程序坞 ══════════ -->
 <nav id="dock" class="dock" aria-label="程序坞">
   <div class="dock-inner" id="dockInner">
-    <a class="dock-icon" data-tip="📧 发邮件" href="mailto:shadow1703637220@outlook.com"><img src="assets/dock/mail.svg?v=8" alt="邮件" draggable="false"></a>
-    <button class="dock-icon" data-tip="🎵 音乐：点击播放 / 暂停" id="dockMusic" aria-label="音乐播放"><img src="assets/dock/music.svg?v=8" alt="音乐" draggable="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>
-    <button class="dock-icon" data-tip="💬 联系方式" id="dockInfo" aria-label="联系方式"><img src="assets/dock/info.svg?v=8" alt="信息" draggable="false"></button>
+    <a class="dock-icon" data-tip="📧 发邮件" href="mailto:shadow1703637220@outlook.com"><img src="assets/dock/mail.svg?v=9" alt="邮件" draggable="false"></a>
+    <button class="dock-icon" data-tip="🎵 音乐：点击播放 / 暂停" id="dockMusic" aria-label="音乐播放"><img src="assets/dock/music.svg?v=9" alt="音乐" draggable="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <button class="dock-icon" data-tip="💬 联系方式" id="dockInfo" aria-label="联系方式"><img src="assets/dock/info.svg?v=9" alt="信息" draggable="false"></button>
     <a class="dock-icon" data-tip="📚 教程文章" href="blog/post-2.html"><img src="assets/dock/tutorial.svg" alt="教程" draggable="false"></a>
-    <a class="dock-icon" data-tip="GitHub" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener"><img src="assets/dock/github.svg?v=8" alt="GitHub" draggable="false"></a>
-    <a class="dock-icon" data-tip="𝕏 X" href="https://x.com/NIxinhai0" target="_blank" rel="noopener"><img src="assets/dock/x.svg?v=8" alt="X" draggable="false"></a>
-    <a class="dock-icon" data-tip="▶ YouTube" href="http://www.youtube.com/@NiXinhai" target="_blank" rel="noopener"><img src="assets/dock/youtube.svg?v=8" alt="YouTube" draggable="false"></a>
+    <a class="dock-icon" data-tip="GitHub" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener"><img src="assets/dock/github.svg?v=9" alt="GitHub" draggable="false"></a>
+    <a class="dock-icon" data-tip="𝕏 X" href="https://x.com/NIxinhai0" target="_blank" rel="noopener"><img src="assets/dock/x.svg?v=9" alt="X" draggable="false"></a>
+    <a class="dock-icon" data-tip="▶ YouTube" href="http://www.youtube.com/@NiXinhai" target="_blank" rel="noopener"><img src="assets/dock/youtube.svg?v=9" alt="YouTube" draggable="false"></a>
   </div>
 </nav>
 
@@ -335,6 +337,6 @@
 </div>
 
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
-<script src="js/main.js?v=8"></script>
+<script src="js/main.js?v=9"></script>
 </body>
 </html>

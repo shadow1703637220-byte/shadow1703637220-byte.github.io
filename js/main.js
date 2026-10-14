@@ -339,15 +339,86 @@
       });
     });
 
-    /* 打字小人：悬停抬头看你 + 飘问号（触屏用点击） */
+    /* ═══ v9 · 打字小人桌宠化：工作/好奇/开心/说话/发呆/睡觉 ═══ */
     var typing = document.getElementById('charTyping');
     if (typing) {
-      typing.addEventListener('mouseenter', function () { typing.classList.add('look'); });
-      typing.addEventListener('mouseleave', function () { typing.classList.remove('look'); });
-      typing.addEventListener('click', function () {
-        typing.classList.add('look');
-        setTimeout(function () { typing.classList.remove('look'); }, 2200);
+      var PET_MSGS = [
+        '在呢在呢～找我有什么事吗？',
+        '代码写累了吧？记得眨眨眼休息一下～',
+        '嘿嘿，被你发现了，我其实在摸鱼。',
+        '今天的你也很棒哦，继续保持！',
+        '再戳我就要罢工啦（才怪）。'
+      ];
+      var pState = 'working', msgIdx = 0, pTimers = {};
+      var inner = typing.querySelector('.char-inner');
+      var bubble = typing.querySelector('.pet-bubble');
+      function pSet(s) {
+        pState = s;
+        typing.classList.toggle('working', s === 'working');
+        typing.classList.toggle('look', s === 'curious');
+        typing.classList.toggle('happy', s === 'happy');
+        typing.classList.toggle('talking', s === 'talking');
+        typing.classList.toggle('sleeping', s === 'sleeping');
+      }
+      function pLater(key, fn, ms) {
+        if (pTimers[key]) clearTimeout(pTimers[key]);
+        pTimers[key] = setTimeout(fn, ms);
+      }
+      function pClear(key) { if (pTimers[key]) { clearTimeout(pTimers[key]); pTimers[key] = null; } }
+      function wakeUp() {
+        if (pState === 'sleeping') pSet('working');
+        pClear('sleep');
+        pLater('sleep', function () {
+          if (pState === 'working' || pState === 'curious') {
+            if (bubble) bubble.textContent = '';
+            pSet('sleeping');
+          }
+        }, 60000);
+      }
+      function poke() {
+        if (pState === 'happy' || pState === 'talking') return;
+        if (reduceMotion) { // 减少动态：直接说话不蹦跳
+          pSet('talking');
+          if (bubble) bubble.textContent = PET_MSGS[msgIdx++ % PET_MSGS.length];
+          pLater('talk', function () { if (bubble) bubble.textContent = ''; pSet('working'); wakeUp(); }, 3000);
+          return;
+        }
+        pClear('talk'); pClear('idle');
+        if (bubble) bubble.textContent = '';
+        pSet('happy');
+        pLater('happy', function () {
+          pSet('talking');
+          if (bubble) bubble.textContent = PET_MSGS[msgIdx++ % PET_MSGS.length];
+          pLater('talk', function () {
+            if (bubble) bubble.textContent = '';
+            pSet('idle');
+            pLater('idle', function () { pSet('working'); wakeUp(); }, 1400);
+          }, 3000);
+        }, 700);
+      }
+      typing.addEventListener('mouseenter', function () {
+        wakeUp();
+        if (pState === 'working') pSet('curious');
       });
+      typing.addEventListener('mouseleave', function () {
+        if (pState === 'curious') pSet('working');
+      });
+      /* 点击（区分拖拽）：开心蹦跳 + 说话 */
+      var pdx = 0, pdy = 0;
+      typing.addEventListener('pointerdown', function (e) { pdx = e.clientX; pdy = e.clientY; wakeUp(); });
+      typing.addEventListener('pointerup', function (e) {
+        if (Math.hypot(e.clientX - pdx, e.clientY - pdy) < 10) { wakeUp(); poke(); }
+      });
+      /* 全局活动重置睡觉计时；睡着时任何动静都唤醒 */
+      window.addEventListener('pointermove', function () {
+        if (pState === 'sleeping') pSet('working');
+        pClear('sleep');
+        pLater('sleep', function () {
+          if (pState === 'working' || pState === 'curious') pSet('sleeping');
+        }, 60000);
+      }, { passive: true });
+      pSet('working');
+      wakeUp();
     }
     /* 哭泣小人：点击开心笑（用 pointerup 轻点判定，避免拖拽指针捕获吞掉 click） */
     var crying = document.getElementById('charCrying');
