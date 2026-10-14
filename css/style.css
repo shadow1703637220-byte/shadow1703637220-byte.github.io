@@ -651,6 +651,11 @@ footer { padding-bottom: 120px; }
   border-right: 1px solid rgba(255,255,255,0.6);
   border-bottom: 1px solid rgba(255,255,255,0.6);
 }
+/* v22 · 空间不足时菜单改放青蛙下方 */
+.fan-menu.below { transform: translate(-50%, 0) translateY(14px) scale(0.92); transform-origin: top center; }
+.fan-menu.below.open { transform: translate(-50%, 0) translateY(0) scale(1); }
+.fan-menu.below::after { bottom: auto; top: -8px; border-right: none; border-bottom: none;
+  border-left: 1px solid rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.6); }
 .fan-menu.open { pointer-events: auto; opacity: 1; transform: translate(-50%, -100%) translateY(0) scale(1); }
 .fan-item {
   display: flex; align-items: center; gap: 10px;
