@@ -772,7 +772,7 @@ footer { padding-bottom: 120px; }
   position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: contain;
   opacity: 0; transform: scale(1.04);
-  transition: opacity 1200ms var(--ease-mac), transform 1600ms var(--ease-mac);
+  transition: opacity 600ms var(--ease-mac), transform 800ms var(--ease-mac);
   pointer-events: none;
   /* v27 · 边缘羽化，和网站背景自然融合 */
   -webkit-mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 62%, transparent 98%);
@@ -805,25 +805,23 @@ footer { padding-bottom: 120px; }
   transition: background 200ms var(--ease-mac);
 }
 .banner-zones i:hover { background: rgba(255,255,255,0.14); }
-/* 字被碰到时：整个 banner 以该字为原点果冻抖一下 */
-.banner-carousel.jelly .banner-img.active { animation: jellyWobble 0.55s var(--ease-spring); }
-@keyframes jellyWobble {
-  0% { transform: scale(1, 1); }
-  25% { transform: scale(1.06, 0.94); }
-  50% { transform: scale(0.96, 1.05); }
-  75% { transform: scale(1.02, 0.98); }
-  100% { transform: scale(1, 1); }
+/* 字被碰到时：macOS 式平滑放大，以该字为中心 */
+.banner-carousel .banner-img.active {
+  transition: opacity 600ms var(--ease-mac), transform 350ms var(--ease-spring);
+}
+.banner-carousel.char-hover .banner-img.active {
+  transform: scale(1.18);
 }
 /* 星星粒子 */
 .banner-spark {
   position: absolute; z-index: 4; pointer-events: none;
-  font-size: 1.2rem; animation: sparkFly 0.8s ease-out forwards;
+  font-size: 0.9rem; animation: sparkFly 0.6s ease-out forwards;
 }
 @keyframes sparkFly {
   0% { opacity: 1; transform: translate(-50%, -50%) scale(0.4); }
   100% { opacity: 0; transform: translate(var(--sx), var(--sy)) scale(1.2) rotate(120deg); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .banner-carousel.jelly .banner-img.active { animation: none; }
+  .banner-carousel.char-hover .banner-img.active { transform: none; }
   .banner-spark { display: none; }
 }
