@@ -1007,3 +1007,31 @@
   // 15 秒后自动消失
   setTimeout(function () { if (hint.classList.contains('show')) hide(); }, 18000);
 })();
+
+/* v26 · Banner 轮播：三张渐隐切换 */
+(function () {
+  var car = document.getElementById('bannerCarousel');
+  if (!car) return;
+  var imgs = Array.prototype.slice.call(car.querySelectorAll('.banner-img'));
+  var dots = Array.prototype.slice.call(car.querySelectorAll('.banner-dots i'));
+  var idx = 0, timer = null;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(n) {
+    idx = (n + imgs.length) % imgs.length;
+    imgs.forEach(function (im, i) { im.classList.toggle('active', i === idx); });
+    dots.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+  }
+  function auto() {
+    if (reduceMotion) return;
+    timer = setInterval(function () { go(idx + 1); }, 4500);
+  }
+  dots.forEach(function (d, i) {
+    d.addEventListener('click', function () {
+      clearInterval(timer); go(i); auto();
+    });
+  });
+  // 悬停暂停
+  car.addEventListener('mouseenter', function () { clearInterval(timer); });
+  car.addEventListener('mouseleave', auto);
+  auto();
+})();
