@@ -1046,13 +1046,22 @@
       o.start(); o.stop(audioCtx.currentTime + 0.31);
     } catch (e) {}
   }
-  car.querySelectorAll('.char-layer').forEach(function (layer) {
-    var last = 0;
-    layer.addEventListener('mouseenter', function () {
-      var now = Date.now();
-      if (now - last < 400 || reduceMotion) return;
-      last = now;
-      pop(scale[parseInt(layer.dataset.note, 10)] || 523.25);
+  /* 悬停：显示对应字的放大副本 + 音阶 */
+  car.querySelectorAll('.char-design').forEach(function (design) {
+    var pops = Array.prototype.slice.call(design.querySelectorAll('.char-pop'));
+    var hots = Array.prototype.slice.call(design.querySelectorAll('.char-hot'));
+    hots.forEach(function (hot, i) {
+      var last = 0;
+      hot.addEventListener('mouseenter', function () {
+        pops.forEach(function (p, j) { p.classList.toggle('show', j === i); });
+        var now = Date.now();
+        if (now - last < 400 && !reduceMotion) { last = now; return; }
+        last = now;
+        if (!reduceMotion) pop(scale[i] || 523.25);
+      });
+      hot.addEventListener('mouseleave', function () {
+        pops[i].classList.remove('show');
+      });
     });
   });
 })();
