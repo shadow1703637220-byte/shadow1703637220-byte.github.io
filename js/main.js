@@ -870,9 +870,8 @@
       } else { done(false); }
     });
   });
-  // Lottie：悬停播放 + 进入视口播一次
+  // Lottie：无条件循环播放（联系区图标动画是本区核心表现）
   if (typeof lottie === 'undefined') return;
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.contact-anim[data-src]').forEach(function (el) {
     var src = el.getAttribute('data-src');
     function loadData() {
@@ -885,15 +884,11 @@
     }
     loadData().then(function (data) {
       el.classList.add('lottie-loading');
-      var anim = lottie.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: !reduceMotion, animationData: data });
-      anim.addEventListener('DOMLoaded', function () { el.classList.remove('lottie-loading'); });
-      // 离开视口暂停，进视口继续，省电
-      if ('IntersectionObserver' in window && !reduceMotion) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (en) { en.isIntersecting ? anim.play() : anim.pause(); });
-        }, { threshold: 0.1 });
-        io.observe(el);
-      }
-    }).catch(function(){ /* 加载失败就留空，不影响点击 */ });
+      var anim = lottie.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: true, animationData: data });
+      anim.addEventListener('DOMLoaded', function () {
+        el.classList.remove('lottie-loading');
+        anim.play(); // 双保险：确保播放
+      });
+    }).catch(function(){ el.classList.remove('lottie-loading'); });
   });
 })();
