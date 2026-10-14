@@ -758,3 +758,36 @@ footer { padding-bottom: 120px; }
 @media (max-width: 560px) {
   .dock-hint { font-size: 0.78rem; bottom: 88px; max-width: 92vw; white-space: normal; text-align: center; border-radius: 18px; }
 }
+
+/* ══════════════════════════════════════════
+   v26 · 名字 Banner 轮播（渐隐切换）
+   ══════════════════════════════════════════ */
+.banner-carousel {
+  position: relative;
+  width: min(720px, 88vw);
+  aspect-ratio: 1400 / 486;
+  margin: 0 auto;
+}
+.banner-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: contain;
+  opacity: 0; transform: scale(1.04);
+  transition: opacity 1200ms var(--ease-mac), transform 1600ms var(--ease-mac);
+  pointer-events: none;
+  filter: drop-shadow(0 12px 32px rgba(23,24,28,0.18));
+}
+.banner-img.active { opacity: 1; transform: scale(1); pointer-events: auto; }
+.banner-dots {
+  position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px;
+}
+.banner-dots i {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.45); cursor: pointer;
+  transition: background 300ms var(--ease-mac), transform 300ms var(--ease-spring);
+}
+.banner-dots i.active { background: #fff; transform: scale(1.3); }
+.banner-dots i:hover { transform: scale(1.2); }
+@media (prefers-reduced-motion: reduce) {
+  .banner-img { transition: opacity 300ms; transform: none; }
+}
