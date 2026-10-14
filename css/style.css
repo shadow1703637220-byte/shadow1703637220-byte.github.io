@@ -797,3 +797,8 @@ footer { padding-bottom: 120px; }
 @media (prefers-reduced-motion: reduce) {
   .char-layer { transform: none !important; }
 }
+
+/* v37 · 左上角 logo 换 Lottie 动画 */
+.logo-lottie { display: inline-flex; align-items: center; text-decoration: none; }
+#logoLottie { width: 44px; height: 44px; display: block; }
+#logoLottie svg { width: 100%; height: 100%; }
