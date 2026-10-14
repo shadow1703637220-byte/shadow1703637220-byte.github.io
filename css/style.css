@@ -311,7 +311,7 @@ footer { padding: 36px 0; text-align: center; color: var(--muted); font-size: 0.
 @keyframes tblink { 0%, 100% { opacity: 0.25; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-4px); } }
 .q-bubble { position: absolute; top: -14px; right: 2px; font-size: 2.2rem; font-weight: 900; color: var(--accent);
   opacity: 0; transform: translateY(10px) scale(0.5); transition: opacity 0.3s, transform 0.3s; }
-.char-typing.look .char-inner { transform: scale(1.18) rotate(-4deg); }
+.char-typing.look .char-inner { transform: scale(1.28) rotate(-4deg); }
 .char-typing.look .typing-dots { opacity: 0; }
 .char-typing.look .q-bubble { opacity: 1; transform: translateY(-16px) scale(1); animation: qfloat 1.3s ease-in-out infinite; }
 @keyframes qfloat { 0%, 100% { transform: translateY(-16px) scale(1) rotate(-6deg); } 50% { transform: translateY(-24px) scale(1.1) rotate(6deg); } }
@@ -518,4 +518,29 @@ footer { padding-bottom: 120px; }
   .char-typing.working .char-inner,.char-typing.sleeping .char-inner,
   .char-typing.sleeping .pet-zzz{animation:none}
   .char-typing.happy .char-inner{animation:none}
+}
+
+/* ══════════════════════════════════════════
+   v10 · 矢量小黄脸：敲键盘 / 瞳孔 / 闭眼
+   ══════════════════════════════════════════ */
+.face-svg{width:100%;height:auto;display:block;overflow:visible}
+.face-svg .pupil{transition:transform .45s cubic-bezier(.3,.9,.4,1.2),opacity .3s}
+.face-svg .closed{opacity:0;transition:opacity .3s}
+/* 双手交替敲键盘 */
+.face-svg .hand-l{animation:typel .36s ease-in-out infinite}
+.face-svg .hand-r{animation:typel .36s ease-in-out -.18s infinite}
+@keyframes typel{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+/* 好奇/说话时停手看你 */
+.char-typing.look .hand-l,.char-typing.look .hand-r,
+.char-typing.talking .hand-l,.char-typing.talking .hand-r,
+.char-typing.happy .hand-l,.char-typing.happy .hand-r{animation-play-state:paused}
+/* 睡觉：闭眼 + 手垂下 + 变暗 */
+.char-typing.sleeping .face-svg .pupil{opacity:0}
+.char-typing.sleeping .face-svg .closed{opacity:1}
+.char-typing.sleeping .face-svg .mouth{opacity:.4}
+.char-typing.sleeping .hand-l,.char-typing.sleeping .hand-r{animation-play-state:paused}
+.char-typing.sleeping .face-svg{filter:brightness(.74) saturate(.8)}
+@media (prefers-reduced-motion: reduce){
+  .face-svg .hand-l,.face-svg .hand-r{animation:none}
+  .face-svg .pupil{transition:none}
 }

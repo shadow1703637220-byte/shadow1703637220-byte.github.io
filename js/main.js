@@ -417,6 +417,43 @@
           if (pState === 'working' || pState === 'curious') pSet('sleeping');
         }, 60000);
       }, { passive: true });
+      /* ═══ v10 · 瞳孔：闲逛 + 鼠标追踪 ═══ */
+      var pupils = typing.querySelectorAll('.face-svg .pupil');
+      var eyes = typing.querySelectorAll('.face-svg .eye');
+      function setPupils(dx, dy) {
+        pupils.forEach(function (p) {
+          p.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px)';
+        });
+      }
+      function wanderPupils() {
+        if (pState === 'sleeping' || pState === 'curious' || reduceMotion) return;
+        setPupils(Math.random() * 12 - 6, Math.random() * 10 - 5);
+      }
+      setInterval(wanderPupils, 2600);
+      wanderPupils();
+      function trackEyes(mx, my) {
+        var r = typing.getBoundingClientRect();
+        if (!r.width) return;
+        var sx = r.width / 220, sy = r.height / 200;
+        eyes.forEach(function (eye) {
+          var ex = r.left + (+eye.getAttribute('data-ex')) * sx;
+          var ey = r.top + (+eye.getAttribute('data-ey')) * sy;
+          var dx = mx - ex, dy = my - ey, d = Math.hypot(dx, dy) || 1;
+          var m = Math.min(d / 45, 1) * 7;
+          var p = eye.querySelector('.pupil');
+          if (p) p.style.transform = 'translate(' + (dx / d * m).toFixed(1) + 'px,' + (dy / d * m).toFixed(1) + 'px)';
+        });
+      }
+      function nearChar(mx, my, rad) {
+        var r = typing.getBoundingClientRect();
+        var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        return Math.hypot(mx - cx, my - cy) <= rad;
+      }
+      /* 把眼球追踪接到全局 pointermove（已有睡觉逻辑，追加追踪） */
+      window.addEventListener('pointermove', function (e) {
+        if (reduceMotion || pState === 'sleeping') return;
+        if (pState === 'curious' || nearChar(e.clientX, e.clientY, 340)) trackEyes(e.clientX, e.clientY);
+      }, { passive: true });
       pSet('working');
       wakeUp();
     }

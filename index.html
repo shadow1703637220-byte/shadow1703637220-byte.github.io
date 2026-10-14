@@ -6,7 +6,7 @@
 <title>Aven溺心海 ・ 个人主页</title>
 <meta name="description" content="Aven溺心海的个人主页：认知提升、深度思考、科技教程。">
 <link rel="preload" href="assets/fonts/aven-mark.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=10">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -38,8 +38,39 @@
       <!-- 打字小人：平时打字，鼠标碰到就抬头看你+飘问号（可拖动） -->
       <div class="drag char char-typing" id="charTyping" title="点我试试">
         <div class="char-inner">
-          <img src="assets/chars/typing.svg?v=9" alt="正在打字的小人" draggable="false">
-          <span class="typing-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <svg class="face-svg" viewBox="0 0 220 200" aria-hidden="true">
+            <defs>
+              <radialGradient id="faceg" cx="42%" cy="36%" r="78%">
+                <stop offset="0%" stop-color="#FFE661"/><stop offset="100%" stop-color="#FFC93B"/>
+              </radialGradient>
+              <linearGradient id="lidg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#c6cfdb"/><stop offset="100%" stop-color="#98a3b4"/>
+              </linearGradient>
+            </defs>
+            <circle cx="110" cy="82" r="60" fill="url(#faceg)"/>
+            <g class="eye" data-ex="88" data-ey="78">
+              <ellipse cx="88" cy="78" rx="17" ry="20" fill="#fff"/>
+              <g class="pupil">
+                <circle cx="88" cy="82" r="8.5" fill="#23232e"/>
+                <circle cx="91" cy="79" r="2.6" fill="#fff"/>
+              </g>
+              <path class="closed" d="M74,80 Q88,89 102,80" stroke="#23232e" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            </g>
+            <g class="eye" data-ex="132" data-ey="78">
+              <ellipse cx="132" cy="78" rx="17" ry="20" fill="#fff"/>
+              <g class="pupil">
+                <circle cx="132" cy="82" r="8.5" fill="#23232e"/>
+                <circle cx="135" cy="79" r="2.6" fill="#fff"/>
+              </g>
+              <path class="closed" d="M118,80 Q132,89 146,80" stroke="#23232e" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            </g>
+            <rect class="mouth" x="102" y="94" width="16" height="5" rx="2.5" fill="#a07d1c"/>
+            <rect x="56" y="102" width="108" height="72" rx="10" fill="url(#lidg)"/>
+            <rect x="56" y="102" width="108" height="72" rx="10" fill="#fff" opacity=".12"/>
+            <circle cx="110" cy="138" r="7" fill="#eef1f5"/>
+            <g class="hand hand-l"><ellipse cx="84" cy="170" rx="13" ry="10" fill="#FFD93B" stroke="#e0a92e" stroke-width="2"/></g>
+            <g class="hand hand-r"><ellipse cx="136" cy="170" rx="13" ry="10" fill="#FFD93B" stroke="#e0a92e" stroke-width="2"/></g>
+          </svg>
           <span class="q-bubble" aria-hidden="true">?</span>
           <span class="pet-bubble" aria-hidden="true"></span>
           <span class="pet-zzz" aria-hidden="true">Z<span>z</span><span>z</span></span>
@@ -297,13 +328,13 @@
 <!-- ══════════ macOS 程序坞 ══════════ -->
 <nav id="dock" class="dock" aria-label="程序坞">
   <div class="dock-inner" id="dockInner">
-    <a class="dock-icon" data-tip="📧 发邮件" href="mailto:shadow1703637220@outlook.com"><img src="assets/dock/mail.svg?v=9" alt="邮件" draggable="false"></a>
-    <button class="dock-icon" data-tip="🎵 音乐：点击播放 / 暂停" id="dockMusic" aria-label="音乐播放"><img src="assets/dock/music.svg?v=9" alt="音乐" draggable="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>
-    <button class="dock-icon" data-tip="💬 联系方式" id="dockInfo" aria-label="联系方式"><img src="assets/dock/info.svg?v=9" alt="信息" draggable="false"></button>
+    <a class="dock-icon" data-tip="📧 发邮件" href="mailto:shadow1703637220@outlook.com"><img src="assets/dock/mail.svg?v=10" alt="邮件" draggable="false"></a>
+    <button class="dock-icon" data-tip="🎵 音乐：点击播放 / 暂停" id="dockMusic" aria-label="音乐播放"><img src="assets/dock/music.svg?v=10" alt="音乐" draggable="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <button class="dock-icon" data-tip="💬 联系方式" id="dockInfo" aria-label="联系方式"><img src="assets/dock/info.svg?v=10" alt="信息" draggable="false"></button>
     <a class="dock-icon" data-tip="📚 教程文章" href="blog/post-2.html"><img src="assets/dock/tutorial.svg" alt="教程" draggable="false"></a>
-    <a class="dock-icon" data-tip="GitHub" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener"><img src="assets/dock/github.svg?v=9" alt="GitHub" draggable="false"></a>
-    <a class="dock-icon" data-tip="𝕏 X" href="https://x.com/NIxinhai0" target="_blank" rel="noopener"><img src="assets/dock/x.svg?v=9" alt="X" draggable="false"></a>
-    <a class="dock-icon" data-tip="▶ YouTube" href="http://www.youtube.com/@NiXinhai" target="_blank" rel="noopener"><img src="assets/dock/youtube.svg?v=9" alt="YouTube" draggable="false"></a>
+    <a class="dock-icon" data-tip="GitHub" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener"><img src="assets/dock/github.svg?v=10" alt="GitHub" draggable="false"></a>
+    <a class="dock-icon" data-tip="𝕏 X" href="https://x.com/NIxinhai0" target="_blank" rel="noopener"><img src="assets/dock/x.svg?v=10" alt="X" draggable="false"></a>
+    <a class="dock-icon" data-tip="▶ YouTube" href="http://www.youtube.com/@NiXinhai" target="_blank" rel="noopener"><img src="assets/dock/youtube.svg?v=10" alt="YouTube" draggable="false"></a>
   </div>
 </nav>
 
@@ -337,6 +368,6 @@
 </div>
 
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
-<script src="js/main.js?v=9"></script>
+<script src="js/main.js?v=10"></script>
 </body>
 </html>
