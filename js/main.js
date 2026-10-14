@@ -923,27 +923,18 @@
   }
 
   /* —— 扇形索引菜单 —— */
-  var frog = document.getElementById('charCrying'); // Lottie 到位后换成蛙
+  var frog = document.getElementById('charCrying');
   var fan = document.getElementById('fanMenu');
   if (frog && fan) {
     var items = Array.prototype.slice.call(fan.querySelectorAll('.fan-item'));
-    var R = 150; // 扇形半径
+    items.forEach(function (it, i) { it.style.setProperty('--i', i); });
     function layoutFan() {
+      // v21: 菜单锚定在青蛙头顶（top = 青蛙顶部 - 18px 间距），CSS 用 translate(-50%,-100%) 上移
       var r = frog.getBoundingClientRect();
       var hero = frog.closest('.hero') || document.body;
       var hr = hero.getBoundingClientRect();
-      var cx = r.left - hr.left + r.width / 2;
-      var cy = r.top - hr.top + r.height / 2;
-      fan.style.left = cx + 'px';
-      fan.style.top = cy + 'px';
-      // 6 个索引，120° 扇形向上展开
-      items.forEach(function (it, i) {
-        var ang = (-60 + i * 24) * Math.PI / 180; // -60° ~ +60°
-        var fx = (R * Math.sin(ang)).toFixed(1) + 'px';
-        var fy = (-R * Math.cos(ang)).toFixed(1) + 'px';
-        it.style.setProperty('--fx', fx);
-        it.style.setProperty('--fy', fy);
-      });
+      fan.style.left = (r.left - hr.left + r.width / 2) + 'px';
+      fan.style.top = (r.top - hr.top - 18) + 'px';
     }
     var fanOpen = false;
     function openFan() {
