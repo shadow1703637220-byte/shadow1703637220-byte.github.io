@@ -929,24 +929,24 @@
     var items = Array.prototype.slice.call(fan.querySelectorAll('.fan-item'));
     items.forEach(function (it, i) { it.style.setProperty('--i', i); });
     function layoutFan() {
-      // v22: 菜单优先放青蛙头顶，上方空间不足则改放下方，避免跑出屏幕
+      // v23: 轨道环绕——6 索引均匀分布在青蛙周围的圆上
       var r = frog.getBoundingClientRect();
       var hero = frog.closest('.hero') || document.body;
       var hr = hero.getBoundingClientRect();
       var cx = r.left - hr.left + r.width / 2;
-      // 估算菜单高度（6 项 × 约48px + padding）
-      var menuH = fan.offsetHeight || 340;
-      var spaceAbove = r.top; // 青蛙顶部到视口顶部的距离
+      var cy = r.top - hr.top + r.height / 2;
       fan.style.left = cx + 'px';
-      if (spaceAbove > menuH + 40) {
-        // 上方空间够：放头顶
-        fan.classList.remove('below');
-        fan.style.top = (r.top - hr.top - 18) + 'px';
-      } else {
-        // 上方空间不够：放青蛙下方
-        fan.classList.add('below');
-        fan.style.top = (r.bottom - hr.top + 18) + 'px';
-      }
+      fan.style.top = cy + 'px';
+      fan.classList.remove('below');
+      // 6 个索引，360° 均匀分布，半径 132px（椭圆：横向稍大）
+      var RX = 148, RY = 128;
+      items.forEach(function (it, i) {
+        var ang = (-90 + i * 60) * Math.PI / 180; // 从正上方开始顺时针
+        var ox = (RX * Math.cos(ang)).toFixed(1) + 'px';
+        var oy = (RY * Math.sin(ang)).toFixed(1) + 'px';
+        it.style.setProperty('--ox', ox);
+        it.style.setProperty('--oy', oy);
+      });
     }
     var fanOpen = false;
     function openFan() {
