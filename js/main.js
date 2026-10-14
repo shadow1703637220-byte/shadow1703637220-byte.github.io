@@ -987,3 +987,23 @@
   }
   init();
 })();
+
+/* v25 · 程序坞小提示：延迟弹出，首次点击后消失 */
+(function () {
+  var hint = document.getElementById('dockHint');
+  if (!hint || sessionStorage.getItem('dockHintSeen')) return;
+  function show() { hint.hidden = false; requestAnimationFrame(function () { hint.classList.add('show'); }); }
+  function hide() {
+    hint.classList.remove('show');
+    sessionStorage.setItem('dockHintSeen', '1');
+    setTimeout(function () { hint.hidden = true; }, 500);
+  }
+  setTimeout(show, 2500); // 2.5 秒后弹出
+  // 点空白处（非 dock/菜单）关闭；点关闭按钮也关闭
+  document.addEventListener('pointerdown', function (e) {
+    if (hint.classList.contains('show') && !hint.contains(e.target)) hide();
+  }, { passive: true });
+  hint.querySelector('.dock-hint-close').addEventListener('click', function (e) { e.stopPropagation(); hide(); });
+  // 15 秒后自动消失
+  setTimeout(function () { if (hint.classList.contains('show')) hide(); }, 18000);
+})();
