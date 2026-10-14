@@ -774,7 +774,9 @@ footer { padding-bottom: 120px; }
   opacity: 0; transform: scale(1.04);
   transition: opacity 1200ms var(--ease-mac), transform 1600ms var(--ease-mac);
   pointer-events: none;
-  filter: drop-shadow(0 12px 32px rgba(23,24,28,0.18));
+  /* v27 · 边缘羽化，和网站背景自然融合 */
+  -webkit-mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 62%, transparent 98%);
+  mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 62%, transparent 98%);
 }
 .banner-img.active { opacity: 1; transform: scale(1); pointer-events: auto; }
 .banner-dots {
@@ -790,4 +792,38 @@ footer { padding-bottom: 120px; }
 .banner-dots i:hover { transform: scale(1.2); }
 @media (prefers-reduced-motion: reduce) {
   .banner-img { transition: opacity 300ms; transform: none; }
+}
+
+/* ══════════════════════════════════════════
+   v27 · Banner 每个字的 hover 交互
+   ══════════════════════════════════════════ */
+.banner-zones { position: absolute; inset: 0; z-index: 3; }
+.banner-zones i {
+  position: absolute; top: 8%; bottom: 8%; left: var(--zx);
+  width: 13%; transform: translateX(-50%);
+  cursor: pointer; border-radius: 12px;
+  transition: background 200ms var(--ease-mac);
+}
+.banner-zones i:hover { background: rgba(255,255,255,0.14); }
+/* 字被碰到时：整个 banner 以该字为原点果冻抖一下 */
+.banner-carousel.jelly .banner-img.active { animation: jellyWobble 0.55s var(--ease-spring); }
+@keyframes jellyWobble {
+  0% { transform: scale(1, 1); }
+  25% { transform: scale(1.06, 0.94); }
+  50% { transform: scale(0.96, 1.05); }
+  75% { transform: scale(1.02, 0.98); }
+  100% { transform: scale(1, 1); }
+}
+/* 星星粒子 */
+.banner-spark {
+  position: absolute; z-index: 4; pointer-events: none;
+  font-size: 1.2rem; animation: sparkFly 0.8s ease-out forwards;
+}
+@keyframes sparkFly {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.4); }
+  100% { opacity: 0; transform: translate(var(--sx), var(--sy)) scale(1.2) rotate(120deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .banner-carousel.jelly .banner-img.active { animation: none; }
+  .banner-spark { display: none; }
 }
