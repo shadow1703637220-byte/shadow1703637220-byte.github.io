@@ -1023,7 +1023,7 @@
   }
   function auto() {
     if (reduceMotion) return;
-    timer = setInterval(function () { go(idx + 1); }, 4500);
+    timer = setInterval(function () { go(idx + 1); }, 2500);
   }
   dots.forEach(function (d, i) {
     d.addEventListener('click', function () {
@@ -1057,6 +1057,8 @@
     } catch (e) {}
   }
   var sparks = ['✦', '✧', '⋆', '✺'];
+  // 鼠标离开整个 banner 时恢复
+  car.addEventListener('mouseleave', function () { car.classList.remove('char-hover'); });
   zones.forEach(function (z, i) {
     var last = 0;
     z.addEventListener('mouseenter', function (e) {
@@ -1064,12 +1066,11 @@
       if (now - last < 450) return; // 节流
       last = now;
       if (reduceMotion) return;
-      // 果冻抖：原点设在该字位置
-      car.style.setProperty('--jx', z.style.getPropertyValue('--zx'));
+      // macOS 式放大：原点设在该字位置，平滑放大
       var active = car.querySelector('.banner-img.active');
       if (active) {
         active.style.transformOrigin = z.style.getPropertyValue('--zx') + ' 50%';
-        car.classList.remove('jelly'); void car.offsetWidth; car.classList.add('jelly');
+        car.classList.add('char-hover');
       }
       // 音阶
       pop(scale[i] || 523.25);
