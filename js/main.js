@@ -938,10 +938,10 @@
       fan.style.left = cx + 'px';
       fan.style.top = cy + 'px';
       fan.classList.remove('below');
-      // 6 个索引，360° 均匀分布，半径 132px（椭圆：横向稍大）
+      // 5 个索引，360° 均匀分布（椭圆：横向稍大）
       var RX = 148, RY = 128;
       items.forEach(function (it, i) {
-        var ang = (-90 + i * 60) * Math.PI / 180; // 从正上方开始顺时针
+        var ang = (-90 + i * 72) * Math.PI / 180; // 从正上方开始顺时针
         var ox = (RX * Math.cos(ang)).toFixed(1) + 'px';
         var oy = (RY * Math.sin(ang)).toFixed(1) + 'px';
         it.style.setProperty('--ox', ox);
