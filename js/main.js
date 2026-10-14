@@ -1046,22 +1046,51 @@
       o.start(); o.stop(audioCtx.currentTime + 0.31);
     } catch (e) {}
   }
-  /* 悬停：显示对应字的放大副本 + 音阶 */
+  /* v36 · 鱼眼：按鼠标X距离缩放每个字（同程序坞高斯）+ 音阶 */
+  var SIGMA = 9;      // 影响半径（百分比）
+  var MAXS = 0.38;    // 最大放大 38%
   car.querySelectorAll('.char-design').forEach(function (design) {
-    var pops = Array.prototype.slice.call(design.querySelectorAll('.char-pop'));
-    var hots = Array.prototype.slice.call(design.querySelectorAll('.char-hot'));
-    hots.forEach(function (hot, i) {
-      var last = 0;
-      hot.addEventListener('mouseenter', function () {
-        pops.forEach(function (p, j) { p.classList.toggle('show', j === i); });
-        var now = Date.now();
-        if (now - last < 400 && !reduceMotion) { last = now; return; }
-        last = now;
-        if (!reduceMotion) pop(scale[i] || 523.25);
+    var layers = Array.prototype.slice.call(design.querySelectorAll('.char-layer'));
+    var centers = layers.map(function (l) { return parseFloat(l.dataset.cx); });
+    var lastNote = -1, lastTime = 0;
+    function render(mx) {
+      layers.forEach(function (l, i) {
+        var dist = Math.abs(mx - centers[i]);
+        var s = 1 + MAXS * Math.exp(-(dist * dist) / (2 * SIGMA * SIGMA));
+        l.style.transform = 'scale(' + s.toFixed(3) + ')';
+        l.style.zIndex = Math.round(s * 10);
       });
-      hot.addEventListener('mouseleave', function () {
-        pops[i].classList.remove('show');
+      // 音阶：进入新字区域时响
+      var nearest = 0, best = 1e9;
+      centers.forEach(function (c, i) {
+        var d = Math.abs(mx - c);
+        if (d < best) { best = d; nearest = i; }
       });
+      var now = Date.now();
+      if (nearest !== lastNote && now - lastTime > 350 && !reduceMotion) {
+        lastNote = nearest; lastTime = now;
+        pop(scale[nearest] || 523.25);
+      }
+    }
+    design.addEventListener('mousemove', function (e) {
+      if (reduceMotion) return;
+      var r = design.getBoundingClientRect();
+      var mx = (e.clientX - r.left) / r.width * 100;
+      render(mx);
     });
+    design.addEventListener('mouseleave', function () {
+      layers.forEach(function (l) { l.style.transform = ''; l.style.zIndex = ''; });
+      lastNote = -1;
+    });
+  });
+})();
+
+/* v37 · Logo Lottie 动画 */
+(function () {
+  var el = document.getElementById('logoLottie');
+  if (!el || typeof lottie === 'undefined') return;
+  lottie.loadAnimation({
+    container: el, renderer: 'svg', loop: true, autoplay: true,
+    path: 'assets/lottie/scroll-top.json?v=37'
   });
 })();
