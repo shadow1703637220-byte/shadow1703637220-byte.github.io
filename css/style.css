@@ -777,27 +777,22 @@ footer { padding-bottom: 120px; }
 }
 
 /* v35 · 底层完整图 + 悬停弹出放大副本 */
-.char-base {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+@media (prefers-reduced-motion: reduce) {
+    }
+
+/* v36 · 鱼眼：7 图层平铺，JS 按鼠标距离缩放 */
+.char-layer {
+  position: absolute; inset: 0;
+  clip-path: inset(0 var(--clip-r) 0 var(--clip-l));
+  transform-origin: var(--cx) 55%;
+  will-change: transform;
+}
+.char-layer img {
+  width: 100%; height: 100%; object-fit: contain;
   filter: drop-shadow(0 10px 28px rgba(23,24,28,0.22));
   pointer-events: none;
 }
-.char-pop {
-  position: absolute; inset: 0; z-index: 2;
-  clip-path: inset(0 var(--clip-r) 0 var(--clip-l));
-  opacity: 0; transform: scale(1);
-  transform-origin: var(--cx) 50%;
-  transition: opacity 200ms var(--ease-mac), transform 350ms var(--ease-spring);
-  pointer-events: none;
-}
-.char-pop img { width: 100%; height: 100%; object-fit: contain;
-  filter: drop-shadow(0 14px 36px rgba(23,24,28,0.3)); }
-.char-pop.show { opacity: 1; transform: scale(1.35); }
-.char-hot {
-  position: absolute; top: 5%; bottom: 5%; z-index: 3;
-  cursor: pointer;
-}
+.char-carousel { cursor: default; }
 @media (prefers-reduced-motion: reduce) {
-  .char-pop { transition: none; }
-  .char-pop.show { transform: none; }
+  .char-layer { transform: none !important; }
 }
