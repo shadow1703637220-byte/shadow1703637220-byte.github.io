@@ -760,68 +760,37 @@ footer { padding-bottom: 120px; }
 }
 
 /* ══════════════════════════════════════════
-   v26 · 名字 Banner 轮播（渐隐切换）
+/* ══════════════════════════════════════════
+   v29 · 逐字抠图轮播：每个字独立放大
    ══════════════════════════════════════════ */
-.banner-carousel {
+.char-carousel {
   position: relative;
-  width: min(720px, 88vw);
-  aspect-ratio: 1400 / 486;
+  width: min(880px, 92vw);
+  aspect-ratio: 2776 / 700;
   margin: 0 auto;
 }
-.banner-img {
+.char-design {
   position: absolute; inset: 0;
-  width: 100%; height: 100%; object-fit: contain;
-  opacity: 0; transform: scale(1.04);
+  opacity: 0; transform: scale(0.98);
   transition: opacity 600ms var(--ease-mac), transform 800ms var(--ease-mac);
   pointer-events: none;
-  /* v27 · 边缘羽化，和网站背景自然融合 */
-  -webkit-mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 62%, transparent 98%);
-  mask-image: radial-gradient(ellipse 72% 68% at 50% 50%, #000 62%, transparent 98%);
 }
-.banner-img.active { opacity: 1; transform: scale(1); pointer-events: auto; }
-.banner-dots {
-  position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 8px;
+.char-design.active { opacity: 1; transform: scale(1); pointer-events: auto; }
+.char-layer {
+  position: absolute; inset: 0;
+  clip-path: inset(0 var(--clip-r) 0 var(--clip-l));
+  cursor: pointer;
+  transition: transform 350ms var(--ease-spring);
+  transform-origin: var(--cx) 50%;
 }
-.banner-dots i {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(255,255,255,0.45); cursor: pointer;
-  transition: background 300ms var(--ease-mac), transform 300ms var(--ease-spring);
+.char-layer img {
+  width: 100%; height: 100%; object-fit: contain;
+  filter: drop-shadow(0 10px 28px rgba(23,24,28,0.22));
+  pointer-events: none;
 }
-.banner-dots i.active { background: #fff; transform: scale(1.3); }
-.banner-dots i:hover { transform: scale(1.2); }
+/* macOS 式：悬停的字流畅放大 */
+.char-layer:hover { transform: scale(1.28); z-index: 2; }
 @media (prefers-reduced-motion: reduce) {
-  .banner-img { transition: opacity 300ms; transform: none; }
-}
-
-/* ══════════════════════════════════════════
-   v27 · Banner 每个字的 hover 交互
-   ══════════════════════════════════════════ */
-.banner-zones { position: absolute; inset: 0; z-index: 3; }
-.banner-zones i {
-  position: absolute; top: 8%; bottom: 8%; left: var(--zx);
-  width: 13%; transform: translateX(-50%);
-  cursor: pointer; border-radius: 12px;
-  transition: background 200ms var(--ease-mac);
-}
-.banner-zones i:hover { background: rgba(255,255,255,0.14); }
-/* 字被碰到时：macOS 式平滑放大，以该字为中心 */
-.banner-carousel .banner-img.active {
-  transition: opacity 600ms var(--ease-mac), transform 350ms var(--ease-spring);
-}
-.banner-carousel.char-hover .banner-img.active {
-  transform: scale(1.18);
-}
-/* 星星粒子 */
-.banner-spark {
-  position: absolute; z-index: 4; pointer-events: none;
-  font-size: 0.9rem; animation: sparkFly 0.6s ease-out forwards;
-}
-@keyframes sparkFly {
-  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.4); }
-  100% { opacity: 0; transform: translate(var(--sx), var(--sy)) scale(1.2) rotate(120deg); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .banner-carousel.char-hover .banner-img.active { transform: none; }
-  .banner-spark { display: none; }
+  .char-layer { transition: none; }
+  .char-layer:hover { transform: none; }
 }
