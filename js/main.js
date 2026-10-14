@@ -507,15 +507,14 @@
         try {
           var t0 = actx.currentTime;
           var o = actx.createOscillator(), g = actx.createGain();
-          var f = 540 + i * 45; // 每个图标音高略不同，像上台阶
-          o.type = 'sine';
+          var f = 1900 + i * 120; // 清脆嘀嗒，每个图标音高略不同
+          o.type = 'triangle';
           o.frequency.setValueAtTime(f, t0);
-          o.frequency.exponentialRampToValueAtTime(f * 1.6, t0 + 0.07);
           g.gain.setValueAtTime(0.0001, t0);
-          g.gain.exponentialRampToValueAtTime(0.05, t0 + 0.015);
-          g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.13);
+          g.gain.exponentialRampToValueAtTime(0.06, t0 + 0.004);
+          g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.045);
           o.connect(g); g.connect(actx.destination);
-          o.start(t0); o.stop(t0 + 0.15);
+          o.start(t0); o.stop(t0 + 0.06);
         } catch (e) {}
       }
       var lastHover = -1;
@@ -531,11 +530,10 @@
         var r = el.getBoundingClientRect();
         var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
         var d = Math.hypot(mx - cx, my - cy);
-        var range = 130;
+        var range = 160, sigma = 62; // Mac 式高斯衰减
         if (d > range) return 1;
-        var t = 1 - d / range;
-        t = t * t * (3 - 2 * t);
-        return 1 + 0.5 * t; // ★ 最大放大 50%
+        var t = Math.exp(-(d * d) / (2 * sigma * sigma));
+        return 1 + 0.55 * t; // ★ 最大放大 55%
       }
       function tick(now) {
         var settled = true;
@@ -894,4 +892,120 @@
         }).catch(function(){ el.classList.remove('lottie-loading'); });
     }
   });
+})();
+
+/* ══════════════════════════════════════════
+   v18 · Genie 对话框（小黄鸭悬停）+ 扇形菜单（青蛙点击）
+   注：Lottie 到位后，#charTyping→鸭，#charCrying→蛙，交互逻辑不变
+   ══════════════════════════════════════════ */
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* —— tick 音效（复用 Web Audio，极轻） —— */
+  var actx = null;
+  function ensureAudio() {
+    try {
+      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === 'suspended') actx.resume();
+    } catch (e) {}
+  }
+  function tick() {
+    if (!actx || actx.state !== 'running' || reduceMotion) return;
+    try {
+      var t0 = actx.currentTime;
+      var o = actx.createOscillator(), g = actx.createGain();
+      o.type = 'triangle'; o.frequency.setValueAtTime(2200, t0);
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(0.04, t0 + 0.003);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.04);
+      o.connect(g); g.connect(actx.destination);
+      o.start(t0); o.stop(t0 + 0.05);
+    } catch (e) {}
+  }
+  document.addEventListener('pointerdown', ensureAudio, { once: true });
+
+  /* —— Genie 对话框 —— */
+  var duck = document.getElementById('charTyping'); // Lottie 到位后换成鸭
+  var genie = document.getElementById('genieDialog');
+  var genieText = document.getElementById('genieText');
+  var duckMsgs = ['👋 嗨！我是 Aven 的小黄鸭～', '💡 点我有惊喜哦！', '⌨️ 我打字超快的！', '🌊 溺心海欢迎你～'];
+  var msgIdx = 0, genieTimer = null;
+  if (duck && genie) {
+    duck.addEventListener('mouseenter', function () {
+      if (reduceMotion) return;
+      var r = duck.getBoundingClientRect();
+      var hero = duck.closest('.hero') || document.body;
+      var hr = hero.getBoundingClientRect();
+      // 对话框放到小黄鸭头顶
+      genie.style.left = (r.left - hr.left + r.width / 2) + 'px';
+      genie.style.top = (r.top - hr.top - 10) + 'px';
+      genieText.textContent = duckMsgs[msgIdx % duckMsgs.length]; msgIdx++;
+      genie.classList.remove('closing');
+      genie.setAttribute('aria-hidden', 'false');
+      // 强制重排后展开，触发流水动画
+      void genie.offsetWidth;
+      genie.classList.add('open');
+      clearTimeout(genieTimer);
+    });
+    duck.addEventListener('mouseleave', function () {
+      genie.classList.add('closing');
+      genie.classList.remove('open');
+      clearTimeout(genieTimer);
+      genieTimer = setTimeout(function () {
+        genie.classList.remove('closing');
+        genie.setAttribute('aria-hidden', 'true');
+      }, 480);
+    });
+  }
+
+  /* —— 扇形索引菜单 —— */
+  var frog = document.getElementById('charCrying'); // Lottie 到位后换成蛙
+  var fan = document.getElementById('fanMenu');
+  if (frog && fan) {
+    var items = Array.prototype.slice.call(fan.querySelectorAll('.fan-item'));
+    var R = 150; // 扇形半径
+    function layoutFan() {
+      var r = frog.getBoundingClientRect();
+      var hero = frog.closest('.hero') || document.body;
+      var hr = hero.getBoundingClientRect();
+      var cx = r.left - hr.left + r.width / 2;
+      var cy = r.top - hr.top + r.height / 2;
+      fan.style.left = cx + 'px';
+      fan.style.top = cy + 'px';
+      // 6 个索引，120° 扇形向上展开
+      items.forEach(function (it, i) {
+        var ang = (-60 + i * 24) * Math.PI / 180; // -60° ~ +60°
+        var fx = (R * Math.sin(ang)).toFixed(1) + 'px';
+        var fy = (-R * Math.cos(ang)).toFixed(1) + 'px';
+        it.style.setProperty('--fx', fx);
+        it.style.setProperty('--fy', fy);
+      });
+    }
+    var fanOpen = false;
+    function openFan() {
+      layoutFan();
+      fan.hidden = false;
+      requestAnimationFrame(function () { requestAnimationFrame(function () {
+        fan.classList.add('open'); fanOpen = true;
+      }); });
+    }
+    function closeFan() {
+      if (!fanOpen) return;
+      fan.classList.remove('open'); fanOpen = false;
+      setTimeout(function () { fan.hidden = true; }, 500);
+    }
+    frog.addEventListener('click', function (e) {
+      e.stopPropagation();
+      ensureAudio(); tick();
+      fanOpen ? closeFan() : openFan();
+    });
+    items.forEach(function (it) {
+      it.addEventListener('mouseenter', function () { ensureAudio(); tick(); });
+      it.addEventListener('click', function () { closeFan(); });
+    });
+    document.addEventListener('click', function (e) {
+      if (fanOpen && !fan.contains(e.target)) closeFan();
+    });
+    window.addEventListener('resize', function () { if (fanOpen) layoutFan(); });
+  }
 })();

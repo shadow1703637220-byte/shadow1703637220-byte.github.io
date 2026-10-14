@@ -9,6 +9,11 @@
    ★ 改主题色：只改下面 :root 里的几个颜色值
    ══════════════════════════════════════════ */
 :root {
+  --ease-mac: cubic-bezier(0.25, 0.1, 0.25, 1);      /* macOS 统一缓动 */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);  /* 轻微回弹 */
+  --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);       /* 流水般展开 */
+  --t-hover: 150ms;  /* 悬停反馈 */
+  --t-page: 350ms;   /* 页面切换 */
   --bg: #f6f6f4;            /* 页面背景（暖白） */
   --bg2: #ffffff;           /* 区块背景（纯白） */
   --card: #ffffff;
@@ -563,3 +568,100 @@ footer { padding-bottom: 120px; }
 /* lottie 加载占位：淡入呼吸，避免首次空白突兀 */
 .contact-anim.lottie-loading{background:var(--bg2);border-radius:16px;animation:lottiePulse 1.2s ease-in-out infinite}
 @keyframes lottiePulse{0%,100%{opacity:.35}50%{opacity:.7}}
+
+/* ══════════════════════════════════════════
+   v17 · macOS 质感统一：缓动 / 弹簧 / 毛玻璃
+   ══════════════════════════════════════════ */
+.btn, .channel, .contact-item, .pick-card, .blog-card, .project-card {
+  transition: transform var(--t-hover) var(--ease-mac), box-shadow var(--t-hover) var(--ease-mac),
+              border-color var(--t-hover) var(--ease-mac), background-color var(--t-hover) var(--ease-mac);
+}
+.btn:active, .channel:active, .contact-item:active {
+  transform: scale(0.96);
+  transition: transform 120ms var(--ease-spring);
+}
+.card, .contact-card {
+  box-shadow: 0 1px 2px rgba(23,24,28,0.04), 0 8px 24px rgba(23,24,28,0.06), 0 24px 64px rgba(23,24,28,0.05);
+}
+/* 导航毛玻璃（如果有顶栏） */
+.topnav, header.nav {
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  background: rgba(255,255,255,0.65);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .channel, .contact-item, .pick-card, .blog-card, .project-card { transition: none; }
+}
+
+/* ══════════════════════════════════════════
+   v18 · Genie 对话框（流水般展开/收回）
+   ══════════════════════════════════════════ */
+.genie-dialog {
+  position: absolute; z-index: 350; pointer-events: none;
+  /* 位置由 JS 设到小黄鸭头顶 */
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) scaleY(0) scaleX(0.6) skewX(6deg);
+  opacity: 0;
+  transition: transform 600ms var(--ease-fluid), opacity 300ms var(--ease-mac);
+}
+.genie-dialog.open {
+  transform: translate(-50%, -100%) scaleY(1) scaleX(1) skewX(0deg);
+  opacity: 1;
+}
+.genie-dialog.closing {
+  transform: translate(-50%, -100%) scaleY(0) scaleX(0.6) skewX(-6deg);
+  opacity: 0;
+  transition: transform 450ms cubic-bezier(0.7, 0, 0.84, 0), opacity 250ms;
+}
+.genie-inner {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.8); border-radius: 18px;
+  padding: 14px 20px; font-size: 0.92rem; font-weight: 600; color: var(--text);
+  box-shadow: 0 8px 24px rgba(23,24,28,0.12), 0 24px 64px rgba(23,24,28,0.1);
+  white-space: nowrap;
+}
+.genie-inner::after { /* 小尾巴指向小黄鸭 */
+  content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%) rotate(45deg);
+  width: 16px; height: 16px; background: rgba(255,255,255,0.92);
+  border-right: 1px solid rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.8);
+}
+
+/* ══════════════════════════════════════════
+   v18 · 扇形索引菜单（青蛙点击展开）
+   ══════════════════════════════════════════ */
+.fan-menu {
+  position: absolute; z-index: 350; width: 320px; height: 320px;
+  pointer-events: none;
+}
+.fan-menu.open { pointer-events: auto; }
+.fan-item {
+  position: absolute; left: 50%; top: 50%;
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 999px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border); font-weight: 700; font-size: 0.88rem;
+  color: var(--text); text-decoration: none; white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(23,24,28,0.12);
+  /* 扇形展开：从中心弹出到弧形位置 */
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 500ms var(--ease-spring), box-shadow var(--t-hover) var(--ease-mac);
+  animation: fanFloat 2.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.18s);
+}
+.fan-menu.open .fan-item {
+  transform: translate(-50%, -50%) translate(var(--fx), var(--fy)) scale(1);
+}
+.fan-item:hover {
+  box-shadow: 0 12px 32px rgba(14,165,233,0.25);
+  border-color: var(--accent);
+}
+.fan-item span { font-size: 1.1rem; }
+@keyframes fanFloat {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fan-item { animation: none; }
+  .genie-dialog { transition: opacity 200ms; transform: none; }
+}
