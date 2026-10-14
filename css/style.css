@@ -627,61 +627,68 @@ footer { padding-bottom: 120px; }
 }
 
 /* ══════════════════════════════════════════
-   v21 · 头顶悬浮索引菜单（iOS 风格垂直堆叠）
+   v23 · 轨道环绕索引菜单（行星环绕青蛙）
    ══════════════════════════════════════════ */
 .fan-menu {
   position: absolute; z-index: 350;
-  display: flex; flex-direction: column; gap: 8px;
-  padding: 12px; border-radius: 20px;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(255,255,255,0.6);
-  box-shadow: 0 16px 48px rgba(23,24,28,0.18), 0 4px 12px rgba(23,24,28,0.1);
+  width: 0; height: 0; /* 锚点，子项用 --ox/--oy 定位 */
   pointer-events: none;
-  opacity: 0; transform: translate(-50%, -100%) translateY(14px) scale(0.92);
-  transform-origin: bottom center;
-  transition: opacity 300ms var(--ease-mac), transform 450ms var(--ease-spring);
 }
-/* 小尾巴指向青蛙 */
-.fan-menu::after {
-  content: ''; position: absolute; bottom: -8px; left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 16px; height: 16px;
-  background: rgba(255,255,255,0.85);
-  border-right: 1px solid rgba(255,255,255,0.6);
-  border-bottom: 1px solid rgba(255,255,255,0.6);
+.fan-menu.open { pointer-events: auto; }
+/* 轨道虚线圆环 */
+.fan-menu::before {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  width: 264px; height: 264px;
+  transform: translate(-50%, -50%) scale(0.6);
+  border: 2px dashed rgba(255,255,255,0.5);
+  border-radius: 50%;
+  opacity: 0; transition: opacity 400ms var(--ease-mac), transform 600ms var(--ease-spring);
 }
-/* v22 · 空间不足时菜单改放青蛙下方 */
-.fan-menu.below { transform: translate(-50%, 0) translateY(14px) scale(0.92); transform-origin: top center; }
-.fan-menu.below.open { transform: translate(-50%, 0) translateY(0) scale(1); }
-.fan-menu.below::after { bottom: auto; top: -8px; border-right: none; border-bottom: none;
-  border-left: 1px solid rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.6); }
-.fan-menu.open { pointer-events: auto; opacity: 1; transform: translate(-50%, -100%) translateY(0) scale(1); }
+.fan-menu.open::before { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 .fan-item {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 20px 10px 14px; border-radius: 14px;
-  background: rgba(255,255,255,0.6);
-  border: 1px solid transparent;
-  font-weight: 700; font-size: 0.92rem;
+  position: absolute; left: 0; top: 0;
+  display: flex; align-items: center; gap: 7px;
+  padding: 8px 14px 8px 11px; border-radius: 999px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.7);
+  font-weight: 700; font-size: 0.82rem;
   color: var(--text); text-decoration: none; white-space: nowrap;
-  /* 错峰入场 */
-  opacity: 0; transform: translateY(10px) scale(0.95);
-  transition: opacity 300ms var(--ease-mac), transform 400ms var(--ease-spring),
+  box-shadow: 0 6px 20px rgba(23,24,28,0.14);
+  /* 从中心弹出到轨道位置 */
+  opacity: 0; transform: translate(-50%, -50%) scale(0);
+  transition: opacity 300ms var(--ease-mac), transform 550ms var(--ease-spring),
               background var(--t-hover) var(--ease-mac), border-color var(--t-hover) var(--ease-mac),
               box-shadow var(--t-hover) var(--ease-mac);
-  transition-delay: calc(var(--i) * 45ms), calc(var(--i) * 45ms), 0ms, 0ms, 0ms;
+  transition-delay: calc(var(--i) * 60ms), calc(var(--i) * 60ms), 0ms, 0ms, 0ms;
+  /* 轨道漂浮 */
+  animation: orbitBob 3s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.5s);
+  animation-play-state: paused;
 }
-.fan-menu.open .fan-item { opacity: 1; transform: translateY(0) scale(1); }
+.fan-menu.open .fan-item {
+  opacity: 1;
+  transform: translate(-50%, -50%) translate(var(--ox), var(--oy)) scale(1);
+  animation-play-state: running;
+}
 .fan-item:hover {
-  transform: scale(1.08);
-  background: rgba(255,255,255,0.95);
+  transform: translate(-50%, -50%) translate(var(--ox), var(--oy)) scale(1.22);
+  background: #fff;
   border-color: var(--accent);
-  box-shadow: 0 8px 24px rgba(14,165,233,0.22);
+  box-shadow: 0 10px 28px rgba(14,165,233,0.3);
+  animation-play-state: paused;
+  z-index: 2;
 }
-.fan-item span { font-size: 1.15rem; }
+.fan-item span { font-size: 1.05rem; }
+@keyframes orbitBob {
+  0%, 100% { margin-top: 0; margin-left: 0; }
+  25% { margin-top: -6px; margin-left: 3px; }
+  50% { margin-top: 0; margin-left: 6px; }
+  75% { margin-top: 6px; margin-left: 3px; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .fan-item { transition: opacity 200ms; transform: none; }
-  .fan-menu { transition: opacity 200ms; transform: translate(-50%, -100%); }
+  .fan-item { animation: none; transition: opacity 200ms; }
+  .fan-menu::before { display: none; }
   .genie-dialog { transition: opacity 200ms; transform: none; }
 }
 
