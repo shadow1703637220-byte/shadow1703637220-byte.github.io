@@ -884,16 +884,14 @@
       return fetch(src).then(function (r) { return r.json(); });
     }
     loadData().then(function (data) {
-      var anim = lottie.loadAnimation({ container: el, renderer: 'svg', loop: false, autoplay: false, animationData: data });
-      if (reduceMotion) { anim.goToAndStop(anim.totalFrames - 1, true); return; }
-      var item = el.closest('.contact-item');
-      if (item) item.addEventListener('mouseenter', function () { anim.goToAndPlay(0); });
-      if ('IntersectionObserver' in window) {
+      el.classList.add('lottie-loading');
+      var anim = lottie.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: !reduceMotion, animationData: data });
+      anim.addEventListener('DOMLoaded', function () { el.classList.remove('lottie-loading'); });
+      // 离开视口暂停，进视口继续，省电
+      if ('IntersectionObserver' in window && !reduceMotion) {
         var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (en) {
-            if (en.isIntersecting) { anim.goToAndPlay(0); io.disconnect(); }
-          });
-        }, { threshold: 0.4 });
+          entries.forEach(function (en) { en.isIntersecting ? anim.play() : anim.pause(); });
+        }, { threshold: 0.1 });
         io.observe(el);
       }
     }).catch(function(){ /* 加载失败就留空，不影响点击 */ });
