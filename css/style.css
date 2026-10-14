@@ -772,21 +772,32 @@ footer { padding-bottom: 120px; }
   pointer-events: none;
 }
 .char-design.active { opacity: 1; transform: scale(1); pointer-events: auto; }
-.char-layer {
-  position: absolute; inset: 0;
-  clip-path: inset(0 var(--clip-r) 0 var(--clip-l));
-  cursor: pointer;
-  transition: transform 350ms var(--ease-spring);
-  transform-origin: var(--cx) 50%;
+@media (prefers-reduced-motion: reduce) {
+    .char-layer:hover { transform: none; }
 }
-.char-layer img {
-  width: 100%; height: 100%; object-fit: contain;
+
+/* v35 · 底层完整图 + 悬停弹出放大副本 */
+.char-base {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
   filter: drop-shadow(0 10px 28px rgba(23,24,28,0.22));
   pointer-events: none;
 }
-/* macOS 式：悬停的字流畅放大 */
-.char-layer:hover { transform: scale(1.28); z-index: 2; }
+.char-pop {
+  position: absolute; inset: 0; z-index: 2;
+  clip-path: inset(0 var(--clip-r) 0 var(--clip-l));
+  opacity: 0; transform: scale(1);
+  transform-origin: var(--cx) 50%;
+  transition: opacity 200ms var(--ease-mac), transform 350ms var(--ease-spring);
+  pointer-events: none;
+}
+.char-pop img { width: 100%; height: 100%; object-fit: contain;
+  filter: drop-shadow(0 14px 36px rgba(23,24,28,0.3)); }
+.char-pop.show { opacity: 1; transform: scale(1.35); }
+.char-hot {
+  position: absolute; top: 5%; bottom: 5%; z-index: 3;
+  cursor: pointer;
+}
 @media (prefers-reduced-motion: reduce) {
-  .char-layer { transition: none; }
-  .char-layer:hover { transform: none; }
+  .char-pop { transition: none; }
+  .char-pop.show { transform: none; }
 }
