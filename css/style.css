@@ -1,7 +1,7 @@
 /* v8 · 851 GBai 马克笔体（子集化 woff2，免费商用） */
 @font-face{
   font-family:'AvenMark';
-  src:url('../fonts/aven-mark.woff2') format('woff2');
+  src:url('../fonts/aven-mark-v2.woff2?v=21') format('woff2');
   font-weight:400;font-style:normal;font-display:swap;
 }
 /* ══════════════════════════════════════════
