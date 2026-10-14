@@ -665,3 +665,17 @@ footer { padding-bottom: 120px; }
   .fan-item { animation: none; }
   .genie-dialog { transition: opacity 200ms; transform: none; }
 }
+
+/* ══════════════════════════════════════════
+   v19 · 小黄鸭 + 青蛙 Lottie 容器
+   ══════════════════════════════════════════ */
+.duck-lottie, .frog-lottie { width: 100%; aspect-ratio: 1; pointer-events: none; }
+.duck-lottie svg, .frog-lottie svg { width: 100% !important; height: 100% !important; display: block; }
+.char-frog { right: 12%; top: 50%; width: clamp(110px, 15vw, 190px); }
+/* 睡觉时小黄鸭变暗 */
+.char-typing.sleeping .duck-lottie { filter: brightness(0.7) saturate(0.8); }
+/* 青蛙点击提示 */
+.char-frog { cursor: pointer; }
+@media (prefers-reduced-motion: reduce) {
+  .duck-lottie svg, .frog-lottie svg { animation: none; }
+}

@@ -6,7 +6,7 @@
 <title>Aven溺心海 ・ 个人主页</title>
 <meta name="description" content="Aven溺心海的个人主页：认知提升、深度思考、科技教程。">
 <link rel="preload" href="assets/fonts/aven-mark.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=18">
+<link rel="stylesheet" href="css/style.css?v=19">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -38,50 +38,16 @@
       <!-- 打字小人：平时打字，鼠标碰到就抬头看你+飘问号（可拖动） -->
       <div class="drag char char-typing" id="charTyping" title="点我试试">
         <div class="char-inner">
-          <svg class="face-svg" viewBox="0 0 220 200" aria-hidden="true">
-            <defs>
-              <radialGradient id="faceg" cx="42%" cy="36%" r="78%">
-                <stop offset="0%" stop-color="#FFE661"/><stop offset="100%" stop-color="#FFC93B"/>
-              </radialGradient>
-              <linearGradient id="lidg" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#c6cfdb"/><stop offset="100%" stop-color="#98a3b4"/>
-              </linearGradient>
-            </defs>
-            <circle cx="110" cy="82" r="60" fill="url(#faceg)"/>
-            <g class="eye" data-ex="88" data-ey="78">
-              <ellipse cx="88" cy="78" rx="17" ry="20" fill="#fff"/>
-              <g class="pupil">
-                <circle cx="88" cy="82" r="8.5" fill="#23232e"/>
-                <circle cx="91" cy="79" r="2.6" fill="#fff"/>
-              </g>
-              <path class="closed" d="M74,80 Q88,89 102,80" stroke="#23232e" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-            </g>
-            <g class="eye" data-ex="132" data-ey="78">
-              <ellipse cx="132" cy="78" rx="17" ry="20" fill="#fff"/>
-              <g class="pupil">
-                <circle cx="132" cy="82" r="8.5" fill="#23232e"/>
-                <circle cx="135" cy="79" r="2.6" fill="#fff"/>
-              </g>
-              <path class="closed" d="M118,80 Q132,89 146,80" stroke="#23232e" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-            </g>
-            <rect class="mouth" x="102" y="94" width="16" height="5" rx="2.5" fill="#a07d1c"/>
-            <rect x="56" y="102" width="108" height="72" rx="10" fill="url(#lidg)"/>
-            <rect x="56" y="102" width="108" height="72" rx="10" fill="#fff" opacity=".12"/>
-            <circle cx="110" cy="138" r="7" fill="#eef1f5"/>
-            <g class="hand hand-l"><ellipse cx="84" cy="170" rx="13" ry="10" fill="#FFD93B" stroke="#e0a92e" stroke-width="2"/></g>
-            <g class="hand hand-r"><ellipse cx="136" cy="170" rx="13" ry="10" fill="#FFD93B" stroke="#e0a92e" stroke-width="2"/></g>
-          </svg>
+          <div class="duck-lottie" id="duckLottie" aria-hidden="true"></div>
           <span class="q-bubble" aria-hidden="true">?</span>
           <span class="pet-bubble" aria-hidden="true"></span>
           <span class="pet-zzz" aria-hidden="true">Z<span>z</span><span>z</span></span>
         </div>
       </div>
       <!-- 哭泣小人：平时一直哭，点击一下开心笑（可拖动） -->
-      <div class="drag char char-crying" id="charCrying" title="点我一下试试">
+      <div class="drag char char-frog" id="charCrying" title="点我看看索引">
         <div class="char-inner">
-          <img src="assets/chars/crying.svg" alt="哭泣的小云" draggable="false">
-          <span class="tear" aria-hidden="true">💧</span>
-          <span class="happy-burst" aria-hidden="true">😄</span>
+          <div class="frog-lottie" id="frogLottie" aria-hidden="true"></div>
         </div>
       </div>
       <!-- 名字：每个字都可拖动，平时轻微抖动，双击任意字飞回重组 -->
@@ -277,7 +243,7 @@
       </a>
       <!-- ★ 产品9：把 href="#" 换成你的联盟购买链接 -->
       <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
-        <img src="assets/products/images-4-jpg.svg?v=18" alt="推荐产品9" loading="lazy">
+        <img src="assets/products/images-4-jpg.svg?v=19" alt="推荐产品9" loading="lazy">
       </a>
       <!-- ★ 产品10：把 href="#" 换成你的联盟购买链接 -->
       <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
@@ -305,7 +271,7 @@
       </a>
       <!-- ★ 产品16：把 href="#" 换成你的联盟购买链接 -->
       <a class="product-card reveal" href="#" target="_blank" rel="noopener sponsored">
-        <img src="assets/products/transparent-cryptocurrency-logo-company-logo-yellow-square-whi-yellow-square-with-white-triangle-logo-1710851384446.svg?v=18" alt="推荐产品16" loading="lazy">
+        <img src="assets/products/transparent-cryptocurrency-logo-company-logo-yellow-square-whi-yellow-square-with-white-triangle-logo-1710851384446.svg?v=19" alt="推荐产品16" loading="lazy">
       </a>
     </div>
     <p class="disclosure">说明：部分链接为联盟链接，通过它们购买我可能获得佣金，你的购买价格不变。只推荐我自己认可的东西。</p>
@@ -321,31 +287,31 @@
       <p>有想法、合作，或者只是想打个招呼，都欢迎。</p>
       <div class="contact-grid">
         <a class="contact-item" data-shot="✈️" href="https://t.me/seaOFheart" target="_blank" rel="noopener">
-          <span class="contact-anim" data-path="assets/lottie/telegram.json?v=18"></span>
+          <span class="contact-anim" data-path="assets/lottie/telegram.json?v=19"></span>
           <b>Telegram</b><i>@seaOFheart</i>
         </a>
         <a class="contact-item" data-shot="✈️" href="https://t.me/NIxinhai" target="_blank" rel="noopener">
-          <span class="contact-anim" data-path="assets/lottie/telegram.json?v=18"></span>
+          <span class="contact-anim" data-path="assets/lottie/telegram.json?v=19"></span>
           <b>Telegram 交流群</b><i>@NIxinhai</i>
         </a>
         <a class="contact-item" data-shot="𝕏" href="https://x.com/NIxinhai0" target="_blank" rel="noopener">
-          <span class="contact-anim" data-src="assets/lottie/twitter-a.json?v=18|assets/lottie/twitter-b.json?v=18"></span>
+          <span class="contact-anim" data-src="assets/lottie/twitter-a.json?v=19|assets/lottie/twitter-b.json?v=19"></span>
           <b>X / 推特</b><i>@NIxinhai0</i>
         </a>
         <a class="contact-item" data-shot="📧" href="mailto:shadow1703637220@outlook.com">
-          <span class="contact-anim" data-path="assets/lottie/email.json?v=18"></span>
+          <span class="contact-anim" data-path="assets/lottie/email.json?v=19"></span>
           <b>商务合作邮箱</b><i>点击发邮件</i>
         </a>
         <a class="contact-item" data-shot="🐙" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener">
-          <span class="contact-anim contact-github"><img src="assets/dock/github.svg?v=18" alt="GitHub" draggable="false"></span>
+          <span class="contact-anim contact-github"><img src="assets/dock/github.svg?v=19" alt="GitHub" draggable="false"></span>
           <b>GitHub</b><i>shadow1703637220-byte</i>
         </a>
         <button class="contact-item" data-shot="💬" data-copy="Aven112233" type="button">
-          <span class="contact-anim" data-path="assets/lottie/wechat.json?v=18"></span>
+          <span class="contact-anim" data-path="assets/lottie/wechat.json?v=19"></span>
           <b>合作微信</b><i>Aven112233 · 点我复制</i>
         </button>
         <a class="contact-item" data-shot="🐧" href="https://qm.qq.com/q/YR2vvonx6y" target="_blank" rel="noopener">
-          <span class="contact-anim" data-path="assets/lottie/qq.json?v=18"></span>
+          <span class="contact-anim" data-path="assets/lottie/qq.json?v=19"></span>
           <b>QQ 交流群</b><i>点击加群</i>
         </a>
       </div>
@@ -368,13 +334,13 @@
 <!-- ══════════ macOS 程序坞 ══════════ -->
 <nav id="dock" class="dock" aria-label="程序坞">
   <div class="dock-inner" id="dockInner">
-    <a class="dock-icon" data-tip="📧 发邮件" href="mailto:shadow1703637220@outlook.com"><img src="assets/dock/mail.svg?v=18" alt="邮件" draggable="false"></a>
-    <button class="dock-icon" data-tip="🎵 音乐：点击播放 / 暂停" id="dockMusic" aria-label="音乐播放"><img src="assets/dock/music.svg?v=18" alt="音乐" draggable="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>
-    <button class="dock-icon" data-tip="💬 联系方式" id="dockInfo" aria-label="联系方式"><img src="assets/dock/info.svg?v=18" alt="信息" draggable="false"></button>
+    <a class="dock-icon" data-tip="📧 发邮件" href="mailto:shadow1703637220@outlook.com"><img src="assets/dock/mail.svg?v=19" alt="邮件" draggable="false"></a>
+    <button class="dock-icon" data-tip="🎵 音乐：点击播放 / 暂停" id="dockMusic" aria-label="音乐播放"><img src="assets/dock/music.svg?v=19" alt="音乐" draggable="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <button class="dock-icon" data-tip="💬 联系方式" id="dockInfo" aria-label="联系方式"><img src="assets/dock/info.svg?v=19" alt="信息" draggable="false"></button>
     <a class="dock-icon" data-tip="📚 教程文章" href="blog/post-2.html"><img src="assets/dock/tutorial.svg" alt="教程" draggable="false"></a>
-    <a class="dock-icon" data-tip="GitHub" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener"><img src="assets/dock/github.svg?v=18" alt="GitHub" draggable="false"></a>
-    <a class="dock-icon" data-tip="𝕏" href="https://x.com/NIxinhai0" target="_blank" rel="noopener"><img src="assets/dock/x.svg?v=18" alt="X" draggable="false"></a>
-    <a class="dock-icon" data-tip="▶ YouTube" href="http://www.youtube.com/@NiXinhai" target="_blank" rel="noopener"><img src="assets/dock/youtube.svg?v=18" alt="YouTube" draggable="false"></a>
+    <a class="dock-icon" data-tip="GitHub" href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener"><img src="assets/dock/github.svg?v=19" alt="GitHub" draggable="false"></a>
+    <a class="dock-icon" data-tip="𝕏" href="https://x.com/NIxinhai0" target="_blank" rel="noopener"><img src="assets/dock/x.svg?v=19" alt="X" draggable="false"></a>
+    <a class="dock-icon" data-tip="▶ YouTube" href="http://www.youtube.com/@NiXinhai" target="_blank" rel="noopener"><img src="assets/dock/youtube.svg?v=19" alt="YouTube" draggable="false"></a>
   </div>
 </nav>
 
@@ -409,6 +375,6 @@
 
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.13/lottie.min.js"></script>
-<script src="js/main.js?v=18"></script>
+<script src="js/main.js?v=19"></script>
 </body>
 </html>
