@@ -527,9 +527,9 @@ footer { padding-bottom: 120px; }
 .face-svg .pupil{transition:transform .45s cubic-bezier(.3,.9,.4,1.2),opacity .3s}
 .face-svg .closed{opacity:0;transition:opacity .3s}
 /* 双手交替敲键盘 */
-.face-svg .hand-l{animation:typel .36s ease-in-out infinite}
-.face-svg .hand-r{animation:typel .36s ease-in-out -.18s infinite}
-@keyframes typel{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.face-svg .hand-l{animation:typel .44s ease-in-out infinite}
+.face-svg .hand-r{animation:typel .44s ease-in-out -.22s infinite}
+@keyframes typel{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(-8deg)}}
 /* 好奇/说话时停手看你 */
 .char-typing.look .hand-l,.char-typing.look .hand-r,
 .char-typing.talking .hand-l,.char-typing.talking .hand-r,
