@@ -871,24 +871,27 @@
     });
   });
   // Lottie：无条件循环播放（联系区图标动画是本区核心表现）
-  if (typeof lottie === 'undefined') return;
-  document.querySelectorAll('.contact-anim[data-src]').forEach(function (el) {
-    var src = el.getAttribute('data-src');
-    function loadData() {
-      if (src.indexOf('|') > -1) {
-        var parts = src.split('|');
-        return Promise.all(parts.map(function (p) { return fetch(p).then(function (r) { return r.text(); }); }))
-          .then(function (texts) { return JSON.parse(texts.join('')); });
-      }
-      return fetch(src).then(function (r) { return r.json(); });
-    }
-    loadData().then(function (data) {
-      el.classList.add('lottie-loading');
-      var anim = lottie.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: true, animationData: data });
+  if (typeof lottie === 'undefined' && typeof bodymovin === 'undefined') return;
+  var lottieLib = (typeof lottie !== 'undefined') ? lottie : bodymovin;
+  document.querySelectorAll('.contact-anim').forEach(function (el) {
+    var path = el.getAttribute('data-path');
+    var src = el.getAttribute('data-src'); // twitter 拆分包
+    el.classList.add('lottie-loading');
+    function onReady(anim) {
       anim.addEventListener('DOMLoaded', function () {
         el.classList.remove('lottie-loading');
-        anim.play(); // 双保险：确保播放
+        anim.goToAndPlay(0, true);
       });
-    }).catch(function(){ el.classList.remove('lottie-loading'); });
+    }
+    if (path) {
+      onReady(lottieLib.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: true, path: path }));
+    } else if (src) {
+      var parts = src.split('|');
+      Promise.all(parts.map(function (p) { return fetch(p).then(function (r) { return r.text(); }); }))
+        .then(function (texts) {
+          onReady(lottieLib.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: true,
+            animationData: JSON.parse(texts.join('')) }));
+        }).catch(function(){ el.classList.remove('lottie-loading'); });
+    }
   });
 })();
