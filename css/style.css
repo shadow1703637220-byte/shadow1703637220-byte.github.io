@@ -907,3 +907,7 @@ footer { padding-bottom: 120px; }
 [data-theme="dark"] .dock-hint::after { background: rgba(23,23,29,0.92); border-color: rgba(255,255,255,0.14); }
 [data-theme="dark"] .contact-github img { background: #f4f4f5; border-radius: 14px; }
 [data-theme="dark"] .dock-icon img[src*="github"] { background: #f4f4f5; border-radius: 12px; }
+
+/* v41 · 深色下 WhatsApp / QQ 黑线图标垫浅色底（同 GitHub 处理） */
+[data-theme="dark"] .contact-item[href*="wa.me"] .contact-anim,
+[data-theme="dark"] .contact-item[href*="qm.qq.com"] .contact-anim { background: #f4f4f5; border-radius: 14px; }
