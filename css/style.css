@@ -804,64 +804,9 @@ footer { padding-bottom: 120px; }
 #logoLottie { width: 44px; height: 44px; display: block; }
 #logoLottie svg { width: 100%; height: 100%; }
 
-/* ═══ v39 · 滚动驱动动画（CSS 原生时间线；不支持的浏览器自动退回原 reveal） ═══ */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    /* 1 · 首屏退场：名字随滚动放大淡出 */
-    .char-carousel {
-      animation: v39HeroOut linear both;
-      animation-timeline: scroll(root block);
-      animation-range: 0px 620px;
-    }
-    @keyframes v39HeroOut {
-      to { transform: scale(1.1) translateY(-12px); opacity: 0; }
-    }
-    /* 2 · 分区标题：滑入 + 下划线生长 */
-    .section-title {
-      animation: v39TitleIn linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 60%;
-    }
-    @keyframes v39TitleIn {
-      from { opacity: 0; transform: translateX(-26px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .section-title::after {
-      transform-origin: left center;
-      animation: v39BarGrow linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 70%;
-    }
-    @keyframes v39BarGrow {
-      from { transform: scaleX(0); }
-      to { transform: scaleX(1); }
-    }
-    /* 3 · 卡片入场：随滚动上浮（fill backwards，动画结束交还 hover/reveal 控制） */
-    .product-card, .contact-item {
-      animation: v39CardIn linear backwards;
-      animation-timeline: view();
-      animation-range: entry 0% entry 50%;
-    }
-    .product-card:nth-child(even), .contact-item:nth-child(even) {
-      animation-range: entry 6% entry 56%;
-    }
-    @keyframes v39CardIn {
-      from { opacity: 0; transform: translateY(26px) scale(0.96); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    /* 4 · 关于区头像视差 */
-    .avatar-img {
-      animation: v39AvatarPar linear both;
-      animation-timeline: view();
-      animation-range: cover 0% cover 100%;
-    }
-    @keyframes v39AvatarPar {
-      from { transform: translateY(14px); }
-      to { transform: translateY(-14px); }
-    }
-  }
-}
-
+/* ═══ v42 · 滚动驱动改由 JS 引擎驱动（main.js scrollFX，全浏览器可用） ═══ */
+.section-title::after { transform: scaleX(var(--bar, 1)); transform-origin: left center; }
+.sd-card { transition: none !important; }
 /* ═══ v40 · 深浅双色调 ═══ */
 .theme-toggle { flex: none; align-self: center; width: 38px; height: 38px; border-radius: 50%;
   border: 1px solid var(--border); background: var(--card); font-size: 1rem; line-height: 1;
