@@ -11,7 +11,7 @@
 <meta name="description" content="Aven溺心海的个人主页：轻资产创业者，在努力敲代码中ing……">
 <link rel="preload" href="assets/fonts/aven-mark.woff2" as="font" type="font/woff2" crossorigin>
 <script>(function(){try{var t=localStorage.getItem('aven-theme');if(t!=='dark'&&t!=='light'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='light';}})();</script>
-<link rel="stylesheet" href="css/style.css?v=45">
+<link rel="stylesheet" href="css/style.css?v=46">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -308,10 +308,38 @@
           <span class="contact-anim" data-path="assets/lottie/qq.json?v=25"></span>
           <b>QQ 交流群</b><i>点击加群</i>
         </a>
+        <button class="contact-item coffee-item" id="coffeeCard" data-shot="☕" type="button" aria-haspopup="dialog">
+          <span class="contact-anim" data-path="assets/lottie/coffee.json?v=46"></span>
+          <span class="coffee-texts"><b>请我喝杯咖啡</b><i>喜欢我的内容可以请一杯</i></span>
+        </button>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ══════════ 请我喝杯咖啡 · 收款弹窗 ══════════ -->
+<div class="coffee-modal" id="coffeeModal" hidden role="dialog" aria-modal="true" aria-label="请我喝杯咖啡">
+  <div class="coffee-backdrop" data-close></div>
+  <div class="coffee-panel">
+    <button class="coffee-close" type="button" aria-label="关闭" data-close>✕</button>
+    <div class="coffee-head">
+      <span class="coffee-emoji" aria-hidden="true">☕</span>
+      <h3>请我喝杯咖啡</h3>
+      <p>内容对你有帮助的话，可以请我喝一杯，金额随心，谢谢支持！</p>
+    </div>
+    <div class="coffee-qrs">
+      <figure>
+        <img src="assets/pay/wechat-pay.svg" alt="微信支付收款码（姓名已遮挡）" loading="lazy">
+        <figcaption>微信支付</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pay/alipay-pay.svg" alt="支付宝收款码（姓名已遮挡）" loading="lazy">
+        <figcaption>支付宝</figcaption>
+      </figure>
+    </div>
+    <p class="coffee-note">自愿打赏 · 无商品或服务交换 · 请勿备注个人信息</p>
+  </div>
+</div>
 
 <footer>
   <div class="container">© <span id="year"></span> Aven溺心海 ・ 用热爱搭建</div>
@@ -374,6 +402,6 @@
 
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.13/lottie.min.js"></script>
-<script src="js/main.js?v=42"></script>
+<script src="js/main.js?v=46"></script>
 </body>
 </html>
