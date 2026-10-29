@@ -859,9 +859,9 @@ footer { padding-bottom: 120px; }
 
 /* v43 · 查看更多卡（教程文章区末尾） */
 .view-more { flex-direction: column; gap: 8px; text-decoration: none;
-  background: linear-gradient(135deg, rgba(56,189,248,0.12), rgba(167,139,250,0.12));
-  border: 1.5px dashed rgba(14,165,233,0.45); }
+  background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(167,139,250,0.22)), var(--card);
+  border: 2px dashed rgba(14,165,233,0.6); }
 .view-more .vm-emoji { font-size: 40px; line-height: 1; }
 .view-more .vm-text { font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: 2px; }
 .view-more .vm-sub { font-size: 12.5px; color: var(--muted); }
-[data-theme="dark"] .view-more { background: linear-gradient(135deg, rgba(56,189,248,0.16), rgba(167,139,250,0.16)); }
+[data-theme="dark"] .view-more { background: linear-gradient(135deg, rgba(56,189,248,0.25), rgba(167,139,250,0.25)), var(--card); }
