@@ -856,3 +856,12 @@ footer { padding-bottom: 120px; }
 /* v41 · 深色下 WhatsApp / QQ 黑线图标垫浅色底（同 GitHub 处理） */
 [data-theme="dark"] .contact-item[href*="wa.me"] .contact-anim,
 [data-theme="dark"] .contact-item[href*="qm.qq.com"] .contact-anim { background: #f4f4f5; border-radius: 14px; }
+
+/* v43 · 查看更多卡（教程文章区末尾） */
+.view-more { flex-direction: column; gap: 8px; text-decoration: none;
+  background: linear-gradient(135deg, rgba(56,189,248,0.12), rgba(167,139,250,0.12));
+  border: 1.5px dashed rgba(14,165,233,0.45); }
+.view-more .vm-emoji { font-size: 40px; line-height: 1; }
+.view-more .vm-text { font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: 2px; }
+.view-more .vm-sub { font-size: 12.5px; color: var(--muted); }
+[data-theme="dark"] .view-more { background: linear-gradient(135deg, rgba(56,189,248,0.16), rgba(167,139,250,0.16)); }
