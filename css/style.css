@@ -878,3 +878,28 @@ footer { padding-bottom: 120px; }
   .view-more .vm-text { font-size: 19px; }
   .view-more .vm-arrow { width: 36px; height: 36px; font-size: 16px; }
 }
+
+/* ═══ v46 · 请我喝杯咖啡卡 + 收款弹窗 ═══ */
+.coffee-texts { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+[data-theme="dark"] .coffee-item .contact-anim { background: #f4f4f5; border-radius: 14px; }
+@media (max-width: 640px) {
+  .coffee-item { grid-column: 1 / -1; flex-direction: row; justify-content: center; gap: 14px; }
+  .coffee-item .contact-anim { width: 52px; height: 52px; flex: none; }
+  .coffee-texts { align-items: flex-start; }
+}
+.coffee-modal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; }
+.coffee-modal[hidden] { display: none; }
+.coffee-backdrop { position: absolute; inset: 0; background: rgba(10,12,20,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.coffee-panel { position: relative; width: min(520px, 92vw); max-height: 88vh; overflow: auto; background: var(--card); color: var(--text); border: 1px solid var(--border); border-radius: 22px; padding: 26px 24px 18px; text-align: center; box-shadow: 0 24px 60px rgba(2,8,23,0.35); animation: coffeePop 0.25s ease; }
+@keyframes coffeePop { from { transform: scale(0.94) translateY(8px); opacity: 0; } }
+.coffee-close { position: absolute; top: 10px; right: 12px; width: 34px; height: 34px; border: none; border-radius: 50%; background: transparent; color: var(--muted); font-size: 16px; cursor: pointer; }
+.coffee-close:hover { background: rgba(127,127,127,0.15); color: var(--text); }
+.coffee-emoji { font-size: 34px; line-height: 1; }
+.coffee-head h3 { margin: 6px 0 4px; font-size: 1.25rem; }
+.coffee-head p { margin: 0; font-size: 0.88rem; color: var(--muted); }
+.coffee-qrs { display: flex; gap: 16px; justify-content: center; margin-top: 18px; }
+.coffee-qrs figure { margin: 0; flex: 1; max-width: 200px; }
+.coffee-qrs img { width: 100%; height: auto; display: block; border-radius: 14px; }
+.coffee-qrs figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--muted); }
+.coffee-note { margin: 16px 0 2px; font-size: 0.75rem; color: var(--muted); }
+@media (max-width: 480px) { .coffee-qrs { flex-direction: column; align-items: center; } .coffee-qrs figure { width: 200px; max-width: 200px; } }
