@@ -1110,3 +1110,84 @@
     sync();
   });
 })();
+
+/* ═══ v42 · JS 滚动驱动引擎（全浏览器）：卡片从四周向中心靠拢、滑走再向四周收拢 ═══ */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var hero = document.querySelector('.char-carousel');
+  var titles = Array.prototype.slice.call(document.querySelectorAll('.section-title'));
+  var avatar = document.querySelector('.avatar-img');
+  var grids = [];
+  document.querySelectorAll('.product-grid, .contact-grid, .blog-list').forEach(function (g) {
+    var cards = Array.prototype.slice.call(g.children);
+    cards.forEach(function (c) { c.classList.add('visible'); c._tx = 0; c._ty = 0; c._sd = false; });
+    if (cards.length) grids.push({ el: g, cards: cards });
+  });
+  if (!hero && !titles.length && !avatar && !grids.length) return;
+
+  function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function smooth(p) { return p * p * (3 - 2 * p); }
+  var queued = false, lastY = -1;
+
+  function update() {
+    queued = false;
+    var y = window.scrollY || window.pageYOffset;
+    if (y === lastY) return;
+    lastY = y;
+    var vh = window.innerHeight;
+    /* 首屏名字退场：滚完约一屏退完 */
+    if (hero) {
+      var hp = clamp01(y / (vh * 0.95));
+      hero.style.transform = 'scale(' + (1 + 0.12 * hp).toFixed(3) + ') translateY(' + (-16 * hp).toFixed(1) + 'px)';
+      hero.style.opacity = String(1 - hp);
+    }
+    /* 分区标题：滑入 + 下划线生长（--bar 驱动 CSS） */
+    for (var i = 0; i < titles.length; i++) {
+      var t = titles[i], tr = t.getBoundingClientRect();
+      if (tr.bottom < -80 || tr.top > vh + 80) continue;
+      var tp = clamp01((vh * 0.94 - tr.top) / (vh * 0.38));
+      t.style.transform = 'translateX(' + (-26 * (1 - tp)).toFixed(1) + 'px)';
+      t.style.opacity = String(0.3 + 0.7 * tp);
+      t.style.setProperty('--bar', tp.toFixed(3));
+    }
+    /* 关于头像视差 */
+    if (avatar) {
+      var ar = avatar.getBoundingClientRect();
+      if (ar.bottom > -80 && ar.top < vh + 80) {
+        var ap = clamp01((vh - ar.top) / (vh + ar.height));
+        avatar.style.transform = 'translateY(' + (16 - 32 * ap).toFixed(1) + 'px)';
+      }
+    }
+    /* 卡片靠拢 / 收拢：以视口焦点带为进度，方向 = 卡片相对网格中心的方向 */
+    var focalY = vh * 0.55;
+    grids.forEach(function (g) {
+      var gr = g.el.getBoundingClientRect();
+      if (gr.bottom < -240 || gr.top > vh + 240) return;
+      var gx = gr.left + gr.width / 2, gy = gr.top + gr.height / 2;
+      g.cards.forEach(function (c) {
+        var cr = c.getBoundingClientRect();
+        var cx = cr.left + cr.width / 2 - (c._tx || 0);
+        var cy = cr.top + cr.height / 2 - (c._ty || 0);
+        var p = smooth(clamp01(1 - Math.abs(cy - focalY) / (vh * 0.8)));
+        if (p >= 0.999) {
+          if (c._sd) { c.style.transform = ''; c.style.opacity = ''; c.classList.remove('sd-card'); c._sd = false; c._tx = 0; c._ty = 0; }
+          return;
+        }
+        if (!c._sd) { c.classList.add('sd-card'); c._sd = true; }
+        var dx = cx - gx, dy = cy - gy;
+        var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        var mag = Math.min(dist * 0.45, 130) * (1 - p);
+        var tx = dx / dist * mag, ty = dy / dist * mag;
+        c._tx = tx; c._ty = ty;
+        c.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) scale(' + (1 - 0.07 * (1 - p)).toFixed(3) + ')';
+        c.style.opacity = String(0.3 + 0.7 * p);
+      });
+    });
+  }
+  function onScroll() { if (!queued) { queued = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () { lastY = -1; onScroll(); });
+  window.addEventListener('load', function () { lastY = -1; onScroll(); });
+  onScroll();
+  setTimeout(function () { lastY = -1; onScroll(); }, 1200);
+})();
