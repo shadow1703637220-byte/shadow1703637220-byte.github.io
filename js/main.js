@@ -1094,3 +1094,19 @@
     path: 'assets/lottie/scroll-top.json?v=37'
   });
 })();
+
+/* v40 · 深浅色切换（初始主题由 <head> 内联脚本在渲染前定好，这里只管按钮） */
+(function () {
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  function sync() { btn.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙'; }
+  sync();
+  btn.addEventListener('click', function () {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('aven-theme', next); } catch (e) {}
+    document.documentElement.classList.add('theme-fade');
+    setTimeout(function () { document.documentElement.classList.remove('theme-fade'); }, 480);
+    sync();
+  });
+})();
