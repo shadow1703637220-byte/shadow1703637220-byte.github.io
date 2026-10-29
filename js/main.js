@@ -1191,3 +1191,24 @@
   onScroll();
   setTimeout(function () { lastY = -1; onScroll(); }, 1200);
 })();
+
+/* ═══ v46 · 请我喝杯咖啡：收款弹窗开关 ═══ */
+(function () {
+  var card = document.getElementById('coffeeCard');
+  var modal = document.getElementById('coffeeModal');
+  if (!card || !modal) return;
+  function open() {
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var btn = modal.querySelector('.coffee-close');
+    if (btn) btn.focus();
+  }
+  function close() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    card.focus();
+  }
+  card.addEventListener('click', open);
+  modal.addEventListener('click', function (e) { if (e.target.closest('[data-close]')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
+})();
