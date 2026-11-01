@@ -903,3 +903,15 @@ footer { padding-bottom: 120px; }
 .coffee-qrs figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--muted); }
 .coffee-note { margin: 16px 0 2px; font-size: 0.75rem; color: var(--muted); }
 @media (max-width: 480px) { .coffee-qrs { flex-direction: column; align-items: center; } .coffee-qrs figure { width: 200px; max-width: 200px; } }
+
+/* ── v47 · 近况 Now + 关于时间线 ── */
+.now-list { list-style: none; display: grid; gap: 22px; }
+.now-list li { display: flex; gap: 16px; align-items: flex-start; }
+.now-emoji { flex: none; width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; background: rgba(14, 165, 233, 0.08); border: 1px solid var(--border); }
+.now-list b { display: block; font-size: 1.02rem; margin-bottom: 3px; }
+.now-list p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+.timeline { margin-top: 30px; border-left: 2px solid rgba(14, 165, 233, 0.25); padding-left: 24px; display: grid; gap: 20px; }
+.tl-item { position: relative; }
+.tl-item::before { content: ""; position: absolute; left: -30px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15); }
+.tl-year { font-weight: 800; color: var(--accent); font-size: 0.85rem; letter-spacing: 2px; }
+.tl-item p { color: var(--muted); margin-top: 3px; line-height: 1.65; }
