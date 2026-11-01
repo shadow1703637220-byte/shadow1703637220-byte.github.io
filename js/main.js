@@ -727,11 +727,11 @@
 
 /* ═══════════ v8 · 全局背景墙：滚动 crossfade，无分割线 ═══════════ */
 (function(){
-  var ORDER = ['home','about','projects','blog','picks','contact'];
+  var ORDER = ['home','about','projects','blog','picks','now','contact'];
   var SRC = {
     home:'assets/bg/bg-hero.webp', about:'assets/bg/bg-about.webp',
     projects:'assets/bg/bg-works.webp', blog:'assets/bg/bg-blog.webp',
-    picks:'assets/bg/bg-picks.webp', contact:'assets/bg/bg-contact.webp'
+    picks:'assets/bg/bg-picks.webp', now:'assets/bg/bg-picks.webp', contact:'assets/bg/bg-contact.webp'
   };
   var wall = document.createElement('div');
   wall.id = 'bgwall'; wall.setAttribute('aria-hidden','true');
