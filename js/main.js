@@ -1271,6 +1271,9 @@
 
   /* ── 滚动 FX：撕裂退场 + 散词视差 + 章节巨字 ── */
   var devour = document.getElementById('heroDevour');
+  var heroNight = document.getElementById('heroNight');
+  var aboutSec = document.getElementById('about');
+  var aboutNight = document.getElementById('aboutNight');
   var aurora = hero ? hero.querySelector('.aurora') : null;
   var gws = Array.prototype.slice.call(document.querySelectorAll('.gw'));
   var gwRot = gws.map(function (el) { return getComputedStyle(el).getPropertyValue('--r') || '0deg'; });
@@ -1290,10 +1293,24 @@
         devour.style.transform = 'translateY(' + ty.toFixed(2) + '%)';
       }
       if (aurora && !RM) aurora.style.transform = 'scale(' + (1 + p * 0.14).toFixed(3) + ')';
+      /* v49 · 昼→夜：滚过首屏 12% 后同一片天原地入夜（录屏里 bdoan 的做法） */
+      var nIn = Math.max(0, Math.min((p - 0.12) / 0.8, 1));
+      if (heroNight) heroNight.style.opacity = nIn.toFixed(3);
+      hero.style.setProperty('--night', nIn.toFixed(3));
       if (!RM) gws.forEach(function (el, i) {
         var sp = parseFloat(el.getAttribute('data-speed') || '0');
         el.style.transform = 'translateY(' + (p * sp).toFixed(1) + 'px) rotate(' + gwRot[i] + ')';
       });
+    }
+    if (aboutSec && aboutNight) {
+      /* v49 · 夜色延续到关于区：滚入时全夜，滚出末尾渐回白昼 */
+      var ar = aboutSec.getBoundingClientRect();
+      var vhA = window.innerHeight;
+      var aIn = Math.max(0, Math.min((vhA * 0.9 - ar.top) / (vhA * 0.5), 1));
+      var aOut = Math.max(0, Math.min((ar.bottom - vhA * 0.15) / (vhA * 0.7), 1));
+      var aNight = Math.min(aIn, aOut);
+      aboutNight.style.opacity = aNight.toFixed(3);
+      aboutSec.style.setProperty('--night', aNight.toFixed(3));
     }
     if (picks && giantWord && !RM) {
       var rect = picks.getBoundingClientRect();
@@ -1311,8 +1328,10 @@
   if (hero && 'IntersectionObserver' in window) {
     new IntersectionObserver(function (en) { heroVisible = en[0].isIntersecting; }, { threshold: 0 }).observe(hero);
   }
+  var rbDraw = null;
   function loop() {
     scrollFx();
+    if (rbDraw) rbDraw(performance.now());
     if (heroVisible && wfSpans.length && !RM) {
       var now = Date.now();
       if (now - spot.lastPointer > 3500) {           // 闲置：光点自己游走
@@ -1498,5 +1517,54 @@
         setTimeout(function () { it.classList.remove('settle'); }, 620);
       });
     });
+  }
+
+  /* ── v49 · 彩虹笔触（bdoan 录屏）：鼠标在首屏划过拉出彩虹带，停下约 1.1 秒淡尽 ── */
+  var rbCanvas = document.getElementById('rainbowCanvas');
+  if (hero && rbCanvas && !RM && window.matchMedia('(pointer: fine)').matches) {
+    var rctx = rbCanvas.getContext('2d');
+    var rbPts = [], rbHue = 0, rbW = 0, rbH = 0;
+    function rbSize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      rbW = hero.clientWidth; rbH = hero.clientHeight;
+      rbCanvas.width = Math.round(rbW * dpr); rbCanvas.height = Math.round(rbH * dpr);
+      rctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    rbSize();
+    window.addEventListener('resize', rbSize);
+    hero.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      var r = hero.getBoundingClientRect();
+      var x = e.clientX - r.left, y = e.clientY - r.top;
+      var last = rbPts[rbPts.length - 1];
+      if (last && Math.hypot(x - last.x, y - last.y) < 7) return;
+      rbPts.push({ x: x, y: y, t: performance.now(), h: rbHue });
+      rbHue = (rbHue + 7) % 360;
+      if (rbPts.length > 80) rbPts.splice(0, rbPts.length - 80);
+    }, { passive: true });
+    var rbBands = [-16, -8, 0, 8, 16];
+    rbDraw = function (now) {
+      while (rbPts.length && now - rbPts[0].t > 1150) rbPts.shift();
+      rctx.clearRect(0, 0, rbW, rbH);
+      if (!heroVisible || rbPts.length < 2) return;
+      rctx.lineCap = 'round';
+      rctx.lineJoin = 'round';
+      for (var b = 0; b < rbBands.length; b++) {
+        rctx.lineWidth = 8;
+        for (var i = 1; i < rbPts.length; i++) {
+          var p0 = rbPts[i - 1], p1 = rbPts[i];
+          var age = (now - p1.t) / 1150;
+          if (age >= 1) continue;
+          var dx = p1.x - p0.x, dy = p1.y - p0.y;
+          var len = Math.hypot(dx, dy) || 1;
+          var nx = -dy / len * rbBands[b], ny = dx / len * rbBands[b];
+          rctx.strokeStyle = 'hsla(' + ((p1.h + b * 14) % 360) + ', 95%, 62%, ' + (0.32 * (1 - age)).toFixed(3) + ')';
+          rctx.beginPath();
+          rctx.moveTo(p0.x + nx, p0.y + ny);
+          rctx.lineTo(p1.x + nx, p1.y + ny);
+          rctx.stroke();
+        }
+      }
+    };
   }
 })();
