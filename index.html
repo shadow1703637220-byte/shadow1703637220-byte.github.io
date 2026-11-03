@@ -11,7 +11,7 @@
 <meta name="description" content="Aven溺心海的个人主页：20 岁学生创作者，X 双号约 6,500 粉，靠 AI 结对编程独立做小程序、开源工具和这个网站。">
 <link rel="preload" href="assets/fonts/aven-mark.woff2" as="font" type="font/woff2" crossorigin>
 <script>(function(){try{var t=localStorage.getItem('aven-theme');if(t!=='dark'&&t!=='light'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='light';}})();</script>
-<link rel="stylesheet" href="css/style.css?v=48">
+<link rel="stylesheet" href="css/style.css?v=49">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -42,11 +42,15 @@
 <!-- ══════════ 首页 ・ 互动场景 ══════════ -->
 <header id="home" class="hero hero-scene">
   <div class="aurora" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+  <!-- v49 · 夜空层：向下滚动时首屏背景原地由昼转夜（星空+月亮），JS 按滚动驱动透明度 -->
+  <div class="sky-night" id="heroNight" aria-hidden="true"><i class="moon"></i></div>
   <!-- v48 · 词场探照灯：灰词铺底，指针/手指所到之处变黑加粗（JS 生成双层） -->
   <div class="word-field" id="wordField" aria-hidden="true">
     <div class="wf-layer wf-base" id="wfBase"></div>
     <div class="wf-layer wf-spot" id="wfSpot"></div>
   </div>
+  <!-- v49 · 彩虹笔触画布：鼠标在首屏划过时拉出彩虹带，停下后淡去（JS 驱动） -->
+  <canvas class="rainbow-trail" id="rainbowCanvas" aria-hidden="true"></canvas>
   <div class="scene" id="scene">
     <div class="scene-inner" id="sceneInner">
       <!-- 打字小人：平时打字，鼠标碰到就抬头看你+飘问号（可拖动） -->
@@ -123,16 +127,14 @@
     <span class="htag ht-bl">CN · UTC+08:00</span>
     <span class="htag ht-br">SCROLL — 001</span>
   </div>
-  <!-- v48 · 退场撕裂：黑色波浪边自下而上吞没首屏（JS 按滚动驱动） -->
-  <div class="hero-devour" id="heroDevour" aria-hidden="true">
-    <svg class="devour-wave" viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 L0,58 Q110,18 250,46 Q360,66 470,34 Q590,6 720,40 Q850,70 970,30 Q1090,4 1210,44 Q1330,68 1440,36 L1440,90 Z"/></svg>
-    <svg class="devour-wave w2" viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 L0,70 L90,52 L170,74 L300,44 L420,70 L560,40 L700,66 L830,38 L960,64 L1090,42 L1230,68 L1350,48 L1440,62 L1440,90 Z"/></svg>
-  </div>
+  <!-- v49 · 原 v48 黑波浪退场已撤：按 bdoan 录屏实证，退场改为背景原地昼→夜渐变（见 .sky-night） -->
   <a class="scroll-hint" href="#about">向下滚动 ↓</a>
 </header>
 
 <!-- ══════════ 关于我 ══════════ -->
 <section id="about" class="section">
+  <!-- v49 · 夜空层（与首屏同一片天）：滚进关于区时保持夜色，滚出时渐回白昼 -->
+  <div class="sky-night" id="aboutNight" aria-hidden="true"><i class="moon"></i></div>
   <div class="container">
     <p class="kicker">01 ・ Profile</p>
     <h2 class="section-title">关于我</h2>
@@ -595,6 +597,6 @@
 
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.13/lottie.min.js"></script>
-<script src="js/main.js?v=48"></script>
+<script src="js/main.js?v=49"></script>
 </body>
 </html>
