@@ -11,7 +11,7 @@
 <meta name="description" content="Aven溺心海的个人主页：20 岁学生创作者，X 双号约 6,500 粉，靠 AI 结对编程独立做小程序、开源工具和这个网站。">
 <link rel="preload" href="assets/fonts/aven-mark.woff2" as="font" type="font/woff2" crossorigin>
 <script>(function(){try{var t=localStorage.getItem('aven-theme');if(t!=='dark'&&t!=='light'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='light';}})();</script>
-<link rel="stylesheet" href="css/style.css?v=47">
+<link rel="stylesheet" href="css/style.css?v=48">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -31,8 +31,10 @@
       <a href="#blog">博客</a>
       <a href="#picks">教程</a>
       <a href="#now">近况</a>
+      <a href="#index">索引</a>
       <a href="#contact">联系</a>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换深浅色">🌙</button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="打开菜单" aria-haspopup="true" aria-expanded="false"><span class="menu-btn-bars" aria-hidden="true"><i></i><i></i></span><span class="menu-btn-text">菜单</span></button>
     </div>
   </div>
 </nav>
@@ -40,6 +42,11 @@
 <!-- ══════════ 首页 ・ 互动场景 ══════════ -->
 <header id="home" class="hero hero-scene">
   <div class="aurora" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+  <!-- v48 · 词场探照灯：灰词铺底，指针/手指所到之处变黑加粗（JS 生成双层） -->
+  <div class="word-field" id="wordField" aria-hidden="true">
+    <div class="wf-layer wf-base" id="wfBase"></div>
+    <div class="wf-layer wf-spot" id="wfSpot"></div>
+  </div>
   <div class="scene" id="scene">
     <div class="scene-inner" id="sceneInner">
       <!-- 打字小人：平时打字，鼠标碰到就抬头看你+飘问号（可拖动） -->
@@ -101,6 +108,26 @@
 
     </div>
   </div>
+  <!-- v48 · 首屏散词（不用居中标题，五词散落在画面各处） -->
+  <div class="giant-words" aria-hidden="true">
+    <span class="gw" data-speed="26" style="--x:3.5%;--y:11%;--r:-6deg;--s:clamp(58px,9vw,118px)">折腾<em>TINKER</em></span>
+    <span class="gw gw-accent" data-speed="-18" style="--x:79%;--y:13%;--r:4deg;--s:clamp(58px,9vw,118px)">造物<em>BUILD</em></span>
+    <span class="gw" data-speed="14" style="--x:5%;--y:66%;--r:3deg;--s:clamp(42px,6.5vw,84px)">分享<em>SHARE</em></span>
+    <span class="gw" data-speed="-30" style="--x:82%;--y:58%;--r:-4deg;--s:clamp(42px,6.5vw,84px)">投资<em>INVEST</em></span>
+    <span class="gw gw-fade" data-speed="20" style="--x:64%;--y:84%;--r:2deg;--s:clamp(50px,8vw,104px)">永生<em>FOREVER</em></span>
+  </div>
+  <!-- v48 · 首屏四角编辑风小标签 -->
+  <div class="hero-tags" aria-hidden="true">
+    <span class="htag ht-tl">AVEN.NIXINHAI.TOP</span>
+    <span class="htag ht-tr">EST. 2026</span>
+    <span class="htag ht-bl">CN · UTC+08:00</span>
+    <span class="htag ht-br">SCROLL — 001</span>
+  </div>
+  <!-- v48 · 退场撕裂：黑色波浪边自下而上吞没首屏（JS 按滚动驱动） -->
+  <div class="hero-devour" id="heroDevour" aria-hidden="true">
+    <svg class="devour-wave" viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 L0,58 Q110,18 250,46 Q360,66 470,34 Q590,6 720,40 Q850,70 970,30 Q1090,4 1210,44 Q1330,68 1440,36 L1440,90 Z"/></svg>
+    <svg class="devour-wave w2" viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,90 L0,70 L90,52 L170,74 L300,44 L420,70 L560,40 L700,66 L830,38 L960,64 L1090,42 L1230,68 L1350,48 L1440,62 L1440,90 Z"/></svg>
+  </div>
   <a class="scroll-hint" href="#about">向下滚动 ↓</a>
 </header>
 
@@ -125,6 +152,19 @@
 
       </div>
     </div>
+    <!-- v48 · 撕纸拼贴：主图悬停/触摸会被「搅动」，兴趣小卡散布倾斜 -->
+    <div class="collage reveal" id="collage">
+      <figure class="collage-photo" id="collagePhoto">
+        <img src="assets/banner/char-pack/full-2.webp?v=36" alt="Aven溺心海 名字设计稿" loading="lazy" draggable="false">
+        <figcaption>STIR ME · 摸我试试</figcaption>
+      </figure>
+      <span class="chip" style="--cx:6%;--cy:8%;--cr:-8deg">🏍️ 倒腾机车</span>
+      <span class="chip" style="--cx:64%;--cy:2%;--cr:6deg">☕ 咖啡续命</span>
+      <span class="chip" style="--cx:80%;--cy:34%;--cr:-5deg">📖 写小说</span>
+      <span class="chip" style="--cx:2%;--cy:58%;--cr:5deg">🏋️ 健身</span>
+      <span class="chip" style="--cx:70%;--cy:78%;--cr:9deg">🎮 游戏</span>
+      <span class="chip" style="--cx:26%;--cy:86%;--cr:-7deg">🌍 数字游民梦</span>
+    </div>
     <div class="timeline reveal">
       <div class="tl-item">
         <span class="tl-year">起步</span>
@@ -136,7 +176,7 @@
       </div>
       <div class="tl-item">
         <span class="tl-year">2026</span>
-        <p><b>开始独立做产品</b> · 发布开源工具「Token 管理器」；小程序「多啦百宝工具」做到 31 个工具；个人站迭代到 v47</p>
+        <p><b>开始独立做产品</b> · 发布开源工具「Token 管理器」；小程序「多啦百宝工具」做到 31 个工具；个人站迭代到 v48</p>
       </div>
       <div class="tl-item">
         <span class="tl-year">2026.11</span>
@@ -191,6 +231,8 @@
 
 <!-- ══════════ 教程文章 ══════════ -->
 <section id="picks" class="section">
+  <!-- v48 · 背景巨字：随滚动放大直至字母被挤出画面（JS 驱动） -->
+  <div class="giant-wrap" aria-hidden="true"><div class="giant-word" id="giantWord">TUTORIALS</div></div>
   <div class="container">
     <p class="kicker">04 ・ Tutorials</p>
     <h2 class="section-title">教程文章</h2>
@@ -315,10 +357,49 @@
   </div>
 </section>
 
+<!-- ══════════ 索引 / Index（v48 新增） ══════════ -->
+<section id="index" class="section index-section">
+  <div class="container">
+    <p class="kicker">06 ・ Index</p>
+    <h2 class="section-title">索引</h2>
+    <p class="section-sub">INDEX / EXPLORE FURTHER — 把鼠标放上去看看，或者直接点一行跳过去。</p>
+    <nav class="index-list" aria-label="站点索引">
+      <a class="index-row" href="#home">
+        <span class="ir-no">01</span><span class="ir-name">首页</span><span class="ir-en">HOME</span><span class="ir-arrow" aria-hidden="true">→</span>
+        <span class="ir-polaroid" aria-hidden="true"><img src="assets/banner/char-pack/full-1.webp?v=36" alt="" loading="lazy"><i>首屏 · 名字鱼眼</i></span>
+      </a>
+      <a class="index-row" href="#about">
+        <span class="ir-no">02</span><span class="ir-name">关于</span><span class="ir-en">ABOUT</span><span class="ir-arrow" aria-hidden="true">→</span>
+        <span class="ir-polaroid" aria-hidden="true"><img src="assets/avatar.svg?v=25" alt="" loading="lazy"><i>关于我 · 时间线</i></span>
+      </a>
+      <a class="index-row" href="#projects">
+        <span class="ir-no">03</span><span class="ir-name">作品</span><span class="ir-en">WORKS</span><span class="ir-arrow" aria-hidden="true">→</span>
+        <span class="ir-polaroid" aria-hidden="true"><img src="assets/banner/char-pack/full-3.webp?v=36" alt="" loading="lazy"><i>作品 · 筹备中</i></span>
+      </a>
+      <a class="index-row" href="#blog">
+        <span class="ir-no">04</span><span class="ir-name">博客</span><span class="ir-en">BLOG</span><span class="ir-arrow" aria-hidden="true">→</span>
+        <span class="ir-polaroid" aria-hidden="true"><img src="assets/chars/typing.svg" alt="" loading="lazy"><i>博客 · 记录思考</i></span>
+      </a>
+      <a class="index-row" href="#picks">
+        <span class="ir-no">05</span><span class="ir-name">教程</span><span class="ir-en">TUTORIALS</span><span class="ir-arrow" aria-hidden="true">→</span>
+        <span class="ir-polaroid" aria-hidden="true"><img src="assets/products/download-jpg.svg" alt="" loading="lazy"><i>教程 · ZA Bank 开户</i></span>
+      </a>
+      <a class="index-row" href="#now">
+        <span class="ir-no">06</span><span class="ir-name">近况</span><span class="ir-en">NOW</span><span class="ir-arrow" aria-hidden="true">→</span>
+        <span class="ir-polaroid" aria-hidden="true"><img src="assets/chars/crying.svg" alt="" loading="lazy"><i>近况 · 正在进行</i></span>
+      </a>
+      <a class="index-row" href="#contact">
+        <span class="ir-no">07</span><span class="ir-name">联系</span><span class="ir-en">CONTACT</span><span class="ir-arrow" aria-hidden="true">→</span>
+        <span class="ir-polaroid" aria-hidden="true"><img src="assets/telegram-qr.svg" alt="" loading="lazy"><i>联系 · Telegram</i></span>
+      </a>
+    </nav>
+  </div>
+</section>
+
 <!-- ══════════ 联系我 ══════════ -->
 <section id="contact" class="section">
   <div class="container">
-    <p class="kicker">06 ・ Contact</p>
+    <p class="kicker">07 ・ Contact</p>
     <h2 class="section-title">联系我</h2>
     <div class="card contact-card reveal">
       <p>有想法、合作，或者只是想打个招呼，都欢迎。</p>
@@ -389,7 +470,32 @@
 </div>
 
 <footer>
-  <div class="container">© <span id="year"></span> Aven溺心海 ・ 用热爱搭建</div>
+  <div class="container">
+    <!-- v48 · 页脚杂物堆：小物件可以拖着玩，点 tidy up 收好 -->
+    <div class="pile-zone">
+      <div class="pile-head">
+        <span class="pile-title">MY “MAYBE I’LL USE THIS SOMEDAY” PILE</span>
+        <button class="tidy-btn" id="tidyBtn" type="button">tidy up · 收好</button>
+      </div>
+      <div class="pile" id="pile" aria-label="可以拖着玩的小物件">
+        <span class="pile-item" data-rot="-8">☕</span>
+        <span class="pile-item" data-rot="6">🎮</span>
+        <span class="pile-item" data-rot="-4">🚀</span>
+        <span class="pile-item" data-rot="10">📷</span>
+        <span class="pile-item" data-rot="-12">🎧</span>
+        <span class="pile-item" data-rot="5">🪙</span>
+        <span class="pile-item" data-rot="-6">⌨️</span>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <!-- v48 · 看板小脸：眼神会跟着你的指针 -->
+      <span class="mascot" id="mascotFooter" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="29" class="mascot-face"/><g class="mascot-eye"><circle cx="22" cy="29" r="5.5" class="mascot-white"/><circle cx="22" cy="29" r="2.6" class="mascot-pupil"/></g><g class="mascot-eye"><circle cx="42" cy="29" r="5.5" class="mascot-white"/><circle cx="42" cy="29" r="2.6" class="mascot-pupil"/></g><path d="M25 42 Q32 47 39 42" class="mascot-mouth"/></svg>
+      </span>
+      <span class="footer-clock">LOCAL TIME <b data-clock>--:--:--</b> · UTC+08:00</span>
+    </div>
+    <div class="footer-copy">© <span id="year"></span> Aven溺心海 ・ 用热爱搭建</div>
+  </div>
 </footer>
 
 <!-- ★ 项目悬停预览弹窗（跟随鼠标，JS 驱动） -->
@@ -447,8 +553,48 @@
   <div class="astro-hint" aria-hidden="true">点我！</div>
 </div>
 
+<!-- ══════════ v48 · 右侧滑出黑色菜单 + 变灰遮罩 + 黑幕转场 ══════════ -->
+<div class="menu-dim" id="menuDim" hidden></div>
+<aside class="side-menu" id="sideMenu" aria-hidden="true" aria-label="站点菜单">
+  <div class="sm-head">
+    <span class="mascot mascot-sm" aria-hidden="true">
+      <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="29" class="mascot-face"/><g class="mascot-eye"><circle cx="22" cy="29" r="5.5" class="mascot-white"/><circle cx="22" cy="29" r="2.6" class="mascot-pupil"/></g><g class="mascot-eye"><circle cx="42" cy="29" r="5.5" class="mascot-white"/><circle cx="42" cy="29" r="2.6" class="mascot-pupil"/></g><path d="M25 42 Q32 47 39 42" class="mascot-mouth"/></svg>
+    </span>
+    <span class="sm-clock">LOCAL TIME<b data-clock>--:--:--</b><i>UTC+08:00</i></span>
+    <button class="sm-close" id="menuClose" type="button" aria-label="关闭菜单">✕</button>
+  </div>
+  <nav class="sm-links">
+    <a href="#home" data-nav><span>01</span>首页<em>HOME</em></a>
+    <a href="#about" data-nav><span>02</span>关于<em>ABOUT</em></a>
+    <a href="#projects" data-nav><span>03</span>作品<em>WORKS</em></a>
+    <a href="#blog" data-nav><span>04</span>博客<em>BLOG</em></a>
+    <a href="#picks" data-nav><span>05</span>教程<em>TUTORIALS</em></a>
+    <a href="#now" data-nav><span>06</span>近况<em>NOW</em></a>
+    <a href="#index" data-nav><span>07</span>索引<em>INDEX</em></a>
+    <a href="#contact" data-nav><span>08</span>联系<em>CONTACT</em></a>
+  </nav>
+  <div class="sm-foot">
+    <a href="https://x.com/NIxinhai0" target="_blank" rel="noopener">X</a>
+    <a href="https://github.com/shadow1703637220-byte" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://t.me/seaOFheart" target="_blank" rel="noopener">Telegram</a>
+    <a href="http://www.youtube.com/@NiXinhai" target="_blank" rel="noopener">YouTube</a>
+  </div>
+  <p class="sm-sign">LET’S MAKE SOMETHING REAL.</p>
+</aside>
+<div class="curtain" id="curtain" aria-hidden="true"><span>AVEN ・ 溺心海</span></div>
+
+<!-- v48 · 搅动滤镜（SVG displacement，JS 驱动 scale） -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="stirFilter" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence id="stirTurb" type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap id="stirDisp" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.13/lottie.min.js"></script>
-<script src="js/main.js?v=47"></script>
+<script src="js/main.js?v=48"></script>
 </body>
 </html>
