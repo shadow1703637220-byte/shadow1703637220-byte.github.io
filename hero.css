@@ -1,0 +1,67 @@
+@font-face { font-family: HeroRound; src: url('/assets/londrina-solid-900.ttf') format('truetype'); font-weight: 900; font-display: swap; }
+@font-face { font-family: HeroChinese; src: url('/assets/zcool-kuaile-hero.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+/* A painted sky moves from starlight into deep indigo as the visitor scrolls. */
+.hero { height: 100svh; max-height: none; min-height: 0; overflow: visible; background: #080f25; color: #f5f2e9; }
+.hero.is-painted { height: 230svh; }
+.hero::after { display: none; }
+.hero-stage { height: 100svh; min-height: 560px; position: sticky; top: 0; overflow: hidden; isolation: isolate; }
+.hero-night, .hero-fallback, .hero-paint { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-night { background: linear-gradient(#080f25e8, #080f25d9 55%, #080f25eb), var(--hero-artwork, url('/assets/hero-starry-wide.png')) center / cover; }
+.hero-fallback { background: #224a86; }
+.hero .hero-portrait { object-position: center; will-change: auto; }
+.hero-static-name { position: absolute; inset: 16% 0 auto; text-align: center; font: 900 clamp(100px, 22vw, 290px)/.9 HeroRound, sans-serif; }
+.hero-static-name span { display: block; margin-top: 12px; font: 400 clamp(58px, 10vw, 140px)/1.25 HeroChinese, 'PingFang SC', sans-serif; }
+.hero-fallback { pointer-events: none; }
+.hero.is-painted .hero-static-name { will-change: transform, opacity; transform-origin: 50% 50%; }
+.hero-night, .hero-portrait { will-change: filter; }
+.hero-galaxy { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; opacity: 0; pointer-events: none; }
+.hero-static-name { z-index: 1; }
+.hero .top-nav { position: absolute; inset: 0 0 auto; z-index: 4; padding: 30px 130px 30px 4%; font-size: 13px; }
+.hero .nav-links { display: flex; gap: 30px; }
+.hero .nav-links a > .button-label { display: inline-flex; }
+.hero .top-nav, .hero-caption, .hero .scroll-cue { text-shadow: 0 1px 10px #080f25, 0 1px 3px #080f25; }
+.hero-caption { position: absolute; inset: auto 4% 16%; display: flex; justify-content: space-between; z-index: 3; font-size: 10px; line-height: 2; letter-spacing: 1.6px; opacity: var(--hero-caption, 1); pointer-events: none; }
+.hero-caption-right { text-align: right; }
+.hero .scroll-cue { position: absolute; left: 4%; right: 4%; bottom: 38px; display: flex; align-items: center; justify-content: center; gap: 18px; z-index: 4; font-size: 10px; letter-spacing: 1.8px; }
+.hero .scroll-cue > span:last-child { font-size: 24px; animation: hero-cue 2s ease-in-out infinite; }
+.hero-progress { display: none; }
+.hero-progress span { display: block; width: 100%; height: 100%; background: #ddd6a6; transform: scaleX(var(--hero-progress, 0)); transform-origin: left; }
+.hero-introduction { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; gap: 7%; width: 77%; max-width: 1200px; margin: auto; visibility: hidden; }
+.hero-introduction-copy { flex: 1; }
+.hero-introduction .eyebrow { color: #a8b8d3; letter-spacing: 2px; margin-bottom: 32px; }
+.hero-introduction h2 { font-family: HeroChinese, 'PingFang SC', sans-serif; font-size: clamp(38px, 4.8vw, 72px); line-height: 1.38; font-weight: 400; margin: 0 0 30px; }
+.hero-heading-line { display: block; overflow: hidden; }
+.hero-heading-line > span { display: block; }
+.hero-introduction h2 strong { font: inherit; color: #ddd6a6; }
+.hero-intro-line { font-size: 15px; line-height: 2; color: #bdc8dc; margin: 0; }
+.hero-about-link { display: inline-flex; align-items: center; gap: 60px; border-bottom: 1px solid #849296; padding: 16px 0; margin-top: 15px; font-size: 13px; }
+.hero-about-link span { font-size: 23px; transition: transform .3s; }
+.hero-about-link:hover span { transform: translate(4px, -4px); }
+.hero-photo { width: 27%; max-width: 290px; margin: 0; rotate: 5deg; padding: 10px 10px 0; background: #e0dfd7; color: #313637; box-shadow: 0 18px 60px #0005; }
+.hero-photo img { width: 100%; aspect-ratio: .85; object-fit: cover; filter: grayscale(1); }
+.hero-photo figcaption { font-size: 9px; letter-spacing: 2px; padding: 16px 8px; }
+.hero:focus { outline: none; }
+@keyframes hero-cue { 50% { transform: translateY(6px); } }
+@media (max-width: 700px) {
+  .hero.is-painted { height: 230svh; }
+  .hero-stage { min-height: 480px; }
+  .hero .top-nav { padding: 30px 6%; }
+  .hero .nav-links { display: none; }
+  .hero-caption { left: 6%; right: 6%; bottom: 18%; font-size: 8px; letter-spacing: 1px; }
+  .hero .scroll-cue { bottom: 30px; font-size: 8px; letter-spacing: 1px; }
+  .hero-introduction { width: 86%; gap: 0; align-items: start; justify-content: center; flex-direction: column; padding: 85px 0 75px; }
+  .hero-introduction-copy { flex: 0; position: relative; z-index: 1; }
+  .hero-introduction .eyebrow { margin-bottom: 24px; font-size: 8px; }
+  .hero-introduction h2 { font-size: clamp(34px, 9.2vw, 48px); margin-bottom: 22px; }
+  .hero-intro-line { font-size: 12px; line-height: 1.85; }
+  .hero-intro-line + .hero-intro-line { max-width: 27em; }
+  .hero-photo { position: absolute; width: 25%; right: 0; top: 22%; padding: 5px 5px 0; }
+  .hero-photo figcaption { padding: 9px 2px; font-size: 6px; letter-spacing: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero, .hero.is-painted { height: 100svh; }
+  .hero-stage { position: relative; }
+  .hero-introduction { display: none; }
+  .hero-progress { display: none; }
+  .hero .scroll-cue > span:last-child { animation: none; }
+}

@@ -1,0 +1,15 @@
+.sound-toggle { position: fixed; right: max(24px, env(safe-area-inset-right)); bottom: max(22px, env(safe-area-inset-bottom)); z-index: 31; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 0 16px; border: 1px solid #ddd6a640; border-radius: 30px; background: #14233fee; color: #ddd6a6; box-shadow: 0 6px 24px #08102424; backdrop-filter: blur(14px); transition: background .2s, border-color .2s; }
+.sound-toggle:hover { background: #203653; border-color: #ddd6a680; }
+.sound-toggle:focus-visible { outline: 2px solid #b7a35d; outline-offset: 4px; }
+.sound-label { font-size: 11px; letter-spacing: 1px; white-space: nowrap; }
+.sound-bars { display: flex; align-items: center; gap: 3px; height: 18px; }
+.sound-bars i { display: block; width: 2px; height: 6px; border-radius: 2px; background: currentColor; transition: height .2s; }
+.sound-bars i:nth-child(2) { height: 16px; }
+.sound-bars i:nth-child(3) { height: 11px; }
+.sound-bars i:nth-child(4) { height: 8px; }
+.sound-toggle[aria-pressed=false] { color: #b5becb; }
+.sound-toggle[aria-pressed=false] .sound-bars i { height: 3px; }
+dialog .sound-toggle { position: absolute; top: 18px; left: 18px; right: auto; bottom: auto; }
+#contact-dialog:has(.sound-toggle) .dialog-content { padding-top: 78px; }
+@media (max-width: 700px) { body > .sound-toggle { right: max(14px, env(safe-area-inset-right)); bottom: calc(78px + env(safe-area-inset-bottom)); padding: 0 13px; } }
+@media (prefers-reduced-motion: reduce) { .sound-toggle, .sound-bars i { transition: none; } }

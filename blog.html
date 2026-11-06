@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>博客 · Aven溺心海</title>
+    <meta name="description" content="Aven溺心海的本站博客：认知、学习，和把一件事真正做成的全过程。" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/journal-lab.css" />
+  </head>
+  <body class="blog-page">
+    <header class="blog-top"><a href="/">← 回到主页</a><span>AVEN · BLOG</span></header>
+    <main class="blog-main">
+      <p class="eyebrow">MY BLOG / 本站博客</p>
+      <h1>博客</h1>
+      <p class="blog-sub">写在这里的文章：认知、学习，和把一件事真正做成的全过程。教程在 X 和 Blogger 更新，散文在 Substack 和 Medium 同步。</p>
+      <div class="blog-list" id="blog-list"><p class="blog-loading">正在加载文章…</p></div>
+      <p class="blog-more">更多内容：<a href="https://x.com/NIxinhai0" target="_blank" rel="noopener noreferrer">X 长文 ↗</a> · <a href="https://nixinhai.blogspot.com/" target="_blank" rel="noopener noreferrer">Blogger 教程 ↗</a> · <a href="https://substack.com/@fugitsuscipit286398" target="_blank" rel="noopener noreferrer">Substack ↗</a> · <a href="https://medium.com/@shadow1703637220" target="_blank" rel="noopener noreferrer">Medium ↗</a></p>
+    </main>
+    <script type="module">
+      import { site } from './site.config.js';
+      const list = document.getElementById('blog-list');
+      const posts = (site.posts || []).filter(post => (post.source || 'site') === 'site');
+      list.replaceChildren(...posts.map(post => {
+        const link = document.createElement('a'); link.href = post.url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.className = 'blog-row';
+        const meta = document.createElement('p'); meta.className = 'blog-row-meta'; meta.textContent = `${post.date} · ${post.category}`;
+        const title = document.createElement('h3'); title.textContent = post.title;
+        const desc = document.createElement('p'); desc.className = 'blog-row-desc'; desc.textContent = post.description;
+        const foot = document.createElement('p'); foot.className = 'blog-row-foot'; foot.textContent = '阅读全文 ↗';
+        link.append(meta, title, desc, foot);
+        return link;
+      }));
+      if (!posts.length) list.textContent = '还没有文章，正在写第一篇。';
+    </script>
+  </body>
+</html>

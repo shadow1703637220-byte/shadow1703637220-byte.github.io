@@ -1,0 +1,45 @@
+.footprints { padding: 110px 0 130px; background: #f5f6f6; overflow: hidden; }
+.footprints .section-label { border-bottom: 1px solid #d7dadb; }
+.footprints-heading { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin: 42px 0 15px; }
+.footprints-heading h2 { font-size: clamp(36px, 5vw, 76px); font-weight: 400; line-height: 1.25; margin: 0; }
+.footprints-controls { display: grid; gap: 9px; width: min(270px, 40%); flex-shrink: 0; }
+.footprints-controls .eyebrow { color: var(--muted); }
+#footprint-region { width: 100%; border: 0; border-bottom: 1px solid #aaaeb0; border-radius: 0; color: var(--ink); background: transparent; font: inherit; font-size: 15px; padding: 12px 26px 12px 0; cursor: pointer; }
+#footprint-region:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+.footprints-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(265px, .85fr); gap: 5%; align-items: center; min-height: 590px; }
+.earth-stage { position: relative; aspect-ratio: 1; width: 100%; max-width: 640px; margin: auto; }
+#footprint-globe { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+#footprint-globe:focus-visible { outline: 2px solid var(--blue); outline-offset: -6px; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  #footprint-globe { transform-origin: 80% 20%; transform: scale(.9); translate: 0 0; transition: transform 1.6s cubic-bezier(.16, 1, .3, 1), translate .8s cubic-bezier(.22, 1, .36, 1); }
+  .earth-stage:hover #footprint-globe { transform: scale(1.25); translate: var(--earth-hover-x, 0px) var(--earth-hover-y, 0px); }
+}
+@media (min-width: 651px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .footprints-layout { padding-top: 45px; }
+}
+@media (max-width: 650px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  #footprint-globe { transform-origin: center; }
+  .earth-stage:hover #footprint-globe { transform: scale(1.08); }
+}
+.earth-coordinate, .earth-caption { position: absolute; z-index: 1; pointer-events: none; color: #8b8f92; font-size: 10px; line-height: 1.8; }
+.earth-coordinate { bottom: 7%; left: 0; font-variant-numeric: tabular-nums; }
+.earth-caption { bottom: 7%; right: 0; }
+.footprints-detail { min-width: 0; align-self: center; padding: 25px 0; }
+.footprints-empty { border-top: 1px solid #cdd0d1; padding: 22px 0; color: #696b70; }
+.footprints-empty p { font-size: 20px; line-height: 1.6; }
+.footprints-detail-heading { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #cdd0d1; padding-top: 15px; }
+.footprints-detail-heading h3 { font-size: clamp(28px, 3vw, 42px); font-weight: 400; margin: 0; }
+.footprints-close { background: transparent; font-size: 34px; font-weight: 300; line-height: 1; width: 42px; height: 42px; }
+.footprints-detail > .eyebrow { color: var(--muted); margin: 8px 0 24px; }
+.footprint-card { border-top: 1px solid #cdd0d1; display: grid; grid-template-columns: 38% 1fr; gap: 18px; padding: 18px 0; }
+.footprint-photo { aspect-ratio: 1; background: #e5e7e7; overflow: hidden; }
+.footprint-photo img { width: 100%; height: 100%; object-fit: cover; }
+.footprint-photo-empty { display: grid; place-items: center; color: #868a8c; font-size: 12px; }
+.footprint-message-mark { display: grid; place-items: center; color: #afb6ba; font: 100px Georgia, serif; line-height: 1; }
+.footprint-card-body { min-width: 0; }
+.footprint-card-body .eyebrow { color: #818387; font-size: 9px; }
+.footprint-card h4 { font-size: clamp(18px, 2vw, 26px); font-weight: 400; margin: 16px 0 8px; overflow-wrap: anywhere; }
+.footprint-card p { color: #6e7075; font-size: 13px; line-height: 1.7; margin: 0; overflow-wrap: anywhere; }
+@media(max-width:900px) { .footprints { padding: 80px 0 90px; } .footprints-layout { gap: 3%; min-height: 0; } .earth-coordinate, .earth-caption { bottom: 3%; } }
+@media(max-width:650px) { .footprints { padding: 70px 0 90px; } .footprints-heading { display: block; margin: 28px 0 0; } .footprints-heading h2 { font-size: 39px; } .footprints-controls { width: 100%; margin-top: 25px; } .footprints-layout { display: flex; flex-direction: column; align-items: stretch; gap: 12px; } .earth-stage { width: min(100%, 500px); } .footprints-detail { padding: 0; min-height: 120px; } .footprint-card { grid-template-columns: 36% 1fr; } }
+@media(prefers-reduced-motion:reduce) { #footprint-globe { scroll-behavior: auto; } }

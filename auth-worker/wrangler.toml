@@ -1,0 +1,8 @@
+name = "aven-cms-auth"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+[vars]
+SITE_ORIGIN = "https://aven.nixinhai.top"
+GITHUB_REPO = "shadow1703637220-byte/shadow1703637220-byte.github.io"
+# Configure GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET as Worker secrets.

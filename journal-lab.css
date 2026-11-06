@@ -1,0 +1,40 @@
+/* 文章区定版样式（2026-11-06）：两摞平台扇形卡 + 本站博客页样式。A/B/C 实验样式已随定版移除。 */
+.journal .journal-grid.journal-host { display: block; }
+.fan-row { display: flex; justify-content: center; gap: clamp(.5rem, 5vw, 5rem); flex-wrap: wrap; }
+.fan-stack { position: relative; width: min(440px, 100%); height: 492px; }
+.fan-base { position: absolute; left: 50%; top: 78px; width: 236px; height: 318px; transform: translateX(-50%); border-radius: 22px; padding: 1.35rem 1.3rem; display: flex; flex-direction: column; color: #fff; box-shadow: 0 24px 48px rgba(15, 16, 20, .25); transition: opacity .4s ease, transform .55s cubic-bezier(.22, 1, .36, 1); z-index: 1; cursor: pointer; }
+.fan-blog .fan-base { background: linear-gradient(155deg, #5b74f2 0%, #455ce9 55%, #3343b8 100%); }
+.fan-tutorial .fan-base { background: radial-gradient(120% 90% at 20% 0%, #2b2d33 0%, #0f1013 58%); }
+.fan-base-eyebrow { font-size: .7rem; letter-spacing: .22em; opacity: .75; margin: 0 0 auto; }
+.fan-base h3 { font-size: 1.48rem; line-height: 1.35; margin: 0 0 .5rem; }
+.fan-base-sub { opacity: .88; font-size: .9rem; margin: 0 0 1rem; line-height: 1.6; }
+.fan-base-foot { font-size: .8rem; opacity: .78; margin: 0; }
+.fan-card { position: absolute; left: 50%; top: 92px; width: 206px; height: 290px; margin-left: -103px; border-radius: 18px; background: #fff; border: 1px solid rgba(23, 24, 28, .1); box-shadow: 0 14px 34px rgba(15, 16, 20, .16); padding: 1.15rem 1.1rem; display: flex; flex-direction: column; text-decoration: none; color: #17181c; z-index: var(--z, 2); transform-origin: 50% 138%; transform: rotate(0deg) translateY(12px) scale(.96); opacity: 0; visibility: hidden; transition: transform .6s cubic-bezier(.22, 1, .36, 1) var(--delay, 0ms), opacity .35s ease var(--delay, 0ms), visibility 0s linear var(--delay, 0ms), box-shadow .3s ease; }
+.fan-stack:hover .fan-card, .fan-stack.open .fan-card, .fan-stack:focus-within .fan-card { transform: rotate(var(--ang)) translateY(var(--ty)) scale(1); opacity: 1; visibility: visible; }
+.fan-stack .fan-card:hover { transform: rotate(var(--ang)) translateY(calc(var(--ty) - 12px)) scale(1.045); z-index: 40; box-shadow: 0 26px 50px rgba(15, 16, 20, .28); }
+.fan-stack:hover .fan-base, .fan-stack.open .fan-base, .fan-stack:focus-within .fan-base { opacity: 0; transform: translateX(-50%) scale(.94); pointer-events: none; }
+.fan-card-meta { font-size: .7rem; letter-spacing: .16em; color: #6e7280; margin: 0 0 1rem; }
+.fan-plat-glyph { width: 46px; height: 46px; border-radius: 13px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: 1.05rem; }
+.fan-card h4 { font-size: 1.14rem; margin: 0 0 .5rem; }
+.fan-card-desc { color: #5c6068; font-size: .88rem; line-height: 1.6; margin: 0; }
+.fan-card-cta { margin-top: auto; color: #455ce9; font-size: .9rem; }
+.fan-hint { position: absolute; left: 0; right: 0; bottom: 2px; text-align: center; font-size: .8rem; color: #6e7280; letter-spacing: .1em; margin: 0; }
+@media (prefers-reduced-motion: reduce) { .fan-card, .fan-base { transition-duration: .01s; transition-delay: 0ms; } }
+@media (max-width: 640px) { .fan-stack { height: 452px; } .fan-base { width: 208px; height: 288px; top: 66px; } .fan-card { width: 184px; height: 262px; margin-left: -92px; top: 78px; } }
+/* 本站博客页（blog.html） */
+.blog-page { background: #fff; }
+.blog-top { display: flex; justify-content: space-between; align-items: center; max-width: 880px; margin: 0 auto; padding: 1.4rem 1.5rem 0; font-size: .85rem; letter-spacing: .14em; color: #6e7280; }
+.blog-top a { color: #17181c; text-decoration: none; }
+.blog-main { max-width: 880px; margin: 0 auto; padding: 3.2rem 1.5rem 4.5rem; }
+.blog-main h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); margin: .6rem 0 .8rem; }
+.blog-sub { color: #5c6068; line-height: 1.7; max-width: 36rem; margin: 0 0 2.6rem; }
+.blog-list { border-top: 2px solid #17181c; }
+.blog-row { display: block; text-decoration: none; color: inherit; padding: 1.5rem 0 1.6rem; border-bottom: 1px solid rgba(23, 24, 28, .1); }
+.blog-row-meta { font-size: .78rem; letter-spacing: .16em; color: #6e7280; margin: 0 0 .6rem; }
+.blog-row h3 { font-size: 1.4rem; line-height: 1.35; margin: 0 0 .5rem; transition: color .25s ease; }
+.blog-row:hover h3 { color: #455ce9; }
+.blog-row-desc { color: #5c6068; line-height: 1.65; margin: 0 0 .9rem; max-width: 44rem; }
+.blog-row-foot { color: #455ce9; font-size: .9rem; margin: 0; }
+.blog-loading { color: #6e7280; padding: 1.6rem 0; }
+.blog-more { margin-top: 2.4rem; color: #6e7280; font-size: .92rem; line-height: 2; }
+.blog-more a { color: #455ce9; text-decoration: none; white-space: nowrap; }

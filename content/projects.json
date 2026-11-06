@@ -1,0 +1,8 @@
+{
+  "projects": [
+    { "slug": "token-manager", "name": "Token 管理器", "service": "开源工具 · 已发布", "year": "2026", "image": "/uploads/aven-banner-1.webp", "artwork": 0, "url": "https://github.com/shadow1703637220-byte", "linkLabel": "前往我的 GitHub ↗", "description": "发布开源工具「Token 管理器」。代码小白，靠 AI 结对编程，独立做了小程序、开源工具和这个网站。" },
+    { "slug": "dora-tools", "name": "多啦百宝工具", "service": "微信小程序 · 备案审核中", "year": "2026", "image": "/uploads/aven-banner-2.webp", "artwork": 1, "description": "31 个小工具，备案审核中，上线后持续迭代。", "note": "小程序备案审核中，暂未提供公开访问入口。" },
+    { "slug": "content-studio", "name": "内容工场 + X 工具站", "service": "创作者工具 · 内测打磨中", "year": "2026", "image": "/uploads/aven-banner-3.webp", "artwork": 2, "previewVideo": "/uploads/project-content.mp4", "url": "https://x.nixinhai.top", "linkLabel": "访问内容工场 ↗", "description": "给创作者用的自动化工具，内测打磨中。" },
+    { "slug": "aven", "name": "Aven 个人站", "service": "个人主页 · 持续迭代", "year": "2026", "image": "/uploads/aven-banner-1.webp", "artwork": 3, "previewVideo": "/uploads/project-aven.mp4", "url": "https://aven.nixinhai.top/", "linkLabel": "访问我的个人站 ↗", "description": "20 岁学生创作者。X 双号约 6,500 粉、累计发帖 4,400+；代码小白，靠 AI 结对编程，独立做了小程序、开源工具和这个网站。" }
+  ]
+}

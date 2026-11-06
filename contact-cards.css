@@ -1,0 +1,33 @@
+/* 由旧站平移（2026-11-06）：联系卡片（Lottie 动图）+ 咖啡收款弹窗。配色适配新站深色页脚，动画参数与旧站一致。太空宇航员同日按用户要求撤下。 */
+.aven-cc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 2rem 0 1.6rem; }
+.aven-cc-item { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 20px 10px 16px; background: rgba(255, 255, 255, .045); border: 1.5px solid rgba(255, 255, 255, .1); border-radius: 18px; color: #f2f2ef; text-decoration: none; font-family: inherit; cursor: pointer; transition: transform .25s cubic-bezier(.22, 1, .36, 1), border-color .25s, box-shadow .25s, background-color .25s; }
+.aven-cc-item:hover { transform: translateY(-4px); border-color: #455ce9; box-shadow: 0 18px 38px rgba(0, 0, 0, .35); }
+.aven-cc-item:active { transform: scale(.96); transition-duration: 120ms; }
+.aven-cc-anim { width: 64px; height: 64px; pointer-events: none; }
+.aven-cc-anim svg { width: 100% !important; height: 100% !important; display: block; }
+.aven-cc-item[href*="wa.me"] .aven-cc-anim, .aven-cc-item[href*="qm.qq.com"] .aven-cc-anim, .aven-cc-coffee .aven-cc-anim { background: #f4f4f5; border-radius: 14px; }
+.aven-cc-github img { width: 56px; height: 56px; object-fit: contain; }
+.aven-cc-item b { font-size: .95rem; }
+.aven-cc-item i { font-style: normal; font-size: .78rem; color: rgba(238, 238, 242, .55); }
+.aven-cc-anim.lottie-loading { background: rgba(255, 255, 255, .06); border-radius: 16px; animation: avenLottiePulse 1.2s ease-in-out infinite; }
+@keyframes avenLottiePulse { 0%, 100% { opacity: .35; } 50% { opacity: .7; } }
+.aven-cc-coffee .coffee-texts { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+@media (max-width: 640px) { .aven-cc-grid { grid-template-columns: repeat(2, 1fr); } .aven-cc-coffee { grid-column: 1 / -1; flex-direction: row; justify-content: center; gap: 14px; } .aven-cc-coffee .aven-cc-anim { width: 52px; height: 52px; flex: none; } .aven-cc-coffee .coffee-texts { align-items: flex-start; } }
+@media (prefers-reduced-motion: reduce) { .aven-cc-item { transition: none; } }
+/* 咖啡收款弹窗（旧站 v46 平移，深色面板适配新站） */
+.coffee-modal { position: fixed; inset: 0; z-index: 400; display: flex; align-items: center; justify-content: center; }
+.coffee-modal[hidden] { display: none; }
+.coffee-backdrop { position: absolute; inset: 0; background: rgba(10, 12, 20, .55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.coffee-panel { position: relative; width: min(520px, 92vw); max-height: 88vh; overflow: auto; background: #1a1b21; color: #f2f2ef; border: 1px solid rgba(255, 255, 255, .12); border-radius: 22px; padding: 26px 24px 18px; text-align: center; box-shadow: 0 24px 60px rgba(2, 8, 23, .35); animation: coffeePop .25s ease; }
+@keyframes coffeePop { from { transform: scale(.94) translateY(8px); opacity: 0; } }
+.coffee-close { position: absolute; top: 10px; right: 12px; width: 34px; height: 34px; border: none; border-radius: 50%; background: transparent; color: rgba(238, 238, 242, .6); font-size: 16px; cursor: pointer; }
+.coffee-close:hover { background: rgba(255, 255, 255, .12); color: #fff; }
+.coffee-emoji { font-size: 34px; line-height: 1; }
+.coffee-head h3 { margin: 6px 0 4px; font-size: 1.25rem; }
+.coffee-head p { margin: 0; font-size: .88rem; color: rgba(238, 238, 242, .6); }
+.coffee-qrs { display: flex; gap: 16px; justify-content: center; margin-top: 18px; }
+.coffee-qrs figure { margin: 0; flex: 1; max-width: 200px; }
+.coffee-qrs img { width: 100%; height: auto; display: block; border-radius: 14px; }
+.coffee-qrs figcaption { margin-top: 8px; font-size: .85rem; color: rgba(238, 238, 242, .6); }
+.coffee-note { margin: 16px 0 2px; font-size: .75rem; color: rgba(238, 238, 242, .6); }
+@media (max-width: 480px) { .coffee-qrs { flex-direction: column; align-items: center; } .coffee-qrs figure { width: 200px; max-width: 200px; } }

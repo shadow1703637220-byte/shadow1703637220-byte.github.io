@@ -1,0 +1,2693 @@
+[
+  {
+    "name": "activity-feed",
+    "title": "Activity Feed",
+    "description": "A developer telemetry and audit log stream featuring category filtering, live real-time event simulation with Framer Motion slide insertions, and expandable JSON payloads.",
+    "url": "https://easyui.site/components/activity-feed",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/ActivityFeed.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/activity-feed.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "activity-heatmap",
+    "title": "Activity Heatmap",
+    "description": "A GitHub-style contribution calendar and weekday-by-hour activity grid with automatic column fitting, quarterly color levels, hover tooltips, and keyboard navigation.",
+    "url": "https://easyui.site/components/activity-heatmap",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/ActivityHeatmap.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/activity-heatmap.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
+      }
+    ]
+  },
+  {
+    "name": "advanced-data-table",
+    "title": "Advanced Data Table",
+    "description": "A powerful, accessible data table component with multi-column sorting, faceted filters, global search, row selection, bulk actions, expandable sub-rows, and pagination.",
+    "url": "https://easyui.site/components/advanced-data-table",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/AdvancedDataTable.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/advanced-data-table.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "ai-agent-activity",
+    "title": "AI Agent Activity",
+    "description": "A timeline component for tracking AI agent reasoning, tool calls, API queries, database fetches, and execution states with inspectable parameters and results.",
+    "url": "https://easyui.site/components/ai-agent-activity",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/AIAgentActivity.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/ai-agent-activity.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "ai-response",
+    "title": "AI Response",
+    "description": "A production-ready, accessible AI response component supporting streaming markdown, syntax-styled code blocks, citations, feedback actions, and tool execution status.",
+    "url": "https://easyui.site/components/ai-response",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/AIResponse.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/ai-response.tsx"
+      }
+    ]
+  },
+  {
+    "name": "airport-matrix-clock",
+    "title": "Airport Matrix Clock",
+    "description": "A live world clock that renders local times and city names as crisp dot-matrix characters with restrained, character-level rolling transitions.",
+    "url": "https://easyui.site/components/airport-matrix-clock",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/AirportMatrixClock.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/airport-matrix-clock.tsx"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "alert",
+    "title": "Alert",
+    "description": "An alert component that collapses smoothly in height and opacity on dismissal, with tone-aware icons, action slot, and accessibility roles.",
+    "url": "https://easyui.site/components/alert",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/alert.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/alert.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "animated-file-upload",
+    "title": "Animated File Upload",
+    "description": "A minimal, physical drag-and-drop file uploader with smooth drop reaction, independent file upload tracking, progressive state morphing, and accessible retry flows.",
+    "url": "https://easyui.site/components/animated-file-upload",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/AnimatedFileUpload.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/animated-file-upload.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "animated-number",
+    "title": "Animated Number Morph",
+    "description": "An Apple-grade smooth rolling digit counter that independently morphs individual numerical columns with physics-based springs, locale commas, currencies, and compact notation.",
+    "url": "https://easyui.site/components/animated-number",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/AnimatedNumber.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/animated-number.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "animated-tabs",
+    "title": "Animated Tabs",
+    "description": "A tabbed switcher with physical pill indicator sliding smoothly between active items with content cross-fades.",
+    "url": "https://easyui.site/components/animated-tabs",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/AnimatedTabs.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/animated-tabs.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "avatar-stack",
+    "title": "Avatar Stack",
+    "description": "An interactive, stacked facepile of overlapping avatars that smoothly elevates and scales the hovered avatar to the front with spring physics, revealing the full image and name tooltip.",
+    "url": "https://easyui.site/components/avatar-stack",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/AvatarStack.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/avatar-stack.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "badge",
+    "title": "Badge",
+    "description": "An animated status badge where numbers and strings roll on value change, with live status pulse dot, removable chip actions, and rich tone variants.",
+    "url": "https://easyui.site/components/badge",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/badge.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/badge.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "bar-chart",
+    "title": "Bar Chart",
+    "description": "A hand-written, dependency-free SVG bar chart with grouped and stacked layouts, morphing bar transitions, interactive legend toggles, and accessible hover and keyboard tooltips.",
+    "url": "https://easyui.site/components/bar-chart",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/BarChart.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/bar-chart.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
+      }
+    ]
+  },
+  {
+    "name": "batch-gesture-tray",
+    "title": "Batch Gesture Tray",
+    "description": "A touch-ready contextual tray that slides into view upon item selection, presenting bulk actions and real-time count telemetry.",
+    "url": "https://easyui.site/components/batch-gesture-tray",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/BatchGestureTray.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/batch-gesture-tray.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "book-call-button",
+    "title": "Book Call Button",
+    "description": "A premium \"Book a call\" pill with a green expanding capsule. At rest, a 36% accent capsule holds a dotted arrow + label; on hover, the capsule fills the pill, the label slides out, and a phone icon with ringing lines fades in centered.",
+    "url": "https://easyui.site/components/book-call-button",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/BookCallButton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/book-call-button.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "branching-submenu",
+    "title": "Branching Submenu",
+    "description": "A spatial submenu that connects parent options to child actions with staged branch motion.",
+    "url": "https://easyui.site/components/branching-submenu",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/BranchingSubmenu.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/branching-submenu.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "breadcrumb",
+    "title": "Breadcrumb",
+    "description": "A navigation trail with a gliding hover pill, smooth expansion for collapsed trails with automatic focus transfer, and light/dark theme adaptation.",
+    "url": "https://easyui.site/components/breadcrumb",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/breadcrumb.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/breadcrumb.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "button",
+    "title": "Button",
+    "description": "A versatile, production-ready button system with 8 visual variants, 4 sizes, loading spinner states, icon slots, and spring tap feedback.",
+    "url": "https://easyui.site/components/button",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/Button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/button.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "calendar",
+    "title": "Calendar",
+    "description": "A dependency-free calendar with a selected-day pill that glides from date to date, range support with a live hover preview band, and months that slide in the direction you navigate.",
+    "url": "https://easyui.site/components/calendar",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/calendar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/calendar.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "car-smoke-page-transition",
+    "title": "Car Smoke Page Transition",
+    "description": "A cinematic page transition where a speeding car crosses the screen, leaving a smoke trail before transitioning to the next page.",
+    "url": "https://easyui.site/components/car-smoke-page-transition",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/CarSmokePageTransition.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/car-smoke-page-transition.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/theme/useTheme.tsx",
+        "type": "registry:lib",
+        "target": "lib/theme/useTheme.tsx"
+      }
+    ]
+  },
+  {
+    "name": "chat",
+    "title": "Chat",
+    "description": "A production-grade conversational chat component with thread history sidebar, rich message rendering, status indicators, file attachments, and auto-expanding composer.",
+    "url": "https://easyui.site/components/chat",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/Chat.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/chat.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "circular-orbit",
+    "title": "Circular Orbit",
+    "description": "A circular gallery of image tiles orbiting around a centered title. All motion runs on a single MotionValue driven by useAnimationFrame, so no React renders per frame.",
+    "url": "https://easyui.site/components/circular-orbit",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/CircularOrbit.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/circular-orbit.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "code-snippet-deck",
+    "title": "Code Snippet Deck",
+    "description": "An interactive multi-runtime developer code snippet deck with runtime switching (cURL, TypeScript, Python, Go, Rust), live dynamic parameter customizations, and line highlighting.",
+    "url": "https://easyui.site/components/code-snippet-deck",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/CodeSnippetDeck.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/code-snippet-deck.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "combobox",
+    "title": "Combobox",
+    "description": "A searchable select where one highlight glides between options as you move (keyboard or mouse), the match underlines as you type, and the check pops in on selection.",
+    "url": "https://easyui.site/components/combobox",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/combobox.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/combobox.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "command-menu",
+    "title": "Command Menu",
+    "description": "A global keyboard-first command palette with fuzzy filtering, category badges, and keyboard arrow controls.",
+    "url": "https://easyui.site/components/command-menu",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/CommandMenu.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/command-menu.tsx"
+      },
+      {
+        "path": "src/components/icons/GithubIcon.tsx",
+        "type": "registry:ui",
+        "target": "components/icons/github-icon.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      },
+      {
+        "path": "src/lib/constants.ts",
+        "type": "registry:lib",
+        "target": "lib/constants.ts"
+      }
+    ]
+  },
+  {
+    "name": "cursor-follower",
+    "title": "Cursor Follower",
+    "description": "A smooth spring-based cursor follower with customizable physics, velocity scaling, and custom child icons or badges.",
+    "url": "https://easyui.site/components/cursor-follower",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/CursorFollower.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/cursor-follower.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "date-picker",
+    "title": "Date Picker",
+    "description": "A date picker (and date range picker) whose popover pops from the trigger edge with a spring, flips above when there is no room below, lands the selection pill, then closes and hands focus back to the trigger.",
+    "url": "https://easyui.site/components/date-picker",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/date-picker.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/date-picker.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/components/ui/calendar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/calendar.tsx"
+      }
+    ]
+  },
+  {
+    "name": "density-lens",
+    "title": "Density Lens",
+    "description": "An interactive floating lens that tracks pointer movement to reveal high-density data, magnified details, or alternative views.",
+    "url": "https://easyui.site/components/density-lens",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/DensityLens.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/density-lens.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "dependency-trace",
+    "title": "Dependency Trace",
+    "description": "An interactive SVG node graph that maps and dynamically traces relationship connections with directional bezier curves.",
+    "url": "https://easyui.site/components/dependency-trace",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/DependencyTrace.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/dependency-trace.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "depth-corridor",
+    "title": "Depth Corridor",
+    "description": "A 3D spatial layer stack with receding perspective depth, progressive focal blurs, and pointer parallax motion.",
+    "url": "https://easyui.site/components/depth-corridor",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/DepthCorridor.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/depth-corridor.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "directional-tooltip",
+    "title": "DirectionalTooltip",
+    "description": "A tooltip that appears from the direction it originates — it starts a small distance outside the trigger in its preferred direction and springs inward, so it feels like it materializes from the trigger.",
+    "url": "https://easyui.site/components/directional-tooltip",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/DirectionalTooltip.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/directional-tooltip.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "donut-chart",
+    "title": "Donut Chart",
+    "description": "A hand-written SVG donut and half-ring gauge with animated arcs, a live center readout, hover highlighting, and a legend that filters slices without collapsing the ring.",
+    "url": "https://easyui.site/components/donut-chart",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/DonutChart.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/donut-chart.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
+      }
+    ]
+  },
+  {
+    "name": "dot-field",
+    "title": "Dot Field",
+    "description": "High-performance lightweight static Canvas dot matrix background with dynamic gradient coloring and responsive density scaling.",
+    "url": "https://easyui.site/components/dot-field",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/DotField.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/dot-field.tsx"
+      },
+      {
+        "path": "src/components/ui/DotField.css",
+        "type": "registry:ui",
+        "target": "components/ui/dot-field.css"
+      }
+    ]
+  },
+  {
+    "name": "dot-shader",
+    "title": "Dot Shader",
+    "description": "A GPU-accelerated interactive dot matrix background shader with magnetic cursor repulsion, proximity illumination glow, dynamic lens scaling, and ambient wave motion.",
+    "url": "https://easyui.site/components/dot-shader",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/DotShader.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/dot-shader.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "drag-to-confirm",
+    "title": "Drag to Confirm",
+    "description": "A minimalist physical drag-to-confirm slider for high-stakes and destructive actions, equipped with progressive track fill physics, spring snapback resistance, full light/dark theme adaptation, and accessible keyboard controls.",
+    "url": "https://easyui.site/components/drag-to-confirm",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/DragToConfirm.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/drag-to-confirm.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "draw-checkbox",
+    "title": "DrawCheckbox",
+    "description": "A checkbox whose checkmark draws itself (path length animation) and settles with a tiny overshoot. The box scales from 0.9 -> 1.04 -> 1.0 for a tactile snap feel.",
+    "url": "https://easyui.site/components/draw-checkbox",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/DrawCheckbox.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/draw-checkbox.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "dynamic-island",
+    "title": "Dynamic Island",
+    "description": "A physical morphing island component that smoothly transitions between a compact indicator, interactive summary, profile card, and social dock with spring physics.",
+    "url": "https://easyui.site/components/dynamic-island",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/DynamicIsland.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/dynamic-island.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "earnings",
+    "title": "Earnings",
+    "description": "An earnings summary card that counts up the total, plots a scrubable trend line, and breaks income down by source with a hoverable split bar and a 7D / 30D / 12M period switcher. Light and dark themes, fully responsive.",
+    "url": "https://easyui.site/components/earnings",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/Earnings.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/earnings.tsx"
+      }
+    ]
+  },
+  {
+    "name": "evil-eye",
+    "title": "Evil Eye",
+    "description": "A hanging navy amulet disc with concentric sky-blue and white rings that swings with realistic inertia in response to the pointer, painted as a layered SVG and driven by a single spring pipeline.",
+    "url": "https://easyui.site/components/evil-eye",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/EvilEye.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/evil-eye.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "expandable-data-row",
+    "title": "Expandable Data Row",
+    "description": "A polished table component with fluid accordion row unfolding, revealing deep metadata, audit activity feeds, and quick actions, with automatic card restructuring on mobile viewports.",
+    "url": "https://easyui.site/components/expandable-data-row",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/ExpandableDataRow.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/expandable-data-row.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "expandable-search",
+    "title": "Expandable Search",
+    "description": "A compact search pill that smoothly widens on focus with shortcut hint pills and clear button.",
+    "url": "https://easyui.site/components/expandable-search",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/ExpandableSearch.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/expandable-search.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "faq",
+    "title": "FAQ",
+    "description": "An expandable accordion FAQ component with smooth spring height calculation, single/multi-open modes, category filtering, search, and full ARIA keyboard accessibility.",
+    "url": "https://easyui.site/components/faq",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/FAQ.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/faq.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "floating-action-dock",
+    "title": "Floating Action Dock",
+    "description": "A floating quick-action toolbar inspired by macOS dock physics with smooth magnification and subtle tooltips.",
+    "url": "https://easyui.site/components/floating-action-dock",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/FloatingActionDock.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/floating-action-dock.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "focus-mode",
+    "title": "Focus Mode",
+    "description": "An atmospheric focus-mode interaction that isolates selected cards or sections by smoothly dimming surrounding distractions with zero layout shift, tactile spring scaling, and Escape key dismissal.",
+    "url": "https://easyui.site/components/focus-mode",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/FocusMode.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/focus-mode.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "form",
+    "title": "Form",
+    "description": "A modular, composable form system with accessible inputs, textareas, custom selects, checkboxes, radio groups, switches, and animated validation messages.",
+    "url": "https://easyui.site/components/form",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/Form.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/form.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "funnel-chart",
+    "title": "Funnel Chart",
+    "description": "A conversion funnel with per-stage widths, curved drop-off bridges, and a loss chip between every stage. An optional summary line reports overall conversion and the single biggest drop-off, all in hand-written SVG.",
+    "url": "https://easyui.site/components/funnel-chart",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/FunnelChart.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/funnel-chart.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
+      },
+      {
+        "path": "src/lib/dashboard-chart-utils.ts",
+        "type": "registry:lib",
+        "target": "lib/dashboard-chart-utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "glass-navbar",
+    "title": "Glass Navbar",
+    "description": "A modern, responsive glassmorphic navbar with smooth spring navigation pills, mobile menu drawer, and keyboard accessibility.",
+    "url": "https://easyui.site/components/glass-navbar",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/GlassNavbar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/glass-navbar.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "glitch-text",
+    "title": "Glitch Text",
+    "description": "A multi-modal cybernetic glitch typography component featuring 5 distinct animation variants (RGB split chromatic aberration, cyberpunk clip-slicing, analog VHS tracking loss, matrix rune scramble decode, and electrical voltage surge).",
+    "url": "https://easyui.site/components/glitch-text",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/GlitchText.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/glitch-text.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "glyph-matrix",
+    "title": "Glyph Matrix",
+    "description": "A high-performance, canvas-driven Matrix digital rain background effect featuring streaming Katakana and numeric glyphs, glowing head highlights, decaying phosphor trails, and interactive cursor disturbances.",
+    "url": "https://easyui.site/components/glyph-matrix",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/GlyphMatrix.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/glyph-matrix.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "gooey-menu",
+    "title": "Gooey Menu",
+    "description": "A tactile liquid dropdown menu with organic SVG metaball fusion filter and spring-driven extrusion animation.",
+    "url": "https://easyui.site/components/gooey-menu",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/GooeyMenu.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/gooey-menu.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "gravity-particle-burst",
+    "title": "Gravity Particle Burst",
+    "description": "A pointer-triggered canvas particle burst with velocity, gravity, friction, and short-lived physical follow-through.",
+    "url": "https://easyui.site/components/gravity-particle-burst",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/GravityParticleBurst.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/gravity-particle-burst.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "hamburger-menu",
+    "title": "Hamburger Menu",
+    "description": "An iconic three-line menu toggle that transforms smoothly into a symmetrical close symbol.",
+    "url": "https://easyui.site/components/hamburger-menu",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/HamburgerMenu.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/hamburger-menu.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "interactive-area-chart",
+    "title": "Interactive Area Chart",
+    "description": "A hand-written, dependency-free interactive SVG area chart with interruptible dataset morphing, Catmull-Rom spline resampling, scrubbing tooltip, and keyboard accessibility.",
+    "url": "https://easyui.site/components/interactive-area-chart",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/InteractiveAreaChart.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/interactive-area-chart.tsx"
+      }
+    ]
+  },
+  {
+    "name": "interactive-timeline",
+    "title": "Interactive Timeline",
+    "description": "A developer-focused milestone and deployment timeline featuring dynamic progress lines, pulsating status nodes, expandable telemetry cards, and commit hash copy.",
+    "url": "https://easyui.site/components/interactive-timeline",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/InteractiveTimeline.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/interactive-timeline.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "intro-loader",
+    "title": "Intro Loader",
+    "description": "An Apple-inspired multilingual welcome splash and intro loader that rapidly cycles localized greetings with fluid blur transitions, progress tracking, and accessible skip controls.",
+    "url": "https://easyui.site/components/intro-loader",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/IntroLoader.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/intro-loader.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "ios-search-bar",
+    "title": "iOS-style Search Bar",
+    "description": "A minimalist search pill that smoothly expands on focus and reveals quick-clear controls with spring animation.",
+    "url": "https://easyui.site/components/ios-search-bar",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/IOSSearchBar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/ios-search-bar.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "liquid-ripple-button",
+    "title": "Liquid Ripple Button",
+    "description": "A tactile button whose pointer-origin ripple and subtle wave layer make press feedback feel fluid.",
+    "url": "https://easyui.site/components/liquid-ripple-button",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/LiquidRippleButton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/liquid-ripple-button.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "liquid-toggle",
+    "title": "Liquid Toggle",
+    "description": "A toggle with a liquid/blob-like transition. The internal shape deforms organically as it travels from off to on — stretching along the travel axis and settling into a natural blob shape rather than simply translating.",
+    "url": "https://easyui.site/components/liquid-toggle",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/LiquidToggle.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/liquid-toggle.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/theme/useTheme.tsx",
+        "type": "registry:lib",
+        "target": "lib/theme/useTheme.tsx"
+      }
+    ]
+  },
+  {
+    "name": "live-line-chart",
+    "title": "Live Line Chart",
+    "description": "A real-time line chart that scrolls right-to-left, with a large current-value readout, a live delta, and a pause control. Hover or touch the chart to freeze the stream and scrub it with a crosshair tooltip.",
+    "url": "https://easyui.site/components/live-line-chart",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/LiveLineChart.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/live-line-chart.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
+      },
+      {
+        "path": "src/lib/dashboard-chart-utils.ts",
+        "type": "registry:lib",
+        "target": "lib/dashboard-chart-utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "loader",
+    "title": "Loader",
+    "description": "A minimal, purpose-driven loading indicator with 4 calm, non-anxious motion variants.",
+    "url": "https://easyui.site/components/loader",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/Loader.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/loader.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "lock-input",
+    "title": "LockInput",
+    "description": "A text input whose focus state subtly \"locks\" into place — a focus ring scales in from the center and the border tweens to active, giving the impression that the input snaps closed on itself.",
+    "url": "https://easyui.site/components/lock-input",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/LockInput.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/lock-input.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "login",
+    "title": "Login",
+    "description": "A production-ready authentication card built with the EasyUI form system, featuring password show/hide, remember me, validation states, and social logins.",
+    "url": "https://easyui.site/components/login",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/Login.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/login.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      },
+      {
+        "path": "src/components/ui/Button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/button.tsx"
+      },
+      {
+        "path": "src/components/ui/Form.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/form.tsx"
+      }
+    ]
+  },
+  {
+    "name": "mac-os-folder-cards",
+    "title": "macOS Folder Cards",
+    "description": "An authentic porcelain-white macOS Finder folder icon that unrolls interactive cards with fluid Apple spring physics.",
+    "url": "https://easyui.site/components/mac-os-folder-cards",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/MacOSFolderCards.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/mac-os-folder-cards.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "magnetic-button",
+    "title": "Magnetic Button",
+    "description": "A responsive button with subtle proximity-based physics that pulls towards the cursor on hover and snaps back on departure.",
+    "url": "https://easyui.site/components/magnetic-button",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/MagneticButton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/magnetic-button.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "meteors",
+    "title": "Meteors",
+    "description": "A lightweight, highly aesthetic animated meteor shower effect that streams diagonal glowing celestial light beams across cards, badges, hero containers, and call-to-action sections.",
+    "url": "https://easyui.site/components/meteors",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/Meteors.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/meteors.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "metric-hud",
+    "title": "Metric HUD",
+    "description": "An interactive developer telemetry card featuring hardware-accelerated SVG sparklines, pointer-scrubbing point inspection, spring-animated time range morphing, and delta indicators.",
+    "url": "https://easyui.site/components/metric-hud",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/MetricHUD.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/metric-hud.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "money-card",
+    "title": "Money Card",
+    "description": "An interactive financial wallet card featuring animated live balance updates, quick-send contact shortcuts, recent transaction history, and responsive modal sheets for sending, receiving, and viewing activity.",
+    "url": "https://easyui.site/components/money-card",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/MoneyCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/money-card.tsx"
+      }
+    ]
+  },
+  {
+    "name": "morphing-blob",
+    "title": "Morphing Blob",
+    "description": "An ambient, accessible SVG blob background that continuously morphs with spring physics and subtly follows the cursor for a fluid, interactive visual effect.",
+    "url": "https://easyui.site/components/morphing-blob",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/MorphingBlob.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/morphing-blob.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "morphing-button",
+    "title": "Morphing Button",
+    "description": "A layout-stable interactive action button that smoothly transitions between Idle, Loading, Success, and Error states without jarring jumps or dimension shifts.",
+    "url": "https://easyui.site/components/morphing-button",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/MorphingButton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/morphing-button.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "morphing-dialog",
+    "title": "Morphing Dialog",
+    "description": "An expandable card trigger that fluidly morphs into a centered dialog without jarring popup animations.",
+    "url": "https://easyui.site/components/morphing-dialog",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/MorphingDialog.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/morphing-dialog.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "morphing-icon",
+    "title": "Morphing Icon",
+    "description": "An animated micro-interaction wrapper that smoothly morphs between two icon states with coordinated rotation, scale, and cross-fade transitions.",
+    "url": "https://easyui.site/components/morphing-icon",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/MorphingIcon.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/morphing-icon.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "morphing-mega-menu",
+    "title": "Morphing Mega Menu",
+    "description": "A Stripe-inspired mega menu with a single continuous morphing panel that smoothly adapts its size, position, and arrow to any trigger.",
+    "url": "https://easyui.site/components/morphing-mega-menu",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/MorphingMegaMenu.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/morphing-mega-menu.tsx"
+      }
+    ]
+  },
+  {
+    "name": "morphing-shape-loader",
+    "title": "Morphing Shape Loader",
+    "description": "A loading indicator that continuously morphs between configurable SVG shapes via real path interpolation. The transition is a genuine geometric morph — never a fade out / in.",
+    "url": "https://easyui.site/components/morphing-shape-loader",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/MorphingShapeLoader.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/morphing-shape-loader.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/theme/useTheme.tsx",
+        "type": "registry:lib",
+        "target": "lib/theme/useTheme.tsx"
+      }
+    ]
+  },
+  {
+    "name": "neon-edge-button",
+    "title": "Neon Edge Button",
+    "description": "A button with a restrained light source travelling around the border while the label remains primary.",
+    "url": "https://easyui.site/components/neon-edge-button",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/NeonEdgeButton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/neon-edge-button.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "nimbu-mirchi",
+    "title": "Nimbu Mirchi",
+    "description": "A hanging lemon-and-green-chilli charm that swings with realistic inertia in response to the pointer, built from layered physical springs rather than a single rigid illustration.",
+    "url": "https://easyui.site/components/nimbu-mirchi",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/NimbuMirchi.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/nimbu-mirchi.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "not-found",
+    "title": "Not Found",
+    "description": "A minimal, production-ready 404 / route error component featuring floating spring-physics proximity displacement on individual glyphs, clear typography hierarchy, and accessible recovery actions.",
+    "url": "https://easyui.site/components/not-found",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/NotFound.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/not-found.tsx"
+      }
+    ]
+  },
+  {
+    "name": "notification-bell",
+    "title": "Notification Bell",
+    "description": "An interactive notification trigger with animated badge counter, arrival shake feedback, and dropdown panel.",
+    "url": "https://easyui.site/components/notification-bell",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/NotificationBell.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/notification-bell.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "notification-stack",
+    "title": "Notification Stack",
+    "description": "A stacked notification card system with physical spring stacking elevation, swipe-to-dismiss drag, and simulation triggers.",
+    "url": "https://easyui.site/components/notification-stack",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/NotificationStack.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/notification-stack.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "orbital-loading-ring",
+    "title": "Orbital Loading Ring",
+    "description": "A lightweight loading indicator with layered rings and orbiting particles that communicate active processing.",
+    "url": "https://easyui.site/components/orbital-loading-ring",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/OrbitalLoadingRing.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/orbital-loading-ring.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "origin-dropdown",
+    "title": "OriginDropdown",
+    "description": "A dropdown with origin-aware expansion — the menu materializes from the chosen side with a slight scale and an inward translation, so its perceived origin is the trigger edge closest to the menu.",
+    "url": "https://easyui.site/components/origin-dropdown",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/OriginDropdown.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/origin-dropdown.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "otp-input",
+    "title": "OTP Input",
+    "description": "An accessible one-time-passcode input made of auto-advancing digit boxes, each with a spring-driven pop animation on entry, built with Framer Motion and Tailwind CSS.",
+    "url": "https://easyui.site/components/otp-input",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/OtpInput.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/otp-input.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "package-box",
+    "title": "Package Box",
+    "description": "A pure CSS 3D cardboard package box featuring interactive tape-splitting physics, flap-folding choreography, and an animated packing slip that rises out and turns to face the viewer.",
+    "url": "https://easyui.site/components/package-box",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/PackageBox.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/package-box.tsx"
+      }
+    ]
+  },
+  {
+    "name": "particle-delete",
+    "title": "Particle Delete",
+    "description": "Premium physics-driven particle dissolution delete animation that rasterizes components into thousands of authentic tiny pixels and disperses them smoothly before state removal.",
+    "url": "https://easyui.site/components/particle-delete",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/ParticleDelete.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/particle-delete.tsx"
+      }
+    ]
+  },
+  {
+    "name": "payment-receipt-printer",
+    "title": "Payment Receipt Printer",
+    "description": "An animated payment and order receipt printer component for React featuring realistic thermal paper extrusion, chassis micro-vibration, customizable receipt itemization, and replay controls.",
+    "url": "https://easyui.site/components/payment-receipt-printer",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/PaymentReceiptPrinter.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/payment-receipt-printer.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "payment-status",
+    "title": "Payment Status",
+    "description": "A calm, Apple-grade payment confirmation card with animated SVG path checkmark drawing, staged verification lifecycle transitions, receipt inspection, and failure recovery.",
+    "url": "https://easyui.site/components/payment-status",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/PaymentStatus.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/payment-status.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "peek-card",
+    "title": "Peek Card",
+    "description": "An origin-anchored contextual preview popover that emerges directly from target triggers on hover or tap with smart collision edge detection and rich metadata summaries.",
+    "url": "https://easyui.site/components/peek-card",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/PeekCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/peek-card.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "photo-box",
+    "title": "Photo Box",
+    "description": "Tactile Japanese stationery-inspired photo box featuring frosted glass translucency, sliding paper box mechanics, fanning polaroid prints, and full-bleed image zoom.",
+    "url": "https://easyui.site/components/photo-box",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/PhotoBox.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/photo-box.tsx"
+      }
+    ]
+  },
+  {
+    "name": "pill-navigation",
+    "title": "Pill Navigation",
+    "description": "A restrained segmented navigation control with shared pill layout morphing and nested submenu dropdown support.",
+    "url": "https://easyui.site/components/pill-navigation",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/PillNavigation.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/pill-navigation.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "press-button",
+    "title": "PressButton",
+    "description": "A button that compresses slightly on press and settles with a tiny natural overshoot for a tactile, physical feel.",
+    "url": "https://easyui.site/components/press-button",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/PressButton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/press-button.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "pricing",
+    "title": "Pricing",
+    "description": "A minimal two-tier pricing component for EasyUI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.",
+    "url": "https://easyui.site/components/pricing",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/Pricing.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/pricing.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "product-tour",
+    "title": "Product Tour",
+    "description": "An interactive product walkthrough with spring-animated spotlight cutout, auto-scrolling targets, responsive bottom-sheet docking, and keyboard navigation.",
+    "url": "https://easyui.site/components/product-tour",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/ProductTour.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/product-tour.tsx"
+      }
+    ]
+  },
+  {
+    "name": "profile-card",
+    "title": "Profile Card",
+    "description": "A premium dark social profile card with a painted blue cover-art panel, action row, and a detail panel with avatar, verified name, bio, follower stats, and outbound website link.",
+    "url": "https://easyui.site/components/profile-card",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/ProfileCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/profile-card.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "pull-to-refresh",
+    "title": "Pull to Refresh",
+    "description": "A physical pull-to-refresh component and container featuring realistic elastic resistance curves, smooth cubic bezier line chart visualization with interactive point scrubbing, high/low metrics, and seamless light & dark mode compatibility.",
+    "url": "https://easyui.site/components/pull-to-refresh",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/PullToRefresh.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/pull-to-refresh.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "rainbow-button",
+    "title": "Rainbow Button",
+    "description": "A vibrant button featuring an animated chromatic rainbow gradient border, dynamic 3D surface reflections, and an ambient blurred rainbow underglow.",
+    "url": "https://easyui.site/components/rainbow-button",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/RainbowButton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/rainbow-button.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "recovery-ledger",
+    "title": "Recovery Ledger",
+    "description": "An archival audit timeline and state recovery ledger with chronological snapshot markers, diff inspection, and one-click rollback triggers.",
+    "url": "https://easyui.site/components/recovery-ledger",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/RecoveryLedger.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/recovery-ledger.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "reveal-card",
+    "title": "Reveal Card",
+    "description": "A high-definition product card with smooth cursor-driven 3D perspective rotation, dynamic glare, and revealed content.",
+    "url": "https://easyui.site/components/reveal-card",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/RevealCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/reveal-card.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "rocket-party-popper",
+    "title": "Rocket Party Popper",
+    "description": "An interactive black rocket launch that blasts into a colorful party popper confetti shower to reveal celebratory milestones.",
+    "url": "https://easyui.site/components/rocket-party-popper",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/RocketPartyPopper.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/rocket-party-popper.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "scroll-progress-nav",
+    "title": "Scroll Progress Navigation",
+    "description": "A floating table-of-contents navigation pill that tracks scroll depth, dynamically morphs between resting and floating states, highlights active sections, and enables smooth scrolling.",
+    "url": "https://easyui.site/components/scroll-progress-nav",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/ScrollProgressNav.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/scroll-progress-nav.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "scrollvelocitytext",
+    "title": "Scroll Velocity Text",
+    "description": "A direction-aware kinetic typography component that smoothly expands letter-spacing and scale on downward scroll, and winds back on upward scroll, with zero per-frame React re-renders.",
+    "url": "https://easyui.site/components/scrollvelocitytext",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/Scrollvelocitytext.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/scrollvelocitytext.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "selection-basket",
+    "title": "Selection Basket",
+    "description": "A floating bulk-action toolbar that smoothly rises from the bottom of the screen when multiple dataset items are selected, supporting batch operations, horizontal scrolling, and clear triggers.",
+    "url": "https://easyui.site/components/selection-basket",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SelectionBasket.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/selection-basket.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "settle-modal",
+    "title": "SettleModal",
+    "description": "A modal whose content has a tiny scale/settle instead of a generic fade. The panel scales 0.94 -> 1.02 -> 1.0 with a small y travel, then the inner content layers its own gentle settle on top.",
+    "url": "https://easyui.site/components/settle-modal",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SettleModal.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/settle-modal.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "sheet",
+    "title": "Sheet",
+    "description": "A draggable sheet / drawer that slides in from any side and can be dragged away to dismiss — swipe left/right sheets anywhere on touch, top/bottom sheets via the grab handle. Springs back if you let go early.",
+    "url": "https://easyui.site/components/sheet",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/sheet.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sheet.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "shooting-stars",
+    "title": "Shooting Stars",
+    "description": "A high-performance deep-space cosmos background featuring multi-depth twinkling celestial stars, glowing atmospheric nebula clouds, and cinematic shooting stars with luminous head flares, tapered fading trails, ember stardust, and click-to-summon interactivity.",
+    "url": "https://easyui.site/components/shooting-stars",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/ShootingStars.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/shooting-stars.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "sidebar",
+    "title": "Sidebar",
+    "description": "A collapsible application sidebar with a hover pill that follows the cursor and a shared-layout active pill that glides between items. Includes nested sections, icon-only mode with tooltips, ⌘B toggle, and a draggable mobile drawer.",
+    "url": "https://easyui.site/components/sidebar",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/sidebar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sidebar.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "sign-up",
+    "title": "Sign Up",
+    "description": "A comprehensive registration card with live password strength metrics, password confirmation matching, terms validation, and social onboarding.",
+    "url": "https://easyui.site/components/sign-up",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SignUp.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sign-up.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      },
+      {
+        "path": "src/components/ui/Button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/button.tsx"
+      },
+      {
+        "path": "src/components/ui/Form.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/form.tsx"
+      }
+    ]
+  },
+  {
+    "name": "skeleton",
+    "title": "Skeleton",
+    "description": "Placeholder blocks with a subtle light sweep, text/avatar presets, and a SkeletonReveal container that eases real content in with a gentle rise and un-blur.",
+    "url": "https://easyui.site/components/skeleton",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/skeleton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/skeleton.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "slide-pagination",
+    "title": "SlidePagination",
+    "description": "A pagination control where the active indicator slides between pages rather than instantly switching. The active background uses shared layoutId so the indicator visibly travels from one item to the next.",
+    "url": "https://easyui.site/components/slide-pagination",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SlidePagination.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/slide-pagination.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "small-floating-dock",
+    "title": "Small Floating Dock",
+    "description": "A minimal, gesture-responsive floating dock for quick access to 3-5 primary actions.",
+    "url": "https://easyui.site/components/small-floating-dock",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SmallFloatingDock.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/small-floating-dock.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "smart-comparison",
+    "title": "Smart Comparison",
+    "description": "An interactive feature matrix and SaaS tier comparison component featuring live difference filtering, collapsible specification categories, search indexing, and mobile card toggle.",
+    "url": "https://easyui.site/components/smart-comparison",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SmartComparison.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/smart-comparison.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "smooth-accordion",
+    "title": "Smooth Accordion",
+    "description": "An accordion component with physics height transition, rotating chevron indicators, and accessible keyboard toggles.",
+    "url": "https://easyui.site/components/smooth-accordion",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SmoothAccordion.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/smooth-accordion.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "sparkles-core",
+    "title": "Sparkles Core",
+    "description": "A high-performance, zero-dependency particle sparkle canvas with multi-shape geometry (circles, radiant diamond stars, cross starlets), organic twinkling, interactive cursor repulsion/attraction, click particle bursts, and fluid SSR safety.",
+    "url": "https://easyui.site/components/sparkles-core",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SparklesCore.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sparkles-core.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "speed-warp",
+    "title": "Speed Warp",
+    "description": "A 3D perspective canvas starfield simulation that projects relativistic light streaks toward the viewer, creating an intense hyperspace or warp drive velocity effect.",
+    "url": "https://easyui.site/components/speed-warp",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SpeedWarp.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/speed-warp.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "split-button",
+    "title": "Split Button",
+    "description": "A primary action fused with a chevron trigger that reveals related actions in a spring-timed dropdown, sharing a single pill silhouette.",
+    "url": "https://easyui.site/components/split-button",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SplitButton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/split-button.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "spotlight-card",
+    "title": "Spotlight Card",
+    "description": "A dark elevated surface that illuminates border and inner surfaces dynamically based on mouse pointer coordinates.",
+    "url": "https://easyui.site/components/spotlight-card",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SpotlightCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/spotlight-card.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "spotlight-search",
+    "title": "Spotlight Search",
+    "description": "A global command palette and search overlay triggered by ⌘K featuring real-time fuzzy filtering, moving active highlight springs, kbd shortcuts, and full keyboard navigation.",
+    "url": "https://easyui.site/components/spotlight-search",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SpotlightSearch.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/spotlight-search.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      },
+      {
+        "path": "src/lib/constants.ts",
+        "type": "registry:lib",
+        "target": "lib/constants.ts"
+      }
+    ]
+  },
+  {
+    "name": "spring-select",
+    "title": "SpringSelect",
+    "description": "A select dropdown whose menu follows the trigger with a tiny spring. The chevron rotates a hair past 180° before settling, and the panel slides down with a subtle overshoot.",
+    "url": "https://easyui.site/components/spring-select",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/SpringSelect.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/spring-select.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "stack-unfold-panel",
+    "title": "Stack Unfold Panel",
+    "description": "A vertically stacked card deck that unfolds progressively with spring physics, shifting adjacent panels with zero layout jank.",
+    "url": "https://easyui.site/components/stack-unfold-panel",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/StackUnfoldPanel.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/stack-unfold-panel.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "stacked-cards",
+    "title": "Stacked Cards",
+    "description": "A responsive, scroll-driven stacking cards component built with Tailwind CSS and Framer Motion. Cards start aligned in a column and stack gracefully on scroll without hijacking page scrolling.",
+    "url": "https://easyui.site/components/stacked-cards",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/StackedCards.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/stacked-cards.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "stat-card",
+    "title": "Stat Card",
+    "description": "A KPI tile with a count-up headline number, a direction-aware delta pill, and a scrubable sparkline. Pair several with StatGrid for a responsive metrics row that works from phones to wide dashboards.",
+    "url": "https://easyui.site/components/stat-card",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/StatCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/stat-card.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
+      },
+      {
+        "path": "src/lib/dashboard-chart-utils.ts",
+        "type": "registry:lib",
+        "target": "lib/dashboard-chart-utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "stepper",
+    "title": "Stepper",
+    "description": "A multi-step progress indicator with line fills, gliding active rings, drawing checkmarks, and direction-aware sliding step panels.",
+    "url": "https://easyui.site/components/stepper",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/stepper.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/stepper.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "sticky-pages",
+    "title": "Sticky Pages",
+    "description": "A pure static full-page sticky stacking scroll component where pages slide up and stack cleanly one over another without any tilting or distortion, before releasing smoothly into natural page scrolling.",
+    "url": "https://easyui.site/components/sticky-pages",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/StickyPages.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sticky-pages.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "story-card",
+    "title": "Story Cards",
+    "description": "A responsive, accessible story cards carousel for React applications built with Tailwind CSS and Framer Motion.",
+    "url": "https://easyui.site/components/story-card",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/StoryCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/story-card.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "stretch-switch",
+    "title": "StretchSwitch",
+    "description": "A toggle switch whose thumb stretches slightly while dragging or pressing, then snaps naturally to its destination via a snappy spring.",
+    "url": "https://easyui.site/components/stretch-switch",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/StretchSwitch.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/stretch-switch.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "text-scramble-decoder",
+    "title": "Text Scramble Decoder",
+    "description": "A controlled text reveal that resolves scrambled glyphs into readable copy without changing the text semantics.",
+    "url": "https://easyui.site/components/text-scramble-decoder",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/TextScrambleDecoder.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/text-scramble-decoder.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "name": "thinking-orb",
+    "title": "Thinking Orb",
+    "description": "Minimalist monochrome spherical particle vortex with orbital physics, pure black-and-white luminous styling, and 9 cognitive state deformations.",
+    "url": "https://easyui.site/components/thinking-orb",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/ThinkingOrb.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/thinking-orb.tsx"
+      }
+    ]
+  },
+  {
+    "name": "torque-dial",
+    "title": "Torque Dial",
+    "description": "A rotational control dial with realistic physical angular momentum, velocity tracking, and exponential friction deceleration.",
+    "url": "https://easyui.site/components/torque-dial",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/TorqueDial.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/torque-dial.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "typewriter-button",
+    "title": "Typewriter Button",
+    "description": "An interactive button that reveals its label character-by-character with optional synthesized mechanical audio feedback.",
+    "url": "https://easyui.site/components/typewriter-button",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/TypewriterButton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/typewriter-button.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "undo-toast",
+    "title": "Undo Toast",
+    "description": "An advanced undo notification toast featuring an interactive progress countdown, pause-on-hover mechanics, action reversal animation, and versatile position anchoring.",
+    "url": "https://easyui.site/components/undo-toast",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/UndoToast.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/undo-toast.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "unfold-accordion",
+    "title": "UnfoldAccordion",
+    "description": "An accordion whose content unfolds with the chevron and spacing moving together. The chevron rotates 180° while the content height expands and the inner content slides up to close the gap, producing a single, fluid motion.",
+    "url": "https://easyui.site/components/unfold-accordion",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/UnfoldAccordion.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/unfold-accordion.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "velocity-toast",
+    "title": "VelocityToast",
+    "description": "A toast that enters with velocity and settles, with a progress indicator that responds naturally — pauses on hover, resumes with no jump, and eases slightly in the final 10% so dismissal feels intentional.",
+    "url": "https://easyui.site/components/velocity-toast",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/VelocityToast.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/velocity-toast.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/lib/motion-tokens.ts",
+        "type": "registry:lib",
+        "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "name": "wallet-balance",
+    "title": "Wallet Balance",
+    "description": "An interactive wallet balance component where branded cards tuck neatly into an embossed leather pouch with spring physics. Tap the eye button to reveal or mask balances with smooth blur-crossfade transitions.",
+    "url": "https://easyui.site/components/wallet-balance",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/WalletBalance.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/wallet-balance.tsx"
+      }
+    ]
+  },
+  {
+    "name": "wallet-card",
+    "title": "Wallet Card",
+    "description": "A premium dark wallet card with a blue radial-gradient surface, live balance display, iOS-style toggle, and a primary action button. The card surface responds to the pointer with a soft cyan shine driven entirely by MotionValues.",
+    "url": "https://easyui.site/components/wallet-card",
+    "sourceFiles": [
+      {
+        "path": "src/components/ui/WalletCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/wallet-card.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "name": "dennis-inspired-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "cms": "decap-server",
+    "dev": "vite --host 127.0.0.1",
+    "build": "node scripts/validate-content.mjs && vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "decap-server": "3.11.6",
+    "vite": "^6.4.1"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.2"
+  }
+}

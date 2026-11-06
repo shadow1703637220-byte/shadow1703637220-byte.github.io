@@ -1,0 +1,9 @@
+{
+  "title": "名字的另一种样子。",
+  "description": "三张设计稿，一点关于自己的想象。",
+  "photos": [
+    { "image": "/uploads/aven-banner-1.webp", "title": "Aven溺心海 名字设计稿一" },
+    { "image": "/uploads/aven-banner-2.webp", "title": "Aven溺心海 名字设计稿二" },
+    { "image": "/uploads/aven-banner-3.webp", "title": "Aven溺心海 名字设计稿三" }
+  ]
+}
